@@ -1,0 +1,26 @@
+\BOOKMARK [0][]{chapter*.2}{List of Tables}{}
+\BOOKMARK [0][]{chapter*.3}{List of Figures}{}
+\BOOKMARK [0][]{chapter.1}{Introduction}{}
+\BOOKMARK [0][]{chapter.2}{Background}{}
+\BOOKMARK [1][]{section.2.1}{Radiance}{chapter.2}
+\BOOKMARK [1][]{section.2.2}{Absorption:}{chapter.2}
+\BOOKMARK [1][]{section.2.3}{Scatter Out:}{chapter.2}
+\BOOKMARK [1][]{section.2.4}{Transmittance:}{chapter.2}
+\BOOKMARK [1][]{section.2.5}{Phase Functions}{chapter.2}
+\BOOKMARK [1][]{section.2.6}{Scatter In}{chapter.2}
+\BOOKMARK [0][]{chapter.3}{Related Work}{}
+\BOOKMARK [1][]{section.3.1}{Global Illumination}{chapter.3}
+\BOOKMARK [1][]{section.3.2}{Volume Rendering}{chapter.3}
+\BOOKMARK [0][]{chapter.4}{Algorithm}{}
+\BOOKMARK [1][]{section.4.1}{Sampling the Scene}{chapter.4}
+\BOOKMARK [1][]{section.4.2}{Gathering Light}{chapter.4}
+\BOOKMARK [1][]{section.4.3}{Adding Scatter-Out}{chapter.4}
+\BOOKMARK [1][]{section.4.4}{Adding Scatter-In}{chapter.4}
+\BOOKMARK [0][]{chapter.5}{Results}{}
+\BOOKMARK [1][]{section.5.1}{Data Comparison}{chapter.5}
+\BOOKMARK [1][]{section.5.2}{Analysis}{chapter.5}
+\BOOKMARK [2][]{subsection.5.2.1}{Memory}{section.5.2}
+\BOOKMARK [2][]{subsection.5.2.2}{Speed}{section.5.2}
+\BOOKMARK [1][]{section.5.3}{Conclusion}{chapter.5}
+\BOOKMARK [0][]{chapter.6}{Future Work}{}
+\BOOKMARK [0][]{chapter*.5}{Bibliography}{}

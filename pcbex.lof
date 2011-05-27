@@ -1,0 +1,12 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{2}{figure.1.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{15}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{15}{figure.5.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{22}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{22}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{23}{figure.6.3}
