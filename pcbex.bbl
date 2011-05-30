@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}
+
+\bibitem{cerezo}
+Eva Cerezo, Frederic Perez, Xavier Pueyo, Francisco~J. Seron, and Francois
+  X.~Sillion.
+\newblock A survey on participating media rendering techniques.
+\newblock 21:303--328, 2005.
+
+\bibitem{christensen:2008}
+Per~H. Christensen.
+\newblock Point-based approximate color bleeding.
+\newblock 2008.
+
+\bibitem{christensen:siggraph}
+Per~H. Christensen.
+\newblock Point-based global illumination for movie production.
+\newblock SIGGRAPH '10, 2010.
+
+\bibitem{radiosity}
+Julie Dorsey.
+\newblock Radiosity and global illumination.
+\newblock {\em The Visual Computer}, 11:397--398, 1995.
+
+\bibitem{guthe}
+S~Guthe and W~Strasser.
+\newblock Advanced techniques for hhigh-quality multi-resolution volume
+  rendering.
+\newblock 28:51--58, 2004.
+
+\bibitem{Jensen:2009}
+Henrik~Wann Jensen.
+\newblock {\em Realistic Image Synthesis Using Photon Mapping}.
+\newblock A. K. Peters, Ltd., Natick, MA, USA, 2009.
+
+\bibitem{jensen:1998}
+Henrik~Wann Jensen and Per~H. Christensen.
+\newblock Efficient simulation of light transport in scences with participating
+  media using photon maps.
+\newblock In {\em Proceedings of the 25th annual conference on Computer
+  graphics and interactive techniques}, SIGGRAPH '98, pages 311--320. ACM,
+  1998.
+
+\bibitem{Kajiya84}
+James~T. Kajiya and Brian P.~Von Herzen.
+\newblock Ray tracing volume densities, 1984.
+
+\bibitem{levoy88}
+Marc Levoy.
+\newblock Display of surfaces from volume data, 1988.
+
+\bibitem{Levoy90}
+Marc Levoy.
+\newblock Efficient ray tracing of volume data.
+\newblock {\em ACM Transactions on Graphics}, 9:245--261, 1990.
+
+\bibitem{pbrt}
+Greg~Humphreys Matt~Pharr.
+\newblock {\em Physically Based Rendering: From Theory to Implementation}.
+\newblock Morgan Kaufmann, 2 edition, 2010.
+
+\bibitem{aga}
+Philippe~Bekaert Philip~Dutre, Kavita~Bala.
+\newblock {\em Advanced Global Illumination}.
+\newblock A K Peters, 2006.
+
+\bibitem{tabellion}
+Eric Tabellion and Arnauld Lamorlette.
+\newblock An approximate global illumination system for computer generated
+  films.
+\newblock 23:469--476, 2004.
+
+\bibitem{Westermann94}
+Rüdiger Westermann.
+\newblock A multiresolution framework for volume rendering.
+\newblock In {\em SYMPOSIUM ON VOLUME VISUALIZATION}, pages 51--58. ACM Press,
+  1994.
+
+\bibitem{signotes:2010}
+Magnus Wrenninge and Nafees Bin~Zafar.
+\newblock Volumetric methods in visual effects.
+\newblock 2010.
+
+\bibitem{monte_carlo}
+R~Xu and S.N Pattanaik.
+\newblock {\em A Novel Monte Carlo Noise Reduction Operator}, volume~25.
+\newblock Computer Graphics and Applications, IEEE, 2005.
+
+\end{thebibliography}
