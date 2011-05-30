@@ -27,7 +27,7 @@
                                        linkcolor=blue,bookmarks=true,bookmarksopen=true,%
                                        bookmarksopenlevel=3,pdfstartview=FitV,
                                        pdfauthor=Christopher Gibson,
-                                       pdftitle=An Approach to Point-Based Color bleeding With Volumes,
+                                       pdftitle=Point-Based Color Bleeding With Volumes,
                                        pdfkeywords={thesis, masters, cal poly, volume rendering, global illumination}
                                        ]{hyperref}
     %Options with pdfstartview are FitV, FitB and FitH
@@ -74,7 +74,7 @@
 % Declarations for Front Matter
 
 % Update fields below!
-\title{An Approach to Point-Based Color bleeding With Volumes}
+\title{Point-Based Color Bleeding With Volumes}
 \author{Christopher Gibson}
 \degreemonth{June} \degreeyear{2011} \degree{Master of Science}
 \defensemonth{June} \defenseyear{2011}
@@ -95,7 +95,7 @@
 
 \begin{abstract}
 
-Achieving realistic or believable global illumination in scenes with participating media is expensive.  Light interacts with the particles of a volume, creating complex radiance patterns.  This paper introduces an extension to the commonly used point-based color bleeding technique which allows fast, believable in- and out-scattering building on existing data structures and paradigms.  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by around 8 times. 
+Achieving realistic or believable global illumination in scenes with participating media is expensive.  Light interacts with the particles of a volume, creating complex radiance patterns.  This paper introduces an extension to the commonly used point-based color bleeding technique which allows fast, believable in- and out-scattering building on existing data structures and paradigms.  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by nearly a factor of 10. 
 
 \end{abstract}
 
@@ -134,7 +134,7 @@ Achieving realistic or believable global illumination in scenes with participati
 
 The ability to render scenes with realistic lighting is desirable for many entertainment application settings such as film.  Great results have been achieved for large scenes using point based color bleeding~\cite{christensen:2008} algorithms.  These algorithms, however, tend to limit or omit entirely the lighting contribution from volumetric data or participating media within the scenes.  This paper presents an algorithm to address this missing component in the point based color bleeding algorithm.  Specifically, we propose the addition of a data representation tuned to volumes,  \emph{light-voxel (or lvoxel)} to address the need to represent participating media to an existing global illumination algorithm which leverages a point cloud representation of a scene.  
 
-  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by around 8 times.  Figure~\ref{fig:compare} illustrates a comparison of our algorithm and Monte Carlo ray traced results.
+  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by around 10 times.  Figure~\ref{fig:compare} illustrates a comparison of our algorithm and Monte Carlo ray traced results.
 
 \begin{figure}[h!]
     \centering
@@ -159,37 +159,47 @@ The goal of the proposed method is to include volumetric representations into a 
     \centering
     \includegraphics[width=100mm]{img/diag/radiance.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Evaluation of radiance at a point on an opaque surface.  Only the hemisphere around the surface normal is considered.  Incoming radiance is measured and scaled by its solid angle.}
     \label{fig:radiance}
 \end{figure}
 
-Irradiance is the change of flux (radiant power) over an area, denoted by $E = \frac{d\Phi}{dA}$ \cite{aga}. Another way to look at this problem involves the relationsip between the surface and surrounding radiometric quantities.  This can be represented by the following:
+Irradiance is the change of flux (radiant power) over an area, denoted by $E = \frac{d\Phi}{dA}$ \cite{aga}. Another way to look at this problem involves the relationsip between the surface and surrounding radiometric quantities.  Radiance helps us evaluate how much power enters or leaves any given point.  The definition of radiance leaving a surface can be denoted $L(\textup{p}, w)$ given $\textup{p}$ is the point on a surface and $w$ is the direction we are evaluating.  The flux is projected upon the area of the surface $dA$ based on the solid angle $dw$, which gives us Figure \ref{fig:radiance} and the following equation:
+
+\begin{equation}
+\mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dwdA}^\perp}
+\label{eq:radiance}
+\end{equation}
+
+Inversely, incoming radiance, or irradiance, is evaluated by the strength of the light coming from any given direction $w$.  This  can be represented by the following:
 
 \begin{equation}
 \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw.
 \label{irradiance}
 \end{equation}
 
-$\mathit{L}(\textup{p} \to w)$ represents the radiance leaving point $\textup{p}$ and $\mathit{L}(\textup{p} \leftarrow w)$ represents incoming radiance given a direction $w$.  Note that radiance along a traight path is invariant.  For example:
+$\mathit{L}(\textup{p} \to w)$ represents the radiance leaving point $\textup{p}$ and $\mathit{L}(\textup{p} \leftarrow w)$ represents incoming radiance given a direction $w$.  Note that radiance along a straight path is invariant.  For example:
 
 \begin{equation}
 L(x \to y) = L(y \to x).
-\label{radianceinvariance}
+\label{eq:invariance}
 \end{equation}
+
+Measuring the incoming radiance at any given point $\textup{p}$ in all directions is the key to the graphics lighting equation, and a crucial element in how a rendered scene looks and feels.
 
 \section{Volume Lighting}
 
+Volumes follow very similar behaviors to opaque surfaces in terms of radiance, except on a particle-level.  Participating media like smoke or fog is made up of particles which cause the scatter (i.e. clouds) and absorption/extintion (i.e. smoke,) behaviors that would be extremely computationally expensive to model and simulate on any scale.  Therefore, such behaviors are modeled in terms of Transmittion, emission, Scatter in and Scatter out like in Figure \ref{fig:vol_scat}.  We are able to identify the probability that light will be absorbed, scattered and/or transmitted through any point in a participating medium by identifying their probability density functions, as described in the following sections. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/diag/vol_scatter.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Light scatter properties vary based on the participating media.}
     \label{fig:vol_scat}
 \end{figure}
 
 %----------------------------------%
 \subsection{Absorption:}
-As light passes through a participating media, light will become absorbed based on its absorption probability density $\sigma_{a}$. It is well known that radiance along a straight path is invariant, which allows us to estimate the amount of light absorbed or scattered given point $p$ and direction $w$:
+As light passes through a participating media, light will become absorbed based on its absorption probability density $\sigma_{a}$. As stated earlier in Equation \ref{eq:invariance}, it is known that radiance along a straight path is invariant, which allows us to estimate the amount of light absorbed or scattered given point $p$ and direction $w$ with the following:
 
 \begin{equation}
 e^{-\int_{0}^{d}\sigma_{a} (p+t\mathit{w},\mathit{w})d\mathit{t}},
@@ -200,7 +210,7 @@ where $\sigma_{a}$ represents the probability density that light will be absorbe
 
 %----------------------------------%
 \subsection{Scatter Out:}
-In addition to being absorbed by the medium, light can be scattered based on a scatter probability density $\sigma_{s}$.  This reduces the energy of the ray passing through the density.
+In addition to being absorbed by the medium, light can be scattered based on a scatter probability density $\sigma_{s}$.  As light is scattered and thus redirected, the amount of energy passing through the density in direction $w$ is reduced.  We can model the scatter equation through the following equation:
 
 \begin{equation}
 \textup{d}\mathit{L}_{o}(\textup{p},w) = -\sigma_{s}(\textup{p},w) \mathit{L}_{i}(\textup{p},-w)\textup{d}t.
@@ -209,7 +219,7 @@ In addition to being absorbed by the medium, light can be scattered based on a s
 
 %----------------------------------%
 \subsection{Transmittance:}
-Both (\ref{siga_eq}) and (\ref{sigs_eq}) involve the reduction of energy through a volume, reducing its transmittance, which can be combined into the following representation:
+Both (\ref{siga_eq}) and (\ref{sigs_eq}) involve the reduction of energy through a volume, reducing how much energy passes through (also known as its transmittance.)  The two can be combined into the following overarching representation:
 
 \begin{equation}
 \sigma_{t}(\textup{p},w) = \sigma_{a}(\textup{p},w) + \sigma_{s}(\textup{p}, w).
@@ -225,19 +235,19 @@ T_{r}(\textup{p} \to \textup{p}') = e^{-\int_{0}^{d}\sigma (p+t\mathit{w},\mathi
 
 %----------------------------------%
 \subsection{Phase Functions}
-When dealing with particles in volumes that may scatter light, a distribution function or \textit{phase function} describes the angular distribution of light scattered, described as $phase(w \to w')$.  The probability that light may scatter from direction $w$ to $w'$ is described using this function.  All tests in this paper were rendered using one of the simplest phase functions, known as the isotropic or \textit{constant} phase function which represents the BRDF analog for participating media \cite{cerezo}.
+When dealing with particles in volumes that may scatter light, a distribution function or \textit{phase function} describes the angular distribution of light scattered, described as $phase(w \to w')$.  The probability that light may scatter from direction $w$ to $w'$ is described using this function.  This distribution is visualized in Figure \ref{fig:phase}. All tests in this paper were rendered using one of the simplest phase functions, known as the isotropic or \textit{constant} phase function which represents the BRDF analog for participating media \cite{cerezo}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/diag/phase_func.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Visual representation of a phase function around a scatter point.  The area represents the distribution of the scattered light about a sphere.}
     \label{fig:phase}
 \end{figure}
 
 %----------------------------------%
 \subsection{Scatter In}
-Although $\sigma_{s}$ may reduce the energy of a ray passing through a volume, radiance from other rays may contribute to the original ray's radiance.  Before we can integrate incoming radiance, we must take into account the \textit{source term} $\mathbb{S}$, or total added radiance per unit distance, where the following constraint must hold true:
+Although $\sigma_{s}$ may reduce the energy of a ray passing through a volume, radiance from other rays (scattered by their respective phase functions as seen in Figure \ref{fig:phase}) may contribute to the original ray's radiance.  Before we can integrate incoming radiance, we must take into account the \textit{source term} $\mathbb{S}$, or total added radiance per unit distance, where the following constraint must hold true:
 
 \begin{equation}
 \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
@@ -271,7 +281,7 @@ This paper is focused on the rendering of scenes which contain volume data.  A n
     \centering
     \includegraphics[width=80mm]{img/diag/vol_step.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Stepping allows for estimation of the integral through the entire volume.  Shadow rays are cast intermittently to estimate the direct lighting contribution. }
     \label{fig:vol_step}
 \end{figure}
 
@@ -284,7 +294,7 @@ In general, these methods subdivide the world into small representational segmen
 
 The goal of our proposed method is to include volumetric representations into a global illumination algorithm in a fast and coherent way.  In the existing algorithms~\cite{christensen:2008}, surfels represent opaque materials within the point cloud, thus to incorporate a representation of volumetric data, an additional data representation was necessary to handle the scatter and absorption properties of participating media.  In general, our data representation closely follows the model of surfels, in that we choose to sample the volume at discrete locations and store a finite representation of the lighting at those discrete locations, but with modifications to handle the special attributes of lighting in transparent media.  In keeping with the naming conventions established, we call our discrete sampling of lighting elements for a volume: \emph{lvoxels}.  
 
-In general, our algorithm must 1) sample the scene geometry (including the volume) and store the direct lighting (or relevant lighting properties,) 2) gather indirect lighting and 3) model the scatter-out and scatter-in properties of volumetric lighting.
+In general, our algorithm must 1) sample the scene geometry (including the participating media within the scene) and store the direct lighting (or relevant lighting properties) within an acceleration structure for fast evaluation, 2) gather indirect lighting during regular ray casts using scene geometry and 3) model the scatter-out and scatter-in properties of volumetric lighting during the indirect lighting gather stage.
 
 \section{Sampling the Scene}
 The goal of this stage of the algorithm is to sample the scene geometry (including the volume) and store the direct lighting in a finite data representation to be used later for global illumination lighting effects.  As all of our finite data represents the direct lighting of some small portion of a surface or element in a three-dimensional scene, we refer to the union of all finite lighting samples as a ``point cloud''.  This point cloud is stored in an octree representation for efficient access to all data elements, surfels and lvoxels.  Surfels differ from lvoxels only in that surfels represent a flat, solid geometry while lvoxels represent a transparent, volumetric medium.  Both have radii and position so both can be placed within the same point cloud.  
@@ -293,7 +303,7 @@ The goal of this stage of the algorithm is to sample the scene geometry (includi
     \centering
     \includegraphics[width=100mm]{img/diag/surfel_samp.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Rays are cast from a special camera during the surfel sample phase.  Each time the ray intersects with geometry a surfel is created.}
     \label{fig:phase}
 \end{figure}
 
@@ -301,56 +311,63 @@ We sample the opaque geometry in surfels, which are computed using a perspective
 
 Caching the direct light contribution at each lvoxel by testing the transmittance (\ref{transmittion_eq}) to each light source saves us from re-computing light calculations during sampling in sections \ref{scatterout_sec} and \ref{scatterin_sec} \cite{signotes:2010}.
 
-
 \section{Gathering Light}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/diag/orthnormal.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}
     \label{fig:orthonormal}
 \end{figure}
 
-Next, our algorithm uses a gather stage similar to the one in PCB, which calculates the irradiance at a point on a surface, given the radiance of the scene around it.  Unlike PCB, which uses a software rasterization method, we chose to evaluate irradiance by raycasting into the point-cloud around a hemisphere oriented along the surface's normal.  This decision was made to simplify the tests which compare traditional Monte Carlo sampling methods to the extended PCB algorithm, but also to simplify evaluation of the transparent lvoxels within the octree.
+Next, our algorithm uses a gather stage similar to the one in PCB, which calculates the irradiance at a point on a surface, given the radiance of the scene around it.  Unlike PCB, which uses a software rasterization method, we chose to evaluate irradiance by raycasting into the point-cloud around a hemisphere oriented along the surface's normal as seen in Figure \ref{fig:orthonormal}.  The decision to cast out of a hemisphere rather than using a software rasterization technique as was adopted in previous PCB implementations was made to simplify the tests which compare traditional Monte Carlo sampling methods to the extended PCB algorithm, but also to simplify evaluation of the transparent lvoxels within the octree.
 
-In order to approximate the integral of incoming light at point $p$ on the surface, we sample across a hemisphere oriented along the surface's normal $N$ at $\textup{p}$.  Each sample cast out from $p$ evaluates $L(\textup{p} \leftarrow w)$ which is then multiplied by $w \cdot N$ in order to represent $cos\theta$.  In order to obtain good results, 128-256 samples are typically necessary to combat noise caused by the samples.  The resulting irradiance from the weighted sum of the samples is normalized by multiplying the \textit{source term} $\mathbb{S}$ (\ref{source_eq}) for the given phase function. 
+In order to approximate the integral of incoming light at point $p$ on the surface, we sample across a hemisphere oriented along the surface's normal $N$ at $\textup{p}$.  Each sample cast out from $p$ evaluates $L(\textup{p} \leftarrow w)$ (as shown in Figure \ref{fig:gather},) which is then multiplied by $w \cdot N$ in order to represent $cos\theta$.  In order to obtain good results, 128-256 samples are typically necessary to combat noise caused by the samples.  The resulting irradiance from the weighted sum of the samples is normalized by multiplying the \textit{source term} $\mathbb{S}$ (\ref{source_eq}) for the given phase function. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/diag/gather.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction.  The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}
     \label{fig:gather}
 \end{figure}
 
-%------------------------------------------------------------%
-\section{Adding Scatter-Out}
-\label{scatterout_sec}
+\section{Integrating Volume Data}
+In order for \textit{lvoxels} to contribute meaningfully to our scene during the light gather stage, we must make some architectural modifications to the algorithm in order to handle 1) more than one sample type in our octree and 2) the ability to handle non-opaque samples.  Both of these required simple changes in the octree data-structure as well as modification of the traversal algorithm used.
+
+\subsection{Data-Structure Modifications}
 Modifications to the previously mentioned irradiance sampling technique in order to allow scatter-out effects with volumes are few.  The biggest changes are to the point cloud octree and its traversal.  Specifically, when computing lighting, we must account for the fact that when an element of the point cloud is hit, it may be transparent.  In the standard algorithm, absorption and transmittance would not be taken into account and the traversal would stop at the first lvoxel encountered.
 
-In order to properly evaluate transparent and opaque surfaces within the point cloud, we made changes to node-level octree traversal.  Each branch traverses its children from closest to farthest, guaranteeing that closer leaf nodes are evaluated first.  Leaf nodes then use the pre-evaluated scatter ($\sigma_{s}$) and absorption ($\sigma_{t}$) coefficients for each lvoxel to appropriately alter the sample ray's transmittance, and continue with the traversal, with each hit contributing to the final resulting radiance value.  Once a surfel is hit, there is no need to continue traversing the octree.
+Therefore, our algorithm must fulfill the following requirements: 1) The algorithm must ensure that the \textit{lvoxels} are placed in the same octree datastructure as the \textit{surfels}, 2) Our algorithm must keep track of the current Transmittance in order to determine the contribution of all samples encountered and 3) We must traverse the leaf nodes of the scene from front-to-back in order to integrate transparent sample contributions correctly.
+
+In order to properly evaluate transparent and opaque surfaces within the point cloud, we made changes to node-level octree traversal.  Each branch traverses its children from closest to farthest, guaranteeing that closer leaf nodes are evaluated first.  Leaf nodes then use the pre-evaluated scatter ($\sigma_{s}$) and absorption ($\sigma_{t}$) coefficients for each lvoxel to appropriately alter the sample ray's transmittance, and continue with the traversal, with each hit contributing to the final resulting radiance value.  Once a surfel is hit, there is no need to continue traversing the octree as seen in Figure \ref{fig:testing}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/testing.png}
-    \caption{Zoomed image showing PCB extension (left) and Monte Carlo (right.)}
+    \caption{Illustrates the octree traversal algorithm testing efficiency.  White represents no tests, while black represents the most.  Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}
     \label{fig:testing}
 \end{figure}
 
+%------------------------------------------------------------%
+\subsection{Adding Scatter-Out}
+\label{scatterout_sec}
+
+Once the changes to the point-cloud data-structure have been made, we are able to 1) guarantee correct evaluation of the transparent surfaces through front-to-back octree traversal and 2) stop evaluating leaf nodes once we have hit an opaque surfel, reducing the overall sample count.  Now that \textit{lvoxels} are supported, we simply sample the scene as we have with regular PCB.  The modified traversal algorithm already takes care of transmittance through any transparent media so no further changes are necessary.
 
 %------------------------------------------------------------%
-\section{Adding Scatter-In}
+\subsection{Adding Scatter-In}
 \label{scatterin_sec}
 After adding lvoxels to our octree structure and evaluation algorithm, the only modifications necessary for scatter-in are to the volume rendering equation.  
 
-Recall that to model lighting for a volume, in-scattering requires integrating over all directions.  Casting Monte Carlo sample rays through the volume and into the scene would be computationally expensive.  Instead, for each sample we send out rays into the point cloud, iterating through a much less dense dataset.  This helps us replace expensive $S(\textup{p, w})$ evaluations with traversals into the octree.  The two main differences between sampling scattered light within a volume and evaluating the irradiance on a surface are 1) the distribution function, which is based on the volume's phase function, and 2) the samples are distributed over a sphere rather than a hemisphere.
+Recall that to model lighting for a volume, in-scattering requires integrating over all directions.  Casting Monte Carlo sample rays through the volume and into the scene would be computationally expensive.  Instead, for each sample we send out rays into the point cloud, iterating through a much less dense dataset like in Figure \ref{fig:scatter_in}.  This helps us replace expensive $S(\textup{p, w})$ evaluations with traversals into the octree.  The two main differences between sampling scattered light within a volume and evaluating the irradiance on a surface are 1) the distribution function, which is based on the volume's phase function, and 2) the samples are distributed over a sphere rather than a hemisphere.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=80mm]{img/diag/scatter_in.pdf}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}
     \label{fig:scatter_in}
 \end{figure}
 
@@ -366,7 +383,7 @@ Recall that to model lighting for a volume, in-scattering requires integrating o
     \includegraphics[width=60mm]{img/bunny_spot/spot_right.png}
     \includegraphics[width=60mm]{img/bunny_spot/spot_behind.png}
     \captionfonts
-    \caption{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}
+    \caption{A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}
 \end{figure}
 
 Our algorithm is able to achieve realistic lighting effects for scenes that include volumetric elements using our lvoxel representation with a point-based color bleeding approach to global illumination.
@@ -399,8 +416,8 @@ Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional M
   Scene & Render Time (s) & Image Delta & Memory Overhead \\
   \hline                  
   Monte Carlo w/o PCB & 3351 sec & NONE & NONE \\
-  Traditional PCB & 0385 sec & 11.0\% & 390 Mb (4.0\%) \\
-  Extended PCB & 0441 sec & 4.8\% & 395 Mb (4.1\%)  \\
+  Traditional PCB & ???? sec & 11.0\% & 390 Mb (4.0\%) \\
+  Extended PCB & 0397 sec & 4.8\% & 395 Mb (4.1\%)  \\
   \hline  
 \end{tabular}
 \end{center}

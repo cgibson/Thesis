@@ -15,8 +15,10 @@
 \BOOKMARK [0][]{chapter.4}{Algorithm}{}
 \BOOKMARK [1][]{section.4.1}{Sampling the Scene}{chapter.4}
 \BOOKMARK [1][]{section.4.2}{Gathering Light}{chapter.4}
-\BOOKMARK [1][]{section.4.3}{Adding Scatter-Out}{chapter.4}
-\BOOKMARK [1][]{section.4.4}{Adding Scatter-In}{chapter.4}
+\BOOKMARK [1][]{section.4.3}{Integrating Volume Data}{chapter.4}
+\BOOKMARK [2][]{subsection.4.3.1}{Data-Structure Modifications}{section.4.3}
+\BOOKMARK [2][]{subsection.4.3.2}{Adding Scatter-Out}{section.4.3}
+\BOOKMARK [2][]{subsection.4.3.3}{Adding Scatter-In}{section.4.3}
 \BOOKMARK [0][]{chapter.5}{Results}{}
 \BOOKMARK [1][]{section.5.1}{Data Comparison}{chapter.5}
 \BOOKMARK [1][]{section.5.2}{Analysis}{chapter.5}

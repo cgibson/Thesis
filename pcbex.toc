@@ -5,23 +5,25 @@
 \contentsline {section}{\numberline {2.1}Radiance}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Volume Lighting}{5}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Absorption:}{5}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Scatter Out:}{5}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Transmittance:}{6}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Phase Functions}{6}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.2}Scatter Out:}{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Transmittance:}{7}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Phase Functions}{7}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Scatter In}{7}{subsection.2.2.5}
-\contentsline {chapter}{\numberline {3}Related Work}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Global Illumination}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Volume Rendering}{10}{section.3.2}
-\contentsline {chapter}{\numberline {4}Algorithm}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Sampling the Scene}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Gathering Light}{15}{section.4.2}
-\contentsline {section}{\numberline {4.3}Adding Scatter-Out}{16}{section.4.3}
-\contentsline {section}{\numberline {4.4}Adding Scatter-In}{18}{section.4.4}
-\contentsline {chapter}{\numberline {5}Results}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Data Comparison}{21}{section.5.1}
-\contentsline {section}{\numberline {5.2}Analysis}{21}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Memory}{21}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Speed}{22}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Conclusion}{23}{section.5.3}
-\contentsline {chapter}{\numberline {6}Future Work}{24}{chapter.6}
-\contentsline {chapter}{Bibliography}{26}{chapter*.5}
+\contentsline {chapter}{\numberline {3}Related Work}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Global Illumination}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}Volume Rendering}{11}{section.3.2}
+\contentsline {chapter}{\numberline {4}Algorithm}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sampling the Scene}{14}{section.4.1}
+\contentsline {section}{\numberline {4.2}Gathering Light}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}Integrating Volume Data}{18}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Data-Structure Modifications}{18}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Adding Scatter-Out}{19}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Adding Scatter-In}{20}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {5}Results}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Data Comparison}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}Analysis}{23}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Memory}{23}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Speed}{24}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Conclusion}{25}{section.5.3}
+\contentsline {chapter}{\numberline {6}Future Work}{26}{chapter.6}
+\contentsline {chapter}{Bibliography}{28}{chapter*.5}

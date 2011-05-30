@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.29)  29 MAY 2011 17:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.29)  29 MAY 2011 20:34
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/cgibson/Projects/Thesis/pcbex.tex"}
@@ -393,7 +393,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
  [9]
 Chapter 1.
-<img/compare.png, id=238, 642.4pt x 481.8pt>
+<img/compare.png, id=254, 642.4pt x 481.8pt>
 File: img/compare.png Graphic file (type png)
  <use img/compare.png>
 
@@ -413,7 +413,7 @@ Chapter 2.
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/radiance.
 pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allowed
 
-<img/diag/radiance.pdf, id=251, 14776.37921pt x 12413.538pt>
+<img/diag/radiance.pdf, id=267, 12952.97911pt x 13542.8773pt>
 File: img/diag/radiance.pdf Graphic file (type pdf)
 
 <use img/diag/radiance.pdf>
@@ -422,190 +422,189 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3
 
-]
+] [4 </home/cgibson/Projects/Thesis/img/diag/radiance.pdf>]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/vol_scatt
 er.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
 wed
-<img/diag/vol_scatter.pdf, id=263, 10746.0975pt x 5644.38718pt>
+<img/diag/vol_scatter.pdf, id=311, 10746.0975pt x 5644.38718pt>
 File: img/diag/vol_scatter.pdf Graphic file (type pdf)
 
 <use img/diag/vol_scatter.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 </home/cgibson/Projects/Thesis/img/diag/radiance.pdf>] [5 </home/cgibson/Pro
-jects/Thesis/img/diag/vol_scatter.pdf>]
+[5] [6 </home/cgibson/Projects/Thesis/img/diag/vol_scatter.pdf>]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/phase_fun
 c.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
 ed
-<img/diag/phase_func.pdf, id=303, 13379.59052pt x 10805.01292pt>
+<img/diag/phase_func.pdf, id=341, 13379.59052pt x 10805.01292pt>
 File: img/diag/phase_func.pdf Graphic file (type pdf)
 
 <use img/diag/phase_func.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7 </home/cgibson/Projects/Thesis/img/diag/phase_func.pdf>] [8]
+[7] [8 </home/cgibson/Projects/Thesis/img/diag/phase_func.pdf>] [9]
 Chapter 3.
-[9
+[10
 
 ]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/vol_step.
 pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allowed
 
-<img/diag/vol_step.pdf, id=350, 12747.625pt x 14301.33002pt>
+<img/diag/vol_step.pdf, id=389, 12747.625pt x 14301.33002pt>
 File: img/diag/vol_step.pdf Graphic file (type pdf)
 
 <use img/diag/vol_step.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] [11 </home/cgibson/Projects/Thesis/img/diag/vol_step.pdf>]
+[11] [12 </home/cgibson/Projects/Thesis/img/diag/vol_step.pdf>]
 Chapter 4.
-[12
+[13
 
 ]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/surfel_sa
 mp.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
 wed
-<img/diag/surfel_samp.pdf, id=384, 14410.56625pt x 13281.59451pt>
+<img/diag/surfel_samp.pdf, id=422, 14410.56625pt x 13281.59451pt>
 File: img/diag/surfel_samp.pdf Graphic file (type pdf)
 
 <use img/diag/surfel_samp.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13]
+[14]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/orthnorma
 l.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
 ed
-<img/diag/orthnormal.pdf, id=394, 13078.40277pt x 15071.6464pt>
+<img/diag/orthnormal.pdf, id=432, 13078.40277pt x 15071.6464pt>
 File: img/diag/orthnormal.pdf Graphic file (type pdf)
 
-<use img/diag/orthnormal.pdf> [14 </home/cgibson/Projects/Thesis/img/diag/surfe
-l_samp.pdf>] [15 </home/cgibson/Projects/Thesis/img/diag/orthnormal.pdf>]
+<use img/diag/orthnormal.pdf> [15 </home/cgibson/Projects/Thesis/img/diag/surfe
+l_samp.pdf>] [16 </home/cgibson/Projects/Thesis/img/diag/orthnormal.pdf>]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/gather.pd
 f): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allowed
-<img/diag/gather.pdf, id=442, 11728.6178pt x 11804.1pt>
+<img/diag/gather.pdf, id=483, 11728.6178pt x 11804.1pt>
 File: img/diag/gather.pdf Graphic file (type pdf)
 
-<use img/diag/gather.pdf> [16 </home/cgibson/Projects/Thesis/img/diag/gather.pd
-f>] <img/testing.png, id=457, 803.0pt x 602.25pt>
+<use img/diag/gather.pdf> [17 </home/cgibson/Projects/Thesis/img/diag/gather.pd
+f>] [18] <img/testing.png, id=502, 803.0pt x 602.25pt>
 File: img/testing.png Graphic file (type png)
  <use img/testing.png>
-[17 </home/cgibson/Projects/Thesis/img/testing.png>]
+[19 </home/cgibson/Projects/Thesis/img/testing.png>]
 
 pdfTeX warning: pdflatex (file /home/cgibson/Projects/Thesis/img/diag/scatter_i
 n.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
 ed
-<img/diag/scatter_in.pdf, id=463, 14302.2328pt x 11478.33902pt>
+<img/diag/scatter_in.pdf, id=509, 14302.2328pt x 11478.33902pt>
 File: img/diag/scatter_in.pdf Graphic file (type pdf)
 
-<use img/diag/scatter_in.pdf> [18 </home/cgibson/Projects/Thesis/img/diag/scatt
+<use img/diag/scatter_in.pdf> [20 </home/cgibson/Projects/Thesis/img/diag/scatt
 er_in.pdf>]
 Chapter 5.
-<img/bunny_spot/spot_left.png, id=477, 642.4pt x 481.8pt>
+<img/bunny_spot/spot_left.png, id=523, 642.4pt x 481.8pt>
 File: img/bunny_spot/spot_left.png Graphic file (type png)
 
 <use img/bunny_spot/spot_left.png>
-<img/bunny_spot/spot_front.png, id=478, 642.4pt x 481.8pt>
+<img/bunny_spot/spot_front.png, id=524, 642.4pt x 481.8pt>
 File: img/bunny_spot/spot_front.png Graphic file (type png)
 
 <use img/bunny_spot/spot_front.png>
-<img/bunny_spot/spot_right.png, id=479, 642.4pt x 481.8pt>
+<img/bunny_spot/spot_right.png, id=525, 642.4pt x 481.8pt>
 File: img/bunny_spot/spot_right.png Graphic file (type png)
 
 <use img/bunny_spot/spot_right.png>
-<img/bunny_spot/spot_behind.png, id=480, 642.4pt x 481.8pt>
+<img/bunny_spot/spot_behind.png, id=526, 642.4pt x 481.8pt>
 File: img/bunny_spot/spot_behind.png Graphic file (type png)
 
-<use img/bunny_spot/spot_behind.png> [19
+<use img/bunny_spot/spot_behind.png> [21
 
  </home/cgibson/Projects/Thesis/img/bunny_spot/spot_left.png> </home/cgibson/Pr
 ojects/Thesis/img/bunny_spot/spot_front.png> </home/cgibson/Projects/Thesis/img
 /bunny_spot/spot_right.png> </home/cgibson/Projects/Thesis/img/bunny_spot/spot_
 behind.png>]
-<img/compare_trad_corrected.png, id=491, 401.5pt x 200.75pt>
+<img/compare_trad_corrected.png, id=537, 401.5pt x 200.75pt>
 File: img/compare_trad_corrected.png Graphic file (type png)
 
 <use img/compare_trad_corrected.png>
-<img/compare1_corrected.png, id=492, 361.35pt x 177.66376pt>
+<img/compare1_corrected.png, id=538, 361.35pt x 177.66376pt>
 File: img/compare1_corrected.png Graphic file (type png)
 
 <use img/compare1_corrected.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20 </home/cgibson/Projects/Thesis/img/compare_trad_corrected.png>] [21 </home/
-cgibson/Projects/Thesis/img/compare1_corrected.png>] [22] [23]
+[22 </home/cgibson/Projects/Thesis/img/compare_trad_corrected.png>] [23 </home/
+cgibson/Projects/Thesis/img/compare1_corrected.png>] [24] [25]
 Chapter 6.
-[24
+[26
 
-] [25] (/home/cgibson/Projects/Thesis/pcbex.bbl [26
+] [27] (/home/cgibson/Projects/Thesis/pcbex.bbl [28
 
 
 ]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¼ in font cmr12!
 )
-<img/indirect_box_high.png, id=526, 592.2125pt x 590.205pt>
+<img/indirect_box_high.png, id=573, 592.2125pt x 590.205pt>
 File: img/indirect_box_high.png Graphic file (type png)
 
 <use img/indirect_box_high.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/two_sphere_indir.png, id=527, 592.2125pt x 590.205pt>
+<img/two_sphere_indir.png, id=574, 592.2125pt x 590.205pt>
 File: img/two_sphere_indir.png Graphic file (type png)
 
 <use img/two_sphere_indir.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/ketchup_good_corrected.png, id=528, 592.2125pt x 590.205pt>
+<img/ketchup_good_corrected.png, id=575, 592.2125pt x 590.205pt>
 File: img/ketchup_good_corrected.png Graphic file (type png)
 
 <use img/ketchup_good_corrected.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/bunny_spot/spot_right_new.png, id=529, 473.77pt x 471.7625pt>
+<img/bunny_spot/spot_right_new.png, id=576, 473.77pt x 471.7625pt>
 File: img/bunny_spot/spot_right_new.png Graphic file (type png)
 
 <use img/bunny_spot/spot_right_new.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/one_side_corrected.png, id=530, 473.77pt x 471.7625pt>
+<img/one_side_corrected.png, id=577, 473.77pt x 471.7625pt>
 File: img/one_side_corrected.png Graphic file (type png)
 
 <use img/one_side_corrected.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27] [28 </home/cgibson/Projects/Thesis/img/indirect_box_high.png> </home/cgibs
-on/Projects/Thesis/img/two_sphere_indir.png>] [29 </home/cgibson/Projects/Thesi
+[29] [30 </home/cgibson/Projects/Thesis/img/indirect_box_high.png> </home/cgibs
+on/Projects/Thesis/img/two_sphere_indir.png>] [31 </home/cgibson/Projects/Thesi
 s/img/ketchup_good_corrected.png> </home/cgibson/Projects/Thesis/img/bunny_spot
-/spot_right_new.png>] [30 </home/cgibson/Projects/Thesis/img/one_side_corrected
+/spot_right_new.png>] [32 </home/cgibson/Projects/Thesis/img/one_side_corrected
 .png>] (/home/cgibson/Projects/Thesis/pcbex.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5774 strings out of 495061
- 82233 string characters out of 1182621
- 154435 words of memory out of 3000000
- 8725 multiletter control sequences out of 15000+50000
+ 5782 strings out of 495061
+ 82347 string characters out of 1182621
+ 155994 words of memory out of 3000000
+ 8728 multiletter control sequences out of 15000+50000
  12065 words of font info for 44 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 39i,9n,36p,1263b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,9n,36p,1263b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-texlive/f
@@ -619,9 +618,9 @@ type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public
 /amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb>
-Output written on pcbex.pdf (39 pages, 4866514 bytes).
+Output written on pcbex.pdf (41 pages, 4965298 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 109 named destinations out of 1000 (max. 500000)
- 322 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 671 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 338 words of extra memory for PDF output out of 10000 (max. 10000000)
 

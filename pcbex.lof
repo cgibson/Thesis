@@ -1,24 +1,24 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{2}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{4}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{5}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{7}{figure.2.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle.}}{4}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Light scatter properties vary based on the participating media.}}{6}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere.}}{8}{figure.2.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{11}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. }}{12}{figure.3.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{14}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{15}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{16}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{17}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{18}{figure.4.5}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created.}}{15}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}}{16}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}}{17}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustrates the octree traversal algorithm testing efficiency. White represents no tests, while black represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}}{19}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}}{20}{figure.4.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{19}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{20}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{21}{figure.5.3}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}}{21}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{22}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{23}{figure.5.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{28}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{28}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{29}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{29}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{30}{figure.6.5}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{30}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{30}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{31}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{31}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{32}{figure.6.5}
