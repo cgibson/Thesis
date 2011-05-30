@@ -286,15 +286,34 @@ This paper is focused on the rendering of scenes which contain volume data.  A n
 \end{figure}
 
 %==============================================================================%
-\chapter{Algorithm}
+\chapter{PCB Extension Algorithm}
 \label{algorithm_sec}
 We present an algorithm which is an extension to the point cloud techniques described in \cite{tabellion} and \cite{christensen:2008}, specifically building off the point-based color bleeding (PCB) technique by Christensen.  The modifications involve evaluating light scatter and absorption properties at discrete points in the volume and adding them to the point cloud.  Using a front-to-back traversal method, we can correctly and quickly approximate the \textit{light-volume} representation's contribution to a scene's indirect lighting evaluation.
 
-In general, these methods subdivide the world into small representational segments, called surfels in \cite{christensen:2008}, which are stored in a large point cloud, representing the scene.  Surfels are used to model direct illumination, and are then used in a later phase to compute indirect lighting and color bleeding in an efficient manner.  
+\section{Point Based Color Bleeding}
 
-The goal of our proposed method is to include volumetric representations into a global illumination algorithm in a fast and coherent way.  In the existing algorithms~\cite{christensen:2008}, surfels represent opaque materials within the point cloud, thus to incorporate a representation of volumetric data, an additional data representation was necessary to handle the scatter and absorption properties of participating media.  In general, our data representation closely follows the model of surfels, in that we choose to sample the volume at discrete locations and store a finite representation of the lighting at those discrete locations, but with modifications to handle the special attributes of lighting in transparent media.  In keeping with the naming conventions established, we call our discrete sampling of lighting elements for a volume: \emph{lvoxels}.  
+In general, the color-bleeding algorithm subdivide the world into small representational segments, called surfels in \cite{christensen:2008}, which are stored in a large point cloud, representing the scene.  Surfels are used to model direct illumination, and are then used in a later phase to compute indirect lighting and color bleeding in an efficient manner.  This method is split up into three stages:
 
-In general, our algorithm must 1) sample the scene geometry (including the participating media within the scene) and store the direct lighting (or relevant lighting properties) within an acceleration structure for fast evaluation, 2) gather indirect lighting during regular ray casts using scene geometry and 3) model the scatter-out and scatter-in properties of volumetric lighting during the indirect lighting gather stage.
+\begin{enumerate}
+\item Sample the scene and save a discrete representation of the surfaces along with direct lighting in a point cloud
+\item Perform normal ray tracing on the scene geometry
+\item Replace ambient estimates with a gather stage, sampling the scene around a point to gather the indirect lighting component
+\end{enumerate}
+
+The goal of our proposed method is to include volumetric representations into a global illumination algorithm in a fast and coherent way similar to how surfels are represented in the point cloud.
+
+\section{Extension Overview}
+
+In the existing algorithms~\cite{christensen:2008}, surfels represent opaque materials within the point cloud, thus to incorporate a representation of volumetric data, an additional data representation was necessary to handle the scatter and absorption properties of participating media.  In general, our data representation closely follows the model of surfels, in that we choose to sample the volume at discrete locations and store a finite representation of the lighting at those discrete locations, but with modifications to handle the special attributes of lighting in transparent media.  In keeping with the naming conventions established, we call our discrete sampling of lighting elements for a volume: \emph{lvoxels}.  
+
+As a quick review, our algorithm must do the following:
+\begin{enumerate}
+\item Sample the scene geometry and store the direct lighting (or relevant lighting properties) within an acceleration structure for fast evaluation
+\item Sample the participating media and evaluate scatter, absorbtion and direct lighting at each discrete point
+\item Identify points of interest during regular ray casts using scene geometry 
+\item Orient a set of hemispherical samples along the normals of raycast surfaces and cast the rays into the point-cloud
+\item Model the scatter-out and scatter-in properties of volumetric lighting during the indirect lighting gather stage.
+\end{enumerate}
 
 \section{Sampling the Scene}
 The goal of this stage of the algorithm is to sample the scene geometry (including the volume) and store the direct lighting in a finite data representation to be used later for global illumination lighting effects.  As all of our finite data represents the direct lighting of some small portion of a surface or element in a three-dimensional scene, we refer to the union of all finite lighting samples as a ``point cloud''.  This point cloud is stored in an octree representation for efficient access to all data elements, surfels and lvoxels.  Surfels differ from lvoxels only in that surfels represent a flat, solid geometry while lvoxels represent a transparent, volumetric medium.  Both have radii and position so both can be placed within the same point cloud.  
@@ -304,10 +323,16 @@ The goal of this stage of the algorithm is to sample the scene geometry (includi
     \includegraphics[width=100mm]{img/diag/surfel_samp.pdf}
     \captionfonts
     \caption{Rays are cast from a special camera during the surfel sample phase.  Each time the ray intersects with geometry a surfel is created.}
-    \label{fig:phase}
+    \label{fig:surf_sample}
 \end{figure}
 
-We sample the opaque geometry in surfels, which are computed using a perspective viewing volume slightly larger then the current viewing frustum, with a sampling rate two times that of the desired pixel resolution.  Lvoxels are generated by marching over the entire domain of the volume by a specific, preset interval, sampling scatter and absorption coefficients in order to get an average throughout the area an lvoxel will occupy.  Typically this involves eight to sixteen absorption and scatter samples per lvoxel.  These values, as well as the radius of the lvoxels, may differ depending on the complexity and raw resolution of the volume.
+\subsection{Surfel Sampling}
+
+We sample the opaque geometry in surfels, which are computed using an abstract sampling camera with a field of view slightly larger then the current viewing frustum, with a sampling rate two times that of the desired pixel resolution.  Rays are cast from the sampling camera and intersections with geometry mark sample points as seen in Figure \ref{fig:surf_sample}, giving the scene a view-dependant, thorough sample set.
+
+\subsection{LVoxel Sampling}
+
+Lvoxels are generated by marching over the entire domain of the volume by a specific, preset interval, sampling scatter and absorption coefficients in order to get an average throughout the area an lvoxel will occupy.  Typically this involves eight to sixteen absorption and scatter samples per lvoxel.  These values, as well as the radius of the lvoxels, may differ depending on the complexity and raw resolution of the volume.
 
 Caching the direct light contribution at each lvoxel by testing the transmittance (\ref{transmittion_eq}) to each light source saves us from re-computing light calculations during sampling in sections \ref{scatterout_sec} and \ref{scatterin_sec} \cite{signotes:2010}.
 
@@ -315,19 +340,23 @@ Caching the direct light contribution at each lvoxel by testing the transmittanc
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{img/diag/orthnormal.pdf}
+    \includegraphics[width=80mm]{img/diag/orthnormal.pdf}
     \captionfonts
     \caption{Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}
     \label{fig:orthonormal}
 \end{figure}
 
-Next, our algorithm uses a gather stage similar to the one in PCB, which calculates the irradiance at a point on a surface, given the radiance of the scene around it.  Unlike PCB, which uses a software rasterization method, we chose to evaluate irradiance by raycasting into the point-cloud around a hemisphere oriented along the surface's normal as seen in Figure \ref{fig:orthonormal}.  The decision to cast out of a hemisphere rather than using a software rasterization technique as was adopted in previous PCB implementations was made to simplify the tests which compare traditional Monte Carlo sampling methods to the extended PCB algorithm, but also to simplify evaluation of the transparent lvoxels within the octree.
+\subsection{Point-Cloud Ray Casting}
 
-In order to approximate the integral of incoming light at point $p$ on the surface, we sample across a hemisphere oriented along the surface's normal $N$ at $\textup{p}$.  Each sample cast out from $p$ evaluates $L(\textup{p} \leftarrow w)$ (as shown in Figure \ref{fig:gather},) which is then multiplied by $w \cdot N$ in order to represent $cos\theta$.  In order to obtain good results, 128-256 samples are typically necessary to combat noise caused by the samples.  The resulting irradiance from the weighted sum of the samples is normalized by multiplying the \textit{source term} $\mathbb{S}$ (\ref{source_eq}) for the given phase function. 
+Next, our algorithm uses a gather stage similar to the one in PCB, which calculates the irradiance at a point on a surface, given the radiance of the scene around it.  Unlike PCB, which uses a software rasterization method, we chose to evaluate irradiance by raycasting into the point-cloud around a hemisphere oriented along the surface's normal.  The decision to cast out of a hemisphere rather than using a software rasterization technique as was adopted in previous PCB implementations was made to simplify the tests which compare traditional Monte Carlo sampling methods to the extended PCB algorithm, but also to simplify evaluation of the transparent lvoxels within the octree.
+
+\subsection{Hemisphere Sampling}
+
+In order to approximate the integral of incoming light at point $p$ on the surface, we sample across a hemisphere oriented along the surface's normal $N$ at $\textup{p}$ as seen in Figure \ref{fig:orthonormal}.  Each sample cast out from $p$ evaluates $L(\textup{p} \leftarrow w)$ (as shown in Figure \ref{fig:gather},) which is then multiplied by $w \cdot N$ in order to represent $cos\theta$.  In order to obtain good results, 128-256 samples are typically necessary to combat noise caused by the samples.  The resulting irradiance from the weighted sum of the samples is normalized by multiplying the \textit{source term} $\mathbb{S}$ (\ref{source_eq}) for the given phase function. 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{img/diag/gather.pdf}
+    \includegraphics[width=80mm]{img/diag/gather.pdf}
     \captionfonts
     \caption{Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction.  The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}
     \label{fig:gather}
@@ -341,23 +370,25 @@ Modifications to the previously mentioned irradiance sampling technique in order
 
 Therefore, our algorithm must fulfill the following requirements: 1) The algorithm must ensure that the \textit{lvoxels} are placed in the same octree datastructure as the \textit{surfels}, 2) Our algorithm must keep track of the current Transmittance in order to determine the contribution of all samples encountered and 3) We must traverse the leaf nodes of the scene from front-to-back in order to integrate transparent sample contributions correctly.
 
+\subsection{Octree Traversal}
+
 In order to properly evaluate transparent and opaque surfaces within the point cloud, we made changes to node-level octree traversal.  Each branch traverses its children from closest to farthest, guaranteeing that closer leaf nodes are evaluated first.  Leaf nodes then use the pre-evaluated scatter ($\sigma_{s}$) and absorption ($\sigma_{t}$) coefficients for each lvoxel to appropriately alter the sample ray's transmittance, and continue with the traversal, with each hit contributing to the final resulting radiance value.  Once a surfel is hit, there is no need to continue traversing the octree as seen in Figure \ref{fig:testing}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/testing.png}
-    \caption{Illustrates the octree traversal algorithm testing efficiency.  White represents no tests, while black represents the most.  Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}
+    \caption{Illustrates the octree traversal algorithm testing efficiency.  Lighter shades represent less tests, while darker shades represents the most.  Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}
     \label{fig:testing}
 \end{figure}
 
 %------------------------------------------------------------%
-\subsection{Adding Scatter-Out}
+\subsection{Acquiring Scatter-Out Contributions}
 \label{scatterout_sec}
 
 Once the changes to the point-cloud data-structure have been made, we are able to 1) guarantee correct evaluation of the transparent surfaces through front-to-back octree traversal and 2) stop evaluating leaf nodes once we have hit an opaque surfel, reducing the overall sample count.  Now that \textit{lvoxels} are supported, we simply sample the scene as we have with regular PCB.  The modified traversal algorithm already takes care of transmittance through any transparent media so no further changes are necessary.
 
 %------------------------------------------------------------%
-\subsection{Adding Scatter-In}
+\subsection{Acquiring Scatter-In Contributions}
 \label{scatterin_sec}
 After adding lvoxels to our octree structure and evaluation algorithm, the only modifications necessary for scatter-in are to the volume rendering equation.  
 
@@ -386,11 +417,22 @@ Recall that to model lighting for a volume, in-scattering requires integrating o
     \caption{A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}
 \end{figure}
 
+\section{Environment}
+
 Our algorithm is able to achieve realistic lighting effects for scenes that include volumetric elements using our lvoxel representation with a point-based color bleeding approach to global illumination.
 The following test cases were run on a commodity-class Intel i5 3 GHz machine with 4 Gb of RAM.  Because of the disparity between academic-level versus production-class ray tracer implementations, we tested and compared our results against a naive implementation of Monte Carlo global illumination not using the point cloud representation.  We then compared the resulting images and the time it took to render each.  Our algorithm is able to achieve a small difference between images and an increase in efficiency measured in time to render.
 
+\section{Test Scene}
+
 The scene tested involved a 60,000 triangle Sponza Atrium including only vertex and normal information for simplicity.  The CT scan data of the Stanford Bunny was used in order to test scatter in/out contributions by complex participating media.
 Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional Monte Carlo scattering.  At first glance these two images are very similar, however there are a number of small artifacts present in the image rendered with the point cloud representation, and the indirect lighting is slightly darker overall.  A closer look at the two results exemplifies the great similarity between the two images, as shown in Figure~\ref{fig:compare_close}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/compare1_corrected.png}
+    \caption{Zoomed image showing PCB extension (left) and Monte Carlo (right.)}
+    \label{fig:compare_close}
+\end{figure}
 
 \begin{figure}[h!]
     \centering
@@ -399,12 +441,6 @@ Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional M
     \label{fig:compare_trad}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=80mm]{img/compare1_corrected.png}
-    \caption{Zoomed image showing PCB extension (left) and Monte Carlo (right.)}
-    \label{fig:compare_close}
-\end{figure}
 
 %------------------------------------------------------------%
 \section{Data Comparison}
@@ -425,6 +461,7 @@ Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional M
 
 %------------------------------------------------------------%
 \section{Analysis}
+Our analysis involves comparing 1) the overall render time 2) the perceived image delta between the images and 3) the memory overhead used by the point-cloud data.
 
 %----------------------------------%
 \subsection{Memory}
@@ -438,13 +475,17 @@ Even on sparse octrees without volumes, our \textit{front to back} octree traver
 
 %----------------------------------%
 \subsection*{Image Quality}
+In order to objectively compare the pure Monte Carlo render to the PCB extension render, we used a perceptual image difference program called pdiff and ran the pair of images through in order to identify how close the two images were to each other.  The results showed a clear difference (where pixels in one image clearly differend from another) of 4.8\%.
+
 Figure~\ref{fig:compare_trad} compares the non-PCB Monte Carlo image with that of the traditional PCB renders, showing the clear lack of proper in-/out-scattering.  With the extended algorithm, however, the scenes look nearly identical.
 
 We would like to note that there are a number of small artifacts in the PCB renders due to imprecision and incorrect surfel collisions.  It is important to note that, as past papers will attest, such issues are easily overcome and our artifacts are more due to implementation and time constraints than limits on the algorithm itself.
 
 \section{Conclusion}
 
-The addition of the lvoxel paradigm to the already successful point based color bleeding algorithm is shown to be a cost effective method of approximating and evaluating complex scatter functions based on participating media.  The speedups are clear, and the memory footprint is easily manageable.  The ability to evaluate the irradiance at a point in the scene by using only the point cloud representation is a clear win for out-of-core renderers.
+In this paper, we discussed the necessity for proper global illumination approximations in renders, listed a number of algorithms that have attempted to do this but have fallen short specifically in volume scatter contributions, and presented an extension to the PCB algorithm by \cite{christensen:2008} which handles both scatter-in and scatter-out contributions.  The addition of the lvoxel paradigm to the already successful point based color bleeding algorithm is shown to be a cost effective method of approximating and evaluating complex scatter functions based on participating media.  The speedups are clear, and the memory footprint is easily manageable.  The ability to evaluate the irradiance at a point in the scene by using only the point cloud representation is a clear win for out-of-core renderers.
+
+Computer graphics, be it photo-realistic or artistically leaning, relies heavily on the paradigms established in the physics of light in the real world.  Global illumination is just one of many areas of focus trying to better represent that light and its complex interactions in the abstract worlds we choose to bring to screen.  One can only imagine the leaps and bounds that computer graphics is destined to experience in the following years, but inevitably the obstacles boil down to the same subset of problems.  How to manilulate light and, by extension, color in order to make the viewer experience a story or emotion.
 
 %==============================================================================%
 \chapter{Future Work}
@@ -452,12 +493,25 @@ The addition of the lvoxel paradigm to the already successful point based color 
 
 As mentioned in Christensen's point based color bleeding article, surfels can be modified to ``gather'' light recursively from their position in the point cloud, allowing for simulated multi-bounce lighting.  This would require only a small change to the current algorithm, and would apply to volumes as well to allow very realistic scatter approximations in participating media.
 
+\vspace{5mm}
+
 In our tests, all participating media scatters light equally in all directions.  This is rarely the case, as volumes tend to have unique scatter functions.  We can simulate more complex surface scattering functions by creating spherical harmonic representations of the radiance at any specific point in the volume.  Our current implementation supports such an approach, but remains untested.
+
+\vspace{5mm}
 
 Typical implementations of the PCB algorithm include rougher estimations (usually in the form of a series of spherical harmonic coefficients) at higher levels in the octree, to be evaluated depending on that node's solid angle to our sample point.  Due to time constraints, we did not implement full multi-resolution representations of each node.  Including LVoxel data in that representation would be a trivial process.
 
+\vspace{5mm}
+
 Our ray tracer runs a number of threads to split the image into multiple parts  in order to achieve simple parallelism.  Before the threads are created, however, we generate surfels and lvoxels sequentially.  Due to the nature of our octree implementation, we cannot add elements and still be thread safe, but this would not be a large obstacle.  Scenes like the sponza atrium would run a number of times faster if we were to parallelize our implementation more effectively.
 
+\vspace{5mm}
+
+Although for our purposes raycasting the scene to sample for surfels worked well, it is most certainly not an optimal algorithm.  Sampling the scene in a more geometry- aware fashion would lead to fewer samples and better results.  Subdividing the scene into smaller polygons and sampling the scene (say, one or two surfels per micro-polygon) would increase our coverage while decreasing unnecessary overlap.  We found that the simpler approach worked best for us, given our time frame, however it can most certainly be improved.
+
+\vspace{5mm}
+
+Because the color-bleeding effect in PCB focuses primarily on the point-cloud data, we are offered a unique opportunity to consider offloading the entire octree structure out-of-core in order to outsource the (still computationally complex) algorithm onto other machines, if not to on-board GPUs.  Taking advantage of a graphics processor's fast math and hardware rasterization would allow for much faster indirect-lighting evaluations.
 
 % ------------- End main chapters ----------------------
 

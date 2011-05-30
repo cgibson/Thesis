@@ -12,18 +12,27 @@
 \BOOKMARK [0][]{chapter.3}{Related Work}{}
 \BOOKMARK [1][]{section.3.1}{Global Illumination}{chapter.3}
 \BOOKMARK [1][]{section.3.2}{Volume Rendering}{chapter.3}
-\BOOKMARK [0][]{chapter.4}{Algorithm}{}
-\BOOKMARK [1][]{section.4.1}{Sampling the Scene}{chapter.4}
-\BOOKMARK [1][]{section.4.2}{Gathering Light}{chapter.4}
-\BOOKMARK [1][]{section.4.3}{Integrating Volume Data}{chapter.4}
-\BOOKMARK [2][]{subsection.4.3.1}{Data-Structure Modifications}{section.4.3}
-\BOOKMARK [2][]{subsection.4.3.2}{Adding Scatter-Out}{section.4.3}
-\BOOKMARK [2][]{subsection.4.3.3}{Adding Scatter-In}{section.4.3}
+\BOOKMARK [0][]{chapter.4}{PCB Extension Algorithm}{}
+\BOOKMARK [1][]{section.4.1}{Point Based Color Bleeding}{chapter.4}
+\BOOKMARK [1][]{section.4.2}{Extension Overview}{chapter.4}
+\BOOKMARK [1][]{section.4.3}{Sampling the Scene}{chapter.4}
+\BOOKMARK [2][]{subsection.4.3.1}{Surfel Sampling}{section.4.3}
+\BOOKMARK [2][]{subsection.4.3.2}{LVoxel Sampling}{section.4.3}
+\BOOKMARK [1][]{section.4.4}{Gathering Light}{chapter.4}
+\BOOKMARK [2][]{subsection.4.4.1}{Point-Cloud Ray Casting}{section.4.4}
+\BOOKMARK [2][]{subsection.4.4.2}{Hemisphere Sampling}{section.4.4}
+\BOOKMARK [1][]{section.4.5}{Integrating Volume Data}{chapter.4}
+\BOOKMARK [2][]{subsection.4.5.1}{Data-Structure Modifications}{section.4.5}
+\BOOKMARK [2][]{subsection.4.5.2}{Octree Traversal}{section.4.5}
+\BOOKMARK [2][]{subsection.4.5.3}{Acquiring Scatter-Out Contributions}{section.4.5}
+\BOOKMARK [2][]{subsection.4.5.4}{Acquiring Scatter-In Contributions}{section.4.5}
 \BOOKMARK [0][]{chapter.5}{Results}{}
-\BOOKMARK [1][]{section.5.1}{Data Comparison}{chapter.5}
-\BOOKMARK [1][]{section.5.2}{Analysis}{chapter.5}
-\BOOKMARK [2][]{subsection.5.2.1}{Memory}{section.5.2}
-\BOOKMARK [2][]{subsection.5.2.2}{Speed}{section.5.2}
-\BOOKMARK [1][]{section.5.3}{Conclusion}{chapter.5}
+\BOOKMARK [1][]{section.5.1}{Environment}{chapter.5}
+\BOOKMARK [1][]{section.5.2}{Test Scene}{chapter.5}
+\BOOKMARK [1][]{section.5.3}{Data Comparison}{chapter.5}
+\BOOKMARK [1][]{section.5.4}{Analysis}{chapter.5}
+\BOOKMARK [2][]{subsection.5.4.1}{Memory}{section.5.4}
+\BOOKMARK [2][]{subsection.5.4.2}{Speed}{section.5.4}
+\BOOKMARK [1][]{section.5.5}{Conclusion}{chapter.5}
 \BOOKMARK [0][]{chapter.6}{Future Work}{}
 \BOOKMARK [0][]{chapter*.5}{Bibliography}{}
