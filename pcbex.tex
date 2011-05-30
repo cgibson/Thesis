@@ -95,7 +95,11 @@
 
 \begin{abstract}
 
-Achieving realistic or believable global illumination in scenes with participating media is expensive.  Light interacts with the particles of a volume, creating complex radiance patterns.  This paper introduces an extension to the commonly used point-based color bleeding technique which allows fast, believable in- and out-scattering building on existing data structures and paradigms.  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by nearly a factor of 10. 
+The interaction of light in our world is immensely complex, but with modern computers and advanced rendering algorithms, we are beginning to reach the point where photorealistic renders are truly difficult to separate from real photographs.  Achieving realistic or believable global illumination in scenes with participating media is exponentially expensive compared to our traditional polygonal methods.  Light interacts with the particles of a volume, creating complex radiance patterns.
+
+In this thesis, we introduce an extension to the commonly used point-based color bleeding (PCB) technique, implementing volume scatter contributions.  With the addition of this PCB algorithm extension, we are able to render fast, believable in- and out-scattering while building on existing data structures and paradigms.  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by nearly a factor of 10.
+
+We present results that are both comparable to existing Monte Carlo integration methods while also achieving much faster run-times with minimal memory usage.
 
 \end{abstract}
 
@@ -132,9 +136,31 @@ Achieving realistic or believable global illumination in scenes with participati
 \chapter{Introduction}
 \label{intro}
 
-The ability to render scenes with realistic lighting is desirable for many entertainment application settings such as film.  Great results have been achieved for large scenes using point based color bleeding~\cite{christensen:2008} algorithms.  These algorithms, however, tend to limit or omit entirely the lighting contribution from volumetric data or participating media within the scenes.  This paper presents an algorithm to address this missing component in the point based color bleeding algorithm.  Specifically, we propose the addition of a data representation tuned to volumes,  \emph{light-voxel (or lvoxel)} to address the need to represent participating media to an existing global illumination algorithm which leverages a point cloud representation of a scene.  
+\section{Graphics \& Light}
+At its core, computer graphics is the visualization of light and its interaction in an abstract world, be this a simulation or a virtual world created by artists.  The ability to render scenes with realistic lighting is desirable for many entertainment application settings such as film.  Even in non-photorealistic renders, the interaction of light is of paramount importance.  Great results have been achieved for large scenes using point based color bleeding~\cite{christensen:2008} algorithms.
 
-  The proposed method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by around 10 times.  Figure~\ref{fig:compare} illustrates a comparison of our algorithm and Monte Carlo ray traced results.
+These algorithms, however, tend to limit or omit entirely the lighting contribution from volumetric data or participating media within the scenes.  Due to the highly complex nature of the domain, coupled with the computational complexity involved therin, many algorithms choose to disregard this portion of the lighting algorithm, often leaving the programmer or artist to fake the volume's contribution in other ways.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/indirect_box_high.png}
+    \caption{A simple Cornell box scene showing simple global illumination.}
+    \label{fig:cornell}
+\end{figure}
+
+
+\section{Our Contribution}
+
+This paper presents an algorithm to address this missing component in the point based color bleeding algorithm.  Specifically, we propose the addition of a data representation tuned to volumes,  \emph{light-voxel (or lvoxel)} to address the need to represent participating media to an existing global illumination algorithm which leverages a point cloud representation of a scene.  Over the course of this paper, we will:
+
+\begin{enumerate}
+\item Discuss the surrounding subjects of light, volume rendering and global illumination,
+\item List and describe the seminal and related works,
+\item Describe how our algorithm meets our requirements and
+\item Analize the results of our implementation.
+\end{enumerate}
+
+Our method achieves results comparable to those produced with Monte Carlo ray tracing but with drastically reduced run times, speeding up renders by a factor of 10.  Figure~\ref{fig:compare} clearly illustrates a close comparison of our algorithm and Monte Carlo ray traced results.
 
 \begin{figure}[h!]
     \centering
@@ -143,21 +169,17 @@ The ability to render scenes with realistic lighting is desirable for many enter
     \label{fig:compare}
 \end{figure}
 
-
-
 \chapter{Background}
 \label{background}
 
 The goal of the proposed method is to include volumetric representations into a global illumination algorithm in a fast and coherent way. One of the unique features of participating media is that they must be represented with a more complex data-structure than solid geometric objects which are usually polygonalized in most rendering processes.  Light interacts with the particles of a volume, creating complex radiance patterns (increasing the necessary computational complexity exponentially.) In particular the most fundamental concepts are presented here,  (based off of  \cite{pbrt}).
-
-
 
 %----------------------------------%
 \section{Radiance}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{img/diag/radiance.pdf}
+    \includegraphics[width=80mm]{img/diag/radiance.pdf}
     \captionfonts
     \caption{Evaluation of radiance at a point on an opaque surface.  Only the hemisphere around the surface normal is considered.  Incoming radiance is measured and scaled by its solid angle.}
     \label{fig:radiance}
@@ -174,7 +196,7 @@ Inversely, incoming radiance, or irradiance, is evaluated by the strength of the
 
 \begin{equation}
 \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw.
-\label{irradiance}
+\label{eq:irradiance}
 \end{equation}
 
 $\mathit{L}(\textup{p} \to w)$ represents the radiance leaving point $\textup{p}$ and $\mathit{L}(\textup{p} \leftarrow w)$ represents incoming radiance given a direction $w$.  Note that radiance along a straight path is invariant.  For example:
@@ -186,9 +208,21 @@ L(x \to y) = L(y \to x).
 
 Measuring the incoming radiance at any given point $\textup{p}$ in all directions is the key to the graphics lighting equation, and a crucial element in how a rendered scene looks and feels.
 
+\section{BRDF and the BSRDF}
+
+The \textit{bidirectional reflectance distribution function} (or BRDF) is a function that gives us a formal method of describing the reflected radiance from a surface given an incident radiance from another light source or emissive surface \cite{brdf}.  This simplification helps us with quick evaluations in scenes with simple lighting (such as point light sources) and other direct-lighting techniques.  The BRDF can be generalized into the following equation, based off of Equation \ref{eq:irradiance}.  If the incident direction $w_{i}$ represents the differential cone of incoming directions, the differential radiance at point $\textup{p}$ is represented by:
+
+\begin{equation}
+\textup{d}\mathit{E}(\textup{p}, w_{i}) = \mathit{L}_{i}(\textup{p}, w_{i})\textup{cos}\theta_{i} \textup{d}\mathit{w_{i}}.
+\label{eq:brdf}
+\end{equation}
+
+
+Many materials such as skin, marble and plastic do not simply reflect the incoming light energy, but also transmit it through the surface, a process called \textit{subsurface scattering}.  Given the obvious shortfalls of the BRDF in this instance, the BSSRDF (\textit{bidirectional scattering-surface reflectance distribution function}) takes into account a surface's scatter properties.  This generalized function describes the ratio of "exitant" differential radius from incoming point and direction $\textit{p}_{i}$, $w_{i}$ to an outgoing point and direction $\textit{p}_{i}$, $w_{o}$.  This turns a one-dimensional reflectance equation into a two-dimensional scatter equation, significantly increasing its complexity.
+
 \section{Volume Lighting}
 
-Volumes follow very similar behaviors to opaque surfaces in terms of radiance, except on a particle-level.  Participating media like smoke or fog is made up of particles which cause the scatter (i.e. clouds) and absorption/extintion (i.e. smoke,) behaviors that would be extremely computationally expensive to model and simulate on any scale.  Therefore, such behaviors are modeled in terms of Transmittion, emission, Scatter in and Scatter out like in Figure \ref{fig:vol_scat}.  We are able to identify the probability that light will be absorbed, scattered and/or transmitted through any point in a participating medium by identifying their probability density functions, as described in the following sections. 
+The BSSRDF describes the complexities of light traveling and scattering within complex surfaces similarly to that of volumes.  Volumes follow very similar behaviors to opaque surfaces in terms of radiance, except on a particle-level.  Participating media like smoke or fog is made up of particles which cause the scatter (i.e. clouds) and absorption/extintion (i.e. smoke,) behaviors that would be extremely computationally expensive to model and simulate on any scale.  Therefore, such behaviors are modeled in terms of Transmittion, emission, Scatter in and Scatter out like in Figure \ref{fig:vol_scat}.  We are able to identify the probability that light will be absorbed, scattered and/or transmitted through any point in a participating medium by identifying their probability density functions, as described in the following sections. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{img/diag/vol_scatter.pdf}
@@ -265,7 +299,11 @@ Finally, we can integrate the total radiance scatter based on the normalized pha
 $L_{\textup{ve}}(\textup{p}, w)$ represents the emission coefficient of a volume and is not discussed in this paper.
 
 
+\section{Monte Carlo Integration}
 
+Monte Carlo methods have many applications in estimating complex systems through the use of random numbers and sampling schemes.  One of the most useful technique is Monte Carlo integration, which estimates the integral of an arbitrary function through sampling discrete values defined over a specified domain \cite{aga}.  In graphics, this technique may manifest itself in evaluating incoming radiance over a surface, estimating light scatter, or randomly sampling area lights in order to get soft shadows.
+
+Many of the elements listed above can be (and are) estimated using this technique.  In order to get good results, however, many hundreds of samples may be necessary.  The cost of sampling using this method may still be cost-prohibative, at which point the problem lies in the sample method itself, not how the samples are used or generated.
 
 \chapter{Related Work}
 
@@ -275,15 +313,9 @@ Global illumination is an important problem in computer graphics, that numerous 
 Other closely related work includes attempts at simulating light scatter and absorption properties of participating media through existing photon mapping techniques, which have shown promise in the past.  In \cite{jensen:1998}, Jensen describes a process where photons participate and become stored inside the volume itself for later gathers during volume integration.  While this technique is shown to work, it primarily focuses on caustic effects in volumes and the generated photon map.  Our storage method does not require data to be stored in the volume, but in a separate, more lightweight data-structure better suited for out-of-core rendering.
 
 \section{Volume Rendering}
-This paper is focused on the rendering of scenes which contain volume data.  A number of approaches have been developed in order to render volume data~\cite{levoy88}\cite{Kajiya84}.  Volume data representations often include an efficient multi-resolution data representation~\cite{Westermann94}\cite{Levoy90}.  When dealing with multi-resolution volume octree datastructures, removing occluded nodes from being tested can drastically increase performance \cite{guthe}.  Our algorithm takes advantage of a multi-resolution, view-independant octree datastructure in order to handle a large amount of complex lighting and volume data, skipping material occluded by opaque geometry cached in the data-structure in the form of surfels.
+This paper is focused on the rendering of scenes which contain volume data.  A number of approaches have been developed in order to represent volume data through computer visualizations or renders~\cite{levoy88}\cite{Kajiya84}.  Because of the complexity of volume data (both through data representation and computation,) volume rendering algorithms often implement efficient multi-resolution data representation~\cite{Westermann94}\cite{Levoy90}.  When dealing with multi-resolution volume octree datastructures, removing occluded nodes from being tested can drastically increase performance \cite{guthe}.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=80mm]{img/diag/vol_step.pdf}
-    \captionfonts
-    \caption{Stepping allows for estimation of the integral through the entire volume.  Shadow rays are cast intermittently to estimate the direct lighting contribution. }
-    \label{fig:vol_step}
-\end{figure}
+Like many seminal volume rendering algorithms, our implementation takes advantage of a multi-resolution, view-independant octree datastructure in order to handle a large amount of complex lighting and volume data, skipping material occluded by opaque geometry cached in the data-structure in the form of surfels.
 
 %==============================================================================%
 \chapter{PCB Extension Algorithm}
@@ -390,9 +422,21 @@ Once the changes to the point-cloud data-structure have been made, we are able t
 %------------------------------------------------------------%
 \subsection{Acquiring Scatter-In Contributions}
 \label{scatterin_sec}
-After adding lvoxels to our octree structure and evaluation algorithm, the only modifications necessary for scatter-in are to the volume rendering equation.  
+After adding lvoxels to our octree structure and evaluation algorithm, the only modifications necessary for scatter-in are to the volume rendering equation.  As an overview, volume integration will step through the volume, at each point it will:
 
-Recall that to model lighting for a volume, in-scattering requires integrating over all directions.  Casting Monte Carlo sample rays through the volume and into the scene would be computationally expensive.  Instead, for each sample we send out rays into the point cloud, iterating through a much less dense dataset like in Figure \ref{fig:scatter_in}.  This helps us replace expensive $S(\textup{p, w})$ evaluations with traversals into the octree.  The two main differences between sampling scattered light within a volume and evaluating the irradiance on a surface are 1) the distribution function, which is based on the volume's phase function, and 2) the samples are distributed over a sphere rather than a hemisphere.
+\begin{enumerate}
+\item Update the current transmittance by the scatter and absorbtion terms at the given point
+\item Cast shadow rays to estimate the direct light (and in cases of non-uniform scatter, apply a phase function)
+\item Sample scatter contribution by sending rays out into the point cloud
+\item Add direct illumination contribution and indirect illumination to the current incoming radiance
+\end{enumerate}
+
+Recall that to model lighting for a volume, in-scattering requires integrating over all directions.  Casting Monte Carlo sample rays through the volume and into the scene would be computationally expensive.  Instead, for each sample we send out rays into the point cloud, iterating through a much less dense dataset like in Figure \ref{fig:scatter_in}.
+
+This method helps us replace expensive $S(\textup{p, w})$ evaluations with traversals into the octree.  The two main differences between sampling scattered light within a volume and evaluating the irradiance on a surface are 1) the distribution function, which is based on the volume's phase function, and 2) the samples are distributed over a sphere rather than a hemisphere.
+
+These scatter samples are distributed throughout the volume marching process typically taken while rendering volumes as seen in Figure \ref{fig:vol_step}.  The ray generates a series of sample points through the volume and iterates through, gathering light from direct lighting and indirect sampling as well as updating the ray's transmittance (which identifies how much light passes through the volume from behind.)
+
 
 \begin{figure}[h!]
     \centering
@@ -402,6 +446,14 @@ Recall that to model lighting for a volume, in-scattering requires integrating o
     \label{fig:scatter_in}
 \end{figure}
 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/diag/vol_step.pdf}
+    \captionfonts
+    \caption{Stepping allows for estimation of the integral through the entire volume.  Shadow rays are cast intermittently to estimate the direct lighting contribution. }
+    \label{fig:vol_step}
+\end{figure}
 
 %==============================================================================%
 \chapter{Results}
@@ -528,13 +580,19 @@ Because the color-bleeding effect in PCB focuses primarily on the point-cloud da
 \begin{figure}[h!]
     \centering
     \includegraphics[width=80mm]{img/indirect_box_high.png}
-    \caption{Image exemplifying clear out-scattering from Stanford bunny volume.}
+    \caption{Example of point-based color bleeding without the volume extension algorithm.}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=80mm]{img/two_sphere_indir.png}
-    \caption{Image exemplifying clear out-scattering from Stanford bunny volume.}
+    \caption{Example of a scene almost entirely in shadow, showing indirect lighting in play.}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/sponza.png}
+    \caption{The Sponza Atrium with the Stanford volumetric bunny.  In-/Out-scattering is evident on the volume and on the surrounding atrium walls.}
 \end{figure}
 
 \begin{figure}[h!]
@@ -553,6 +611,18 @@ Because the color-bleeding effect in PCB focuses primarily on the point-cloud da
     \centering
     \includegraphics[width=80mm]{img/one_side_corrected.png}
     \caption{The black occluding geometry in the center stops all but the light to the left to enter below.  In and out scattering on the volume and walls is evident.}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/bunny_glow.png}
+    \caption{Illustrates how a light may act when placed within a hollow volumetric object.  The bunny is shown as slightly brighter, scattering light about the scene (especially underneath it, where there are holes in the volume.)}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{img/face1.png}
+    \caption{Shows how CT scan data can be used to visualize scanned objects like a human face.  Subsurface scattering and transmittance through thin materials is evident.}
 \end{figure}
 
 

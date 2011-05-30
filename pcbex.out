@@ -1,14 +1,18 @@
 \BOOKMARK [0][]{chapter*.2}{List of Tables}{}
 \BOOKMARK [0][]{chapter*.3}{List of Figures}{}
 \BOOKMARK [0][]{chapter.1}{Introduction}{}
+\BOOKMARK [1][]{section.1.1}{Graphics \046 Light}{chapter.1}
+\BOOKMARK [1][]{section.1.2}{Our Contribution}{chapter.1}
 \BOOKMARK [0][]{chapter.2}{Background}{}
 \BOOKMARK [1][]{section.2.1}{Radiance}{chapter.2}
-\BOOKMARK [1][]{section.2.2}{Volume Lighting}{chapter.2}
-\BOOKMARK [2][]{subsection.2.2.1}{Absorption:}{section.2.2}
-\BOOKMARK [2][]{subsection.2.2.2}{Scatter Out:}{section.2.2}
-\BOOKMARK [2][]{subsection.2.2.3}{Transmittance:}{section.2.2}
-\BOOKMARK [2][]{subsection.2.2.4}{Phase Functions}{section.2.2}
-\BOOKMARK [2][]{subsection.2.2.5}{Scatter In}{section.2.2}
+\BOOKMARK [1][]{section.2.2}{BRDF and the BSRDF}{chapter.2}
+\BOOKMARK [1][]{section.2.3}{Volume Lighting}{chapter.2}
+\BOOKMARK [2][]{subsection.2.3.1}{Absorption:}{section.2.3}
+\BOOKMARK [2][]{subsection.2.3.2}{Scatter Out:}{section.2.3}
+\BOOKMARK [2][]{subsection.2.3.3}{Transmittance:}{section.2.3}
+\BOOKMARK [2][]{subsection.2.3.4}{Phase Functions}{section.2.3}
+\BOOKMARK [2][]{subsection.2.3.5}{Scatter In}{section.2.3}
+\BOOKMARK [1][]{section.2.4}{Monte Carlo Integration}{chapter.2}
 \BOOKMARK [0][]{chapter.3}{Related Work}{}
 \BOOKMARK [1][]{section.3.1}{Global Illumination}{chapter.3}
 \BOOKMARK [1][]{section.3.2}{Volume Rendering}{chapter.3}

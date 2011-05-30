@@ -1,24 +1,28 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces A simple Cornell box scene showing simple global illumination.}}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{3}{figure.1.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle.}}{4}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Light scatter properties vary based on the participating media.}}{6}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere.}}{8}{figure.2.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle.}}{5}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Light scatter properties vary based on the participating media.}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere.}}{10}{figure.2.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. }}{12}{figure.3.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created.}}{16}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}}{17}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}}{19}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}}{20}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}}{22}{figure.4.5}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created.}}{17}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}}{18}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}}{20}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}}{21}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}}{23}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. }}{24}{figure.4.6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}}{23}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{25}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{25}{figure.5.3}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}}{25}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{27}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{27}{figure.5.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{33}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{33}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{34}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{34}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{35}{figure.6.5}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Example of point-based color bleeding without the volume extension algorithm.}}{35}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Example of a scene almost entirely in shadow, showing indirect lighting in play.}}{35}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The Sponza Atrium with the Stanford volumetric bunny. In-/Out-scattering is evident on the volume and on the surrounding atrium walls.}}{36}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{36}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{37}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{37}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Illustrates how a light may act when placed within a hollow volumetric object. The bunny is shown as slightly brighter, scattering light about the scene (especially underneath it, where there are holes in the volume.)}}{38}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Shows how CT scan data can be used to visualize scanned objects like a human face. Subsurface scattering and transmittance through thin materials is evident.}}{38}{figure.6.8}

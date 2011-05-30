@@ -18,105 +18,114 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{intro}{{1}{1}{Introduction\relax }{chapter.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{2}{figure.1.1}}
-\newlabel{fig:compare}{{1.1}{2}{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)\relax }{figure.1.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Graphics \& Light}{1}{section.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces A simple Cornell box scene showing simple global illumination.}}{2}{figure.1.1}}
+\newlabel{fig:cornell}{{1.1}{2}{A simple Cornell box scene showing simple global illumination}{figure.1.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Our Contribution}{2}{section.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)}}{3}{figure.1.2}}
+\newlabel{fig:compare}{{1.2}{3}{Comparison of the PCB extension (left) and traditional Monte Carlo results (right.)\relax }{figure.1.2}{}}
 \citation{pbrt}
 \citation{aga}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{background}{{2}{3}{Background\relax }{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Radiance}{3}{section.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle.}}{4}{figure.2.1}}
-\newlabel{fig:radiance}{{2.1}{4}{Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle}{figure.2.1}{}}
-\newlabel{eq:radiance}{{2.1}{4}{Radiance\relax }{equation.2.1.1}{}}
-\newlabel{irradiance}{{2.2}{4}{Radiance\relax }{equation.2.1.2}{}}
-\newlabel{eq:invariance}{{2.3}{5}{Radiance\relax }{equation.2.1.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Volume Lighting}{5}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Absorption:}{5}{subsection.2.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Light scatter properties vary based on the participating media.}}{6}{figure.2.2}}
-\newlabel{fig:vol_scat}{{2.2}{6}{Light scatter properties vary based on the participating media}{figure.2.2}{}}
-\newlabel{siga_eq}{{2.4}{6}{Absorption:\relax }{equation.2.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Scatter Out:}{6}{subsection.2.2.2}}
-\newlabel{sigs_eq}{{2.5}{6}{Scatter Out:\relax }{equation.2.2.5}{}}
+\newlabel{background}{{2}{4}{Background\relax }{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Radiance}{4}{section.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle.}}{5}{figure.2.1}}
+\newlabel{fig:radiance}{{2.1}{5}{Evaluation of radiance at a point on an opaque surface. Only the hemisphere around the surface normal is considered. Incoming radiance is measured and scaled by its solid angle}{figure.2.1}{}}
+\newlabel{eq:radiance}{{2.1}{5}{Radiance\relax }{equation.2.1.1}{}}
+\newlabel{eq:irradiance}{{2.2}{5}{Radiance\relax }{equation.2.1.2}{}}
+\citation{brdf}
+\newlabel{eq:invariance}{{2.3}{6}{Radiance\relax }{equation.2.1.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}BRDF and the BSRDF}{6}{section.2.2}}
+\newlabel{eq:brdf}{{2.4}{6}{BRDF and the BSRDF\relax }{equation.2.2.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Volume Lighting}{7}{section.2.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Light scatter properties vary based on the participating media.}}{7}{figure.2.2}}
+\newlabel{fig:vol_scat}{{2.2}{7}{Light scatter properties vary based on the participating media}{figure.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Absorption:}{8}{subsection.2.3.1}}
+\newlabel{siga_eq}{{2.5}{8}{Absorption:\relax }{equation.2.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Scatter Out:}{8}{subsection.2.3.2}}
+\newlabel{sigs_eq}{{2.6}{8}{Scatter Out:\relax }{equation.2.3.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Transmittance:}{8}{subsection.2.3.3}}
 \citation{cerezo}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Transmittance:}{7}{subsection.2.2.3}}
-\newlabel{sigt_eq}{{2.6}{7}{Transmittance:\relax }{equation.2.2.6}{}}
-\newlabel{transmittion_eq}{{2.7}{7}{Transmittance:\relax }{equation.2.2.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Phase Functions}{7}{subsection.2.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Scatter In}{7}{subsection.2.2.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere.}}{8}{figure.2.3}}
-\newlabel{fig:phase}{{2.3}{8}{Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere}{figure.2.3}{}}
-\newlabel{source_eq}{{2.8}{8}{Scatter In\relax }{equation.2.2.8}{}}
+\newlabel{sigt_eq}{{2.7}{9}{Transmittance:\relax }{equation.2.3.7}{}}
+\newlabel{transmittion_eq}{{2.8}{9}{Transmittance:\relax }{equation.2.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Phase Functions}{9}{subsection.2.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Scatter In}{9}{subsection.2.3.5}}
+\citation{aga}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere.}}{10}{figure.2.3}}
+\newlabel{fig:phase}{{2.3}{10}{Visual representation of a phase function around a scatter point. The area represents the distribution of the scattered light about a sphere}{figure.2.3}{}}
+\newlabel{source_eq}{{2.9}{10}{Scatter In\relax }{equation.2.3.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Monte Carlo Integration}{11}{section.2.4}}
 \citation{Jensen:2009}
 \citation{radiosity}
 \citation{monte_carlo}
 \citation{christensen:2008}
 \citation{christensen:siggraph}
 \citation{jensen:1998}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Related Work}{10}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Related Work}{12}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Global Illumination}{10}{section.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Global Illumination}{12}{section.3.1}}
 \citation{levoy88}
 \citation{Kajiya84}
 \citation{Westermann94}
 \citation{Levoy90}
 \citation{guthe}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Volume Rendering}{11}{section.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. }}{12}{figure.3.1}}
-\newlabel{fig:vol_step}{{3.1}{12}{Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. \relax }{figure.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Volume Rendering}{13}{section.3.2}}
 \citation{tabellion}
 \citation{christensen:2008}
 \citation{christensen:2008}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}PCB Extension Algorithm}{13}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}PCB Extension Algorithm}{14}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{algorithm_sec}{{4}{13}{PCB Extension Algorithm\relax }{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Point Based Color Bleeding}{13}{section.4.1}}
+\newlabel{algorithm_sec}{{4}{14}{PCB Extension Algorithm\relax }{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Point Based Color Bleeding}{14}{section.4.1}}
 \citation{christensen:2008}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Extension Overview}{14}{section.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Sampling the Scene}{15}{section.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Surfel Sampling}{15}{subsection.4.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Extension Overview}{15}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Sampling the Scene}{16}{section.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Surfel Sampling}{16}{subsection.4.3.1}}
 \citation{signotes:2010}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created.}}{16}{figure.4.1}}
-\newlabel{fig:surf_sample}{{4.1}{16}{Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created}{figure.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}LVoxel Sampling}{16}{subsection.4.3.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Gathering Light}{17}{section.4.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}}{17}{figure.4.2}}
-\newlabel{fig:orthonormal}{{4.2}{17}{Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance}{figure.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Point-Cloud Ray Casting}{17}{subsection.4.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Hemisphere Sampling}{18}{subsection.4.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Integrating Volume Data}{18}{section.4.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}}{19}{figure.4.3}}
-\newlabel{fig:gather}{{4.3}{19}{Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)\relax }{figure.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Data-Structure Modifications}{19}{subsection.4.5.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Octree Traversal}{20}{subsection.4.5.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}}{20}{figure.4.4}}
-\newlabel{fig:testing}{{4.4}{20}{Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded}{figure.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Acquiring Scatter-Out Contributions}{21}{subsection.4.5.3}}
-\newlabel{scatterout_sec}{{4.5.3}{21}{Acquiring Scatter-Out Contributions\relax }{subsection.4.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Acquiring Scatter-In Contributions}{21}{subsection.4.5.4}}
-\newlabel{scatterin_sec}{{4.5.4}{21}{Acquiring Scatter-In Contributions\relax }{subsection.4.5.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}}{22}{figure.4.5}}
-\newlabel{fig:scatter_in}{{4.5}{22}{Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point}{figure.4.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{23}{chapter.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created.}}{17}{figure.4.1}}
+\newlabel{fig:surf_sample}{{4.1}{17}{Rays are cast from a special camera during the surfel sample phase. Each time the ray intersects with geometry a surfel is created}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}LVoxel Sampling}{17}{subsection.4.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Gathering Light}{18}{section.4.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance.}}{18}{figure.4.2}}
+\newlabel{fig:orthonormal}{{4.2}{18}{Basis vectors are generated based on the surface normal in order to transform samples on a hemisphere to test surrounding radiance}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Point-Cloud Ray Casting}{18}{subsection.4.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Hemisphere Sampling}{19}{subsection.4.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Integrating Volume Data}{19}{section.4.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)}}{20}{figure.4.3}}
+\newlabel{fig:gather}{{4.3}{20}{Gather rays are cast into the point-cloud, returning the estimated radiance coming from a given direction. The radiance is then scaled based on the solid angle of that sample cast (based on sample count.)\relax }{figure.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Data-Structure Modifications}{20}{subsection.4.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Octree Traversal}{21}{subsection.4.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded.}}{21}{figure.4.4}}
+\newlabel{fig:testing}{{4.4}{21}{Illustrates the octree traversal algorithm testing efficiency. Lighter shades represent less tests, while darker shades represents the most. Closer objects evaluate faster, and all data in the point-cloud behind them are occluded}{figure.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Acquiring Scatter-Out Contributions}{22}{subsection.4.5.3}}
+\newlabel{scatterout_sec}{{4.5.3}{22}{Acquiring Scatter-Out Contributions\relax }{subsection.4.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Acquiring Scatter-In Contributions}{22}{subsection.4.5.4}}
+\newlabel{scatterin_sec}{{4.5.4}{22}{Acquiring Scatter-In Contributions\relax }{subsection.4.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point.}}{23}{figure.4.5}}
+\newlabel{fig:scatter_in}{{4.5}{23}{Sample rays are cast during volume traversal, allowing for decent estimates of lighting contribution at each point}{figure.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. }}{24}{figure.4.6}}
+\newlabel{fig:vol_step}{{4.6}{24}{Stepping allows for estimation of the integral through the entire volume. Shadow rays are cast intermittently to estimate the direct lighting contribution. \relax }{figure.4.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{25}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}}{23}{figure.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Environment}{24}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Test Scene}{24}{section.5.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{25}{figure.5.2}}
-\newlabel{fig:compare_close}{{5.2}{25}{Zoomed image showing PCB extension (left) and Monte Carlo (right.)\relax }{figure.5.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{25}{figure.5.3}}
-\newlabel{fig:compare_trad}{{5.3}{25}{Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method}{figure.5.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Data Comparison}{25}{section.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Analysis}{25}{section.5.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Memory}{26}{subsection.5.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Speed}{26}{subsection.5.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A test scene showing a light's interaction with a volume changing depending on the direction and position of the light.}}{25}{figure.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Environment}{26}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Test Scene}{26}{section.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Zoomed image showing PCB extension (left) and Monte Carlo (right.)}}{27}{figure.5.2}}
+\newlabel{fig:compare_close}{{5.2}{27}{Zoomed image showing PCB extension (left) and Monte Carlo (right.)\relax }{figure.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method.}}{27}{figure.5.3}}
+\newlabel{fig:compare_trad}{{5.3}{27}{Zoomed image showing traditional PCB (left) and PCB with extension (right.) Note the visible color bleeding with our method}{figure.5.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Data Comparison}{27}{section.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Analysis}{27}{section.5.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Memory}{28}{subsection.5.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Speed}{28}{subsection.5.4.2}}
 \citation{christensen:2008}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Conclusion}{27}{section.5.5}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Future Work}{29}{chapter.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Conclusion}{29}{section.5.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Future Work}{31}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibdata{pcbex}
@@ -128,7 +137,7 @@
 \bibcite{Jensen:2009}{6}
 \bibcite{jensen:1998}{7}
 \bibcite{Kajiya84}{8}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{31}{chapter*.5}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{33}{chapter*.5}}
 \bibcite{levoy88}{9}
 \bibcite{Levoy90}{10}
 \bibcite{pbrt}{11}
@@ -138,8 +147,11 @@
 \bibcite{signotes:2010}{15}
 \bibcite{monte_carlo}{16}
 \bibstyle{plain}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{33}{figure.6.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{33}{figure.6.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{34}{figure.6.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{34}{figure.6.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{35}{figure.6.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Example of point-based color bleeding without the volume extension algorithm.}}{35}{figure.6.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Example of a scene almost entirely in shadow, showing indirect lighting in play.}}{35}{figure.6.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces The Sponza Atrium with the Stanford volumetric bunny. In-/Out-scattering is evident on the volume and on the surrounding atrium walls.}}{36}{figure.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Image exemplifying clear out-scattering from Stanford bunny volume.}}{36}{figure.6.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Image exemplifying clear color bleeding next to the red wall in the bunny's shadow and correct transmittance through the bunny's hollow form.}}{37}{figure.6.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces The black occluding geometry in the center stops all but the light to the left to enter below. In and out scattering on the volume and walls is evident.}}{37}{figure.6.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Illustrates how a light may act when placed within a hollow volumetric object. The bunny is shown as slightly brighter, scattering light about the scene (especially underneath it, where there are holes in the volume.)}}{38}{figure.6.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Shows how CT scan data can be used to visualize scanned objects like a human face. Subsurface scattering and transmittance through thin materials is evident.}}{38}{figure.6.8}}
