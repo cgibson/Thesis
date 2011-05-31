@@ -170,9 +170,10 @@ The effort to accurately evaluate the radiometric quantities within a virtual sc
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=80mm]{img/indirect_box_high.png}
+    \includegraphics[width=70mm]{img/boxes_noindirect.png}
+    \includegraphics[width=70mm]{img/indirect_box_high.png}
     \captionfonts
-    \caption{A simple Cornell box scene showing simple global illumination.}
+    \caption{A simple Cornell box scene with direct lighting only (left) and the same scene showing single-bounce light interaction through a global illumination algorithm (right.)}
     \label{fig:cornell}
 \end{figure}
 
@@ -618,6 +619,7 @@ The following test cases were run on a commodity-class Intel i5 3 GHz machine wi
 The scene tested involved a 60,000 triangle Sponza Atrium including only vertex and normal information for simplicity.  The CT scan data of the Stanford Bunny was used in order to test scatter in/out contributions by complex participating media.
 Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional Monte Carlo scattering.  At first glance these two images are very similar, however there are a number of small artifacts present in the image rendered with the point cloud representation, and the indirect lighting is slightly darker overall.  A closer look at the two results exemplifies the great similarity between the two images, as shown in Figure~\ref{fig:compare_close}.
 
+Every test rendered a 640x480 image with 128 light samples per ray.
 
 %------------------------------------------------------------%
 \section{Data Comparison}
@@ -629,10 +631,11 @@ Figure~\ref{fig:compare} shows the bunny and Sponza Atrium showing traditional M
   Scene & Render Time (s) & Image Delta & Memory Overhead \\
   \hline                  
   Monte Carlo w/o PCB & 3351 sec & NONE & NONE \\
-  Traditional PCB & ???? sec & 11.0\% & 390 Mb (4.0\%) \\
-  Extended PCB & 0397 sec & 4.8\% & 395 Mb (4.1\%)  \\
+  Traditional PCB & 348 sec & 11.0\% & 390 Mb (4.0\%) \\
+  Extended PCB & 397 sec & 4.8\% & 395 Mb (4.1\%)  \\
   \hline  
 \end{tabular}
+\label{Data Comparison}
 \end{center}
 
 
