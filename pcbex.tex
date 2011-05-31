@@ -333,7 +333,7 @@ This normalization makes sure that the phase function accurately defines the pro
     \includegraphics[width=80mm]{img/inscat_comp.png}
     \captionfonts
     \caption{Comparison between a volume with (right) and without (left) in-scattering contribution.}
-    \label{fig:inscat}
+    \label{fig:inscat_comp}
 \end{figure}
 
 Finally, assuming conditions are met for Equation \ref{eq:source}, we can integrate the total radiance scatter based on the normalized phase function $phase(w \to w')$ over all directions $w'$ to get our total scatter in a direction $w$:
@@ -354,17 +354,17 @@ Many of the elements listed above can be (and are) estimated using this techniqu
 \chapter{Related Work}
 
 \section{Global Illumination}
-Global illumination is an important problem in computer graphics, that numerous successful algorithms involving photon mapping \cite{Jensen:2009}, radiosity \cite{radiosity} and Monte Carlo sampling techniques \cite{monte_carlo} try to mitigate or overcome in a reasonable time-frame.  The most closely related methods are those that sample the scene and use a two phase approach to model direct illumination and indirect illumination.
+Global illumination is an important field of study in computer graphics that numerous successful algorithms including photon mapping \cite{Jensen:2009}, radiosity \cite{radiosity} and Monte Carlo sampling techniques \cite{monte_carlo} try to mitigate or overcome in a reasonable time-frame.  Most commonly implemented methods are those that sample the scene and use a two phase approach (sample and gather) to model direct illumination and indirect illumination.  The gather stage included in most algorithms is built to be more efficient or lower resolution than the scene being rendered, which helps cut down severely on the lighting computation cost.
 
 \subsection{PCB}
-Of particular relevance to this work is that done in Point-Based Approximate Color Bleeding developed by Per Christensen \cite{christensen:2008}.  This method thoroughly samples all of the geometry in a scene and creates a point cloud representation of the direct lighting at each point., used to evaluate the incoming radiance surrounding a given point on a surface.
+Of particular relevance to this field is the work done in Point-Based Approximate Color Bleeding developed by Per Christensen \cite{christensen:2008}.  With this method, a subset of the scene geometry is thoroughly sampled, creating a point cloud representation of the direct lighting at each sample, which is then used to evaluate the incoming radiance surrounding a given point on a surface.
 
-As recently as 2010, discussion of approximating volume scattering using point clouds was mentioned in \cite{christensen:siggraph}, but did not offer how \textit{back-to-front or front-to-back rasterization} would be achieved with the current rasterization method (handled by our octree traversal method) or how scatter, extinction and absorption would be managed within the three-dimensional volume representation inside the point cloud.
+As recently as 2010, discussion of approximating volume scattering using point clouds has been discussed \cite{christensen:siggraph}, however no specifics have been offered to how \textit{back-to-front or front-to-back rasterization} would be achieved with the current rasterization method (handled by our octree traversal method) or how scatter, extinction and absorption would be managed within the three-dimensional volume representation inside the point cloud.
 
 \subsection{Photon Mapping}
-Other closely related work includes attempts at simulating light scatter and absorption properties of participating media through existing photon mapping techniques, which have shown promise in the past.  In \cite{jensen:1998}, Jensen describes a process where photons participate and become stored inside the volume itself for later gathers during volume integration.
+Another closely related area of study includes photon mapping, a method that attempts to simulate light scatter and absorption properties of participating media, which has shown promise in the past.  In \cite{jensen:1998}, Jensen describes a process where photons participate and become stored inside the volume itself for later gathers during volume integration.  These photons are able to simulate scatter, absorption and passing through material (both geometric and volumetric.)
 
-While this technique is shown to work, it primarily focuses on caustic effects in volumes and the generated photon map.  Our storage method does not require data to be stored in the volume, but in a separate, more lightweight data-structure better suited for out-of-core rendering.
+While this technique is shown to work, it primarily focuses on caustic effects in volumes and the generated photon map.  Our storage method does not require data to be stored in the volume itself (as would be the case in photon mapping,) but in a separate, more lightweight data-structure better suited for out-of-core rendering.
 
 \begin{figure}[h!]
     \centering
@@ -377,7 +377,7 @@ While this technique is shown to work, it primarily focuses on caustic effects i
 This paper is focused on the lighting and rendering of scenes which contain volume data.  A number of approaches have been developed in order to represent volume data through computer visualizations or renders~\cite{levoy88}\cite{Kajiya84}.
 
 \subsection{Seminal Work}
-Some of the most basic volume rendering techniques are described in \cite{levoy88}.  Before the time of the paper's creation, many of the accepted methods of volume visualization involved generating polygonal representations of the volumes by sampling the opacities and comparing them to a selected isovalue to determine whether or not the voxel is designated as "inside" the volume or "outside."  A polygonal mesh is then constructed based on this differentiating boundary.  Unfortunately, the algorithm defined above fell prey to spurious surfaces and holes caused by a limited sample range (since the polygonal method suffered from having to make a binary decision.  Either a ray intersected the volume or it did not.)
+Some of the first proposed volume rendering and shading techniques are described in \cite{levoy88}.  Before the time of the paper's creation, many of the accepted methods of volume visualization involved generating polygonal representations of the volumes by sampling the opacities and comparing them to a selected isovalue to determine whether or not the voxel is designated as "inside" the volume or "outside."  A polygonal mesh is then constructed based on this differentiating boundary.  Unfortunately, the algorithm defined above fell prey to spurious surfaces and holes caused by a limited sample range (since the polygonal method suffered from having to make a binary decision.  Either a ray intersected the volume or it did not.)
 
 In response to this, Levoy proposed a process of testing against two arrays (one with opacities and one with colors) that represent the voxel data-structure.  If a voxel was intersected, the algorithm would interpolate its color and opacity to those surrounding it based on the nature of the intersection.  This allowed for transparent volumes, and also allowed for opacities to be separated from voxel color, allowing for some important pre-processing to be done on the data such as volume classification, where the opacity of a volume determined on an iso range.  This in turn allowed the renderer to focus attention to specific densities in scans (useful for medical imaging.)
 
@@ -394,9 +394,9 @@ Because of the complexity of volume data (both through data representation and c
 Our algorithm implements a sparse octree data-structure for both the volumes in the scene and the point-cloud used for the indirect lighting equation.
 
 \subsection{Occlusion Techniques}
-Another method involves estimating what nodes in a volume octree are definitely occluded based on surrounding node densities.  \cite{guthe} describes building a two-dimensional occlusion map and filling it in over a series of iterations, removing occluded nodes from being tested each iteration.  This method has been shown to drastically increase rendering performance by removing as much as 30\% per iteration.
+Another method to accelerate volume rendering involves estimating what nodes in a volume octree are definitely occluded based on surrounding node densities.  \cite{guthe} describes building a two-dimensional occlusion map and filling it in over a series of iterations, removing occluded nodes from being tested each iteration.  This method has been shown to drastically increase rendering performance by removing as much as 30\% per iteration.
 
-Like many seminal volume rendering algorithms, our implementation takes advantage of a multi-resolution, view-independent octree data-structure in order to handle a large amount of complex lighting and volume data, skipping material occluded by opaque geometry cached in the data-structure in the form of surfels.
+Based on many seminal volume rendering algorithms, our implementation takes advantage of a multi-resolution, view-independent octree data-structure in order to handle a large amount of complex lighting and volume data.  We then use this very same octree representation to evaluate occluded regions, skipping scene data occluded by opaque geometry cached in the data-structure in the form of surfels.
 
 \subsection{Volume Lighting}
 As our computational power has improved, we have been able to tackle problems in lighting that we could not have overcome in the past.  \cite{kniss:03} builds upon Levoy's volume rendering method by implementing shadowing by sending shadow rays toward each light for each sample within the volume in order to estimate the amount of extinction between the point and the light.  Indirect lighting is also employed (though only forward-scattering due to the incremental nature of their algorithm.)
@@ -490,6 +490,8 @@ In order to approximate the integral of incoming light at point $p$ on the surfa
 \end{figure}
 
 It is also necessary to consider the sampling method just as important as the evaluation of those samples.  Generating purely random rays leads to clumping and high levels of noise, so a stratified sampling method was chosen, subdividing the sample space equally into a two-dimensional grid and jittering within the grid.  This helps us avoid clumping issues, and guarantees an even distribution over the entire domain.  In order to map this two dimensional domain over our hemisphere, we chose the following mapping code:
+
+% (based off of a cosine weighted hemisphere sampling method in Physically Based Ray Tracing \cite{pbrt})
 
 \begin{lstlisting}
 Vec3 sampleToHCoord(float us, float ts) {

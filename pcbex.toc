@@ -19,11 +19,11 @@
 \contentsline {section}{\numberline {3.1}Global Illumination}{13}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}PCB}{13}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Photon Mapping}{14}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Volume Rendering}{14}{section.3.2}
+\contentsline {section}{\numberline {3.2}Volume Rendering}{15}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Seminal Work}{15}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Multi-Resolution Volumes}{16}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}Multi-Resolution Volumes}{17}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Occlusion Techniques}{17}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Volume Lighting}{17}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Volume Lighting}{18}{subsection.3.2.4}
 \contentsline {chapter}{\numberline {4}PCB Extension Algorithm}{19}{chapter.4}
 \contentsline {section}{\numberline {4.1}Point Based Color Bleeding}{19}{section.4.1}
 \contentsline {section}{\numberline {4.2}Extension Overview}{20}{section.4.2}
