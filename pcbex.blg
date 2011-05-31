@@ -9,45 +9,45 @@ Warning--empty booktitle in christensen:siggraph
 Warning--empty journal in guthe
 Warning--empty journal in tabellion
 Warning--empty journal in signotes:2010
-You've used 16 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            590 strings with 5879 characters,
-and the built_in function-call counts, 4503 in all, are:
-= -- 433
-> -- 169
+            603 strings with 6273 characters,
+and the built_in function-call counts, 5373 in all, are:
+= -- 512
+> -- 218
 < -- 3
-+ -- 72
-- -- 52
-* -- 247
-:= -- 754
-add.period$ -- 48
-call.type$ -- 16
-change.case$ -- 71
++ -- 92
+- -- 68
+* -- 301
+:= -- 903
+add.period$ -- 56
+call.type$ -- 19
+change.case$ -- 87
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 194
-empty$ -- 400
-format.name$ -- 52
-if$ -- 962
+cite$ -- 25
+duplicate$ -- 224
+empty$ -- 470
+format.name$ -- 68
+if$ -- 1143
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 18
-newline$ -- 81
-num.names$ -- 32
-pop$ -- 102
+int.to.str$ -- 19
+missing$ -- 21
+newline$ -- 95
+num.names$ -- 38
+pop$ -- 125
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 72
 quote$ -- 0
-skip$ -- 139
+skip$ -- 162
 stack$ -- 0
-substring$ -- 239
-swap$ -- 30
+substring$ -- 276
+swap$ -- 33
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
+type$ -- 66
 warning$ -- 6
-while$ -- 43
-width$ -- 18
-write$ -- 166
+while$ -- 50
+width$ -- 21
+write$ -- 196
 (There were 7 warnings)

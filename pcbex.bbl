@@ -44,6 +44,12 @@ Henrik~Wann Jensen and Per~H. Christensen.
 James~T. Kajiya and Brian P.~Von Herzen.
 \newblock Ray tracing volume densities, 1984.
 
+\bibitem{kniss:03}
+Joe Kniss, Charles Hansen, Peter Shirley, and Allen Mcpherson.
+\newblock A model for volume lighting and modeling.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  9:150--162, 2003.
+
 \bibitem{levoy88}
 Marc Levoy.
 \newblock Display of surfaces from volume data, 1988.
@@ -69,6 +75,11 @@ Eric Tabellion and Arnauld Lamorlette.
   films.
 \newblock 23:469--476, 2004.
 
+\bibitem{verth:2008}
+James~M. Van~Verth and Lars~M. Bishop.
+\newblock {\em Essential Mathematics for Games and Interactive Applications}.
+\newblock Morgan Kaufmann, Burlington, MA, USA, 2008.
+
 \bibitem{Westermann94}
 Rüdiger Westermann.
 \newblock A multiresolution framework for volume rendering.
@@ -84,5 +95,9 @@ Magnus Wrenninge and Nafees Bin~Zafar.
 R~Xu and S.N Pattanaik.
 \newblock {\em A Novel Monte Carlo Noise Reduction Operator}, volume~25.
 \newblock Computer Graphics and Applications, IEEE, 2005.
+
+\bibitem{zhang}
+Caixia Zhang and et~al.
+\newblock light propagation for mixed polygonal and volumetric data, 2005.
 
 \end{thebibliography}
