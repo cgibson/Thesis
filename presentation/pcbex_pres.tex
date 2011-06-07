@@ -1,5 +1,5 @@
-\documentclass[10pt,handout,compress,professionalfont]{beamer}
-%\documentclass[10pt,compress,professionalfont]{beamer}
+%\documentclass[10pt,handout,compress,professionalfont]{beamer}
+\documentclass[10pt,compress,professionalfont]{beamer}
 
 
 
@@ -77,6 +77,39 @@
         \end{column}
         \begin{column}{0.35\textwidth}
                 \includegraphics[width=\textwidth]{../img/external/spanish}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+\subsection{Volume Rendering}
+%%--------------------------------------------  BACKGROUND: GLOBAL ILLIMUNATION
+\begin{frame}{Volume Rendering}
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            {\bf Volumes} \textit{(or participating media)} represent:\\
+            \begin{itemize}
+                \item Fog
+                \item Smoke
+                \item Water
+                \item Clouds
+                \item Other Mediums...
+            \end{itemize}
+            \vspace{4mm}
+            Better for visualizing three-dimensional datasets\\
+            \vspace{4mm}
+            Important to simulate and light properly for film, entertainment \& medical uses\\
+            \vspace{4mm}
+            Very computationally expensive to light properly \\
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \includegraphics[width=\textwidth]{../img/external/skull}\\
+            {\centering\scriptsize Skull visualized via 3D dataset\\}
         \end{column}
     \end{columns}
 
@@ -408,13 +441,30 @@
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
 \begin{frame}{Related Works: Global Illumination}
 
-    Field of study in computer graphics.
 
-    Photon Mapping.
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
 
-    Radiosity.
+            Heavy field of research in computer graphics.\\
+            \vspace{8mm}
+            Involves many priminent technologies and algorithms:\\
+            \vspace{2mm}
+            \begin{itemize}
+                \item Photon Mapping\\
+                \vspace{2mm}
 
-    Monte Carlo Techniques.
+                \item Radiometry/Radiosity\\
+                \vspace{2mm}
+
+                \item Precomuted Light Transport\\
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \includegraphics[width=\textwidth]{../img/external/shrek}\\
+            {\centering\scriptsize Complex scene with \& without global illumination\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -587,7 +637,7 @@
     Sampling "camera" is behind normal camera with wider field of view\\
     \vspace{8mm}
 
-    Surfels are oriented at the intersections aligned along the surface normal
+    \textit{Surfels} are oriented at the intersections aligned along the surface normal
 
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -645,8 +695,6 @@
             \vspace{-4mm}
         \end{column}
     \end{columns}
-
-    \centering
     
 
 \end{frame}
@@ -658,8 +706,75 @@
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Integrating Volume Data}
 
-    \centering
-    \includegraphics[height=70mm]{../img/testing.png}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    Samples are taken at discrete steps across the volume domain\\
+    \vspace{8mm}
+
+    Scatter/Absorbtion/Lighting factors are averaged within each step\\
+    \vspace{8mm}
+
+    \textit{Lvoxels} (spheres) instead of \textit{surfels}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/diag/vol_step.pdf}\\
+            \vspace{-4mm}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%--------------------------------------------------------------  PCB EXTENSION
+\begin{frame}{Integrating Volume Data - Scatter Out}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    Gather stage remains same, no changes necessary\\
+    \vspace{8mm}
+
+    Octree must be traversed from back-to-front in order to integrate properly\\
+    \vspace{8mm}
+
+    Must keep track of transmittance during traversal
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/compare_trad_corrected}\\
+            \vspace{2mm}
+            \includegraphics[width=\textwidth]{../img/testing}\\
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%--------------------------------------------------------------  PCB EXTENSION
+\begin{frame}{Integrating Volume Data - Scatter In}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            Modify integration code (normal volume rendering)\\
+            \vspace{8mm}
+
+            Add spherical sampling at each volume step\\
+            \vspace{8mm}
+
+            For increased performance, guarantee full distribution across multiple steps, not at each step
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/diag/scatter_in.pdf}\\
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -667,11 +782,55 @@
 
 
 \section{Results}
+\subsection{Evaluation}
+%%--------------------------------------------------------------------  RESULTS
+\begin{frame}{Results - Environment}
+
+    Test scene involved:
+    \begin{itemize}
+        \item 60,000 triangle Sponza Atrium Model\\
+        \vspace{2mm}
+        \item Stanford Bunny \textit{(Volume Data)}
+    \end{itemize}
+    \vspace{10mm}
+    {\centering
+    \includegraphics[width=80mm]{../img/sponza_vis}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/sponza}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/compare}\\
+    }
+
+\end{frame}
+
+
+
+
 %%--------------------------------------------------------------------  RESULTS
 \begin{frame}{Results}
 
     \begin{center}
-    \setlength{\tabcolsep}{5pt}
+    \setlength{\tabcolsep}{2pt}
     \begin{tabular}{ | l | c | c | c | }
       \hline                       
       Scene & Render Time (s) & Image Delta & Memory Overhead \\
@@ -683,12 +842,32 @@
     \end{tabular}
     \end{center}
 
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            {\centering
+            \includegraphics[width=50mm]{../img/compare_trad_corrected}\\
+            {\centering\scriptsize PBC vs PBCEX\\}
+            }
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            {\centering
+            \includegraphics[width=50mm]{../img/compare1_corrected}\\
+            {\centering\scriptsize Monte Carlo vs PBCEX\\}
+            }
+        \end{column}
+    \end{columns}
+
+
 \end{frame}
 
 
 
 
 \section{Future Work}
+\subsection{Works}
 %%--------------------------------------------------------------------  RESULTS
 \begin{frame}{Future Work}
 
@@ -706,10 +885,119 @@
 
 
 \section{Conclusion}
+\subsection{Final Remarks}
 %%-----------------------------------------------------------------  CONCLUSION
 \begin{frame}{Conclusion}
 
-    Oh yea!
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            Modifications can be made to PCB to incorporate volume light contributions\\
+            \vspace{8mm}
+
+            Even simple implementations show great improvements in performance, nearly ten times faster than traditional Monte carlo\\
+            \vspace{8mm}
+
+            Image quality is comparable to Monte Carlo results
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/compare}\\
+            {\centering\scriptsize PBCEX \textit{(left)} vs Monte Carlo \textit{(right)} \\}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/bunny_spot/spot_front}\\
+            \includegraphics[width=\textwidth]{../img/bunny_spot/spot_behind}\\
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/bunny_spot/spot_left}\\
+            \includegraphics[width=\textwidth]{../img/bunny_spot/spot_right}\\
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=100mm]{../img/face1}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=100mm]{../img/sphere_skull}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/bunny_glow}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/ketchup_good_corrected}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/two_sphere_indir}\\
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/one_side_corrected}\\
+    }
 
 \end{frame}
 
