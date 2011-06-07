@@ -1,4 +1,5 @@
-\documentclass[compress,professionalfont]{beamer}
+\documentclass[10pt,handout,compress,professionalfont]{beamer}
+%\documentclass[10pt,compress,professionalfont]{beamer}
 
 
 
@@ -68,11 +69,14 @@
 
     \begin{columns}
         \begin{column}{0.65\textwidth}
-            Definition of graphics\\
-            Graphics and light\\
+            {\bf Rendering} is the process of producing 2D images from a 3D scene description\\
+            \vspace{8mm}
+            At its core, all of {\bf computer graphics} is the visualization of how light interacts in these scenes\\
+            \vspace{8mm}
+            Modelling physically correct light interactions can get extremely computationally expensive\\
         \end{column}
         \begin{column}{0.35\textwidth}
-            \includegraphics[width=\textwidth]{../img/boxes_noindirect}
+                \includegraphics[width=\textwidth]{../img/external/spanish}
         \end{column}
     \end{columns}
 
@@ -87,17 +91,18 @@
 
     \begin{columns}
         \begin{column}{0.65\textwidth}
-            Definition of global illumination\\
-            Graphics and Light\\
+            {\bf Global Illumination} represents the set of algorithms that estimate complex lighting systems\\
+            \vspace{8mm}
+            The results lead to richer, more realistic images\\
 
         \end{column}
         \begin{column}{0.35\textwidth}
-            %%\rput[lb](0,0){\includegraphics[width=\textwidth]{../img/boxes_noindirect}}
-            %%\rput[lt](0,0){\includegraphics[width=\textwidth]{../img/indirect_box_high}}
-            \vspace{0mm}
-            \includegraphics[width=\textwidth]{../img/boxes_noindirect}
+            \vspace{-8mm}
+            \includegraphics[width=\textwidth]{../img/boxes_noindirect}\\
+            {\centering\scriptsize Direct Lighting\\}
             \vspace{2mm}
-            \includegraphics[width=\textwidth]{../img/boxes_noindirect}
+            \includegraphics[width=\textwidth]{../img/indirect_box_high}\\
+            {\centering\scriptsize Direct Lighting \& Global Illumination\\}
         \end{column}
     \end{columns}
 
@@ -108,33 +113,70 @@
 
 \subsection{Point-Based Color Bleeding}
 %%------------------------------------------------  BACKGROUND: VOLUME LIGHTING
-\begin{frame}{Point-Based Color Bleeding}
+\begin{frame}{Point-Based Color Bleeding (PCB)}
 
-Cheap, accurate global illumination effects using color bleeding
-Utilizes direct light point cloud representation of scene
+
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            Cheap, accurate global illumination effects using color bleeding\\
+            \vspace{8mm}
+            Utilizes direct light point cloud representation of scene's direct lighting\\
+            \vspace{8mm}
+            Already used heavily in production due to its performance advantages
+
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/pcb}\\
+            {\centering\scriptsize Surfels in PCB\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
 
 
 
-\subsection{Problem Statement}
+\subsection{Motivation}
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
-\begin{frame}{Problem Statement}
+\begin{frame}{Motivation}
 
-Most GA algorithms do not include volume contributions
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            {\centering \includegraphics[width=\textwidth]{../img/bunny_spot_sad}\\}
 
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            Complex volume lighting algorithms are computationally expensive and complex\\
+            \vspace{8mm}
+            Most GA algorithms do not include volume contributions\\
+            
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
 
 
-\subsection{Our Contribution}
+\subsection{Goals}
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
-\begin{frame}{Our Contribution}
+\begin{frame}{Goals}
 
-Modification to PCB to allow GA effects in scenes with volumes
-Allows for render speedups of a factor of ten.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            \vspace{-4mm}
+            \begin{itemize}
+                \item Modify existing PCB in order to include volumetric lighting\\ \vspace{2mm}
+                \item Accurately model scatter, absorption and scatter properties\\ \vspace{2mm}
+                \item Modify volume integration algorithm to add scatter-in effect\\ \vspace{2mm}
+                \item Return comparable results with shorter overall runtimes
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/bunny_glow}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -148,62 +190,42 @@ Allows for render speedups of a factor of ten.
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Flux and Radiance}
 
-    \begin{block}{Flux}
-        The measure of total light emitted. 
-    \end{block}  
+    {\bf Flux} is the measure of total light emitted \textit{(Watts)}
 
-    \begin{block}{Radiance}
-        \[
-        \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp}.
-        \]
+    \begin{varblock}{Radiance \& Radiance Invariance}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                    \[
+                    \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}\textup{cos}\theta}
+                    \]
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                    \[
+                        L(x \to y) = L(y \to x)
+                    \]
+            \end{column}
+        \end{columns}
+    \end{varblock}
+
+    \begin{varblock}{Irradiance}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                    \[
+                    E = \frac{d\Phi}{dA}
+                    \]
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                    \[
+                        \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw
+                    \]
+            \end{column}
+        \end{columns}
+    \end{varblock}
+
 
         % NOTE: Flux density per unit area, per unit solid angle
         % NOTE: dA is the projection of dA on a plane perpendicular to w
         % NOTE: radiance is incoming light power
-
-    \end{block}
-
-\end{frame}
-
-
-
-
-%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Flux and Radiance}
-
-    
-
-    \begin{block}{Radiance Invariance}
-        \[
-            L(x \to y) = L(y \to x).
-        \]
-    \end{block}
-
-\end{frame}
-
-
-
-
-%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Irradiance}
-
-    \begin{block}{Irradiance}
-        Measure of {\em emitted} light
-        \[
-            E = \frac{d\Phi}{dA}
-        \]
-
-        %NOTE: Flux density per area
-        %NOTE: Counts as "emitted radiance"
-    \end{block}
-
-    Consider irradiance due to surrounding radiance...
-
-    \begin{block}{Irradiance}
-        \[
-            \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw.
-        \]
-    \end{block}
 
 \end{frame}
 
@@ -224,46 +246,36 @@ Allows for render speedups of a factor of ten.
 
 \subsection{BRDF}
 %%-----------------------------------------------------------  BACKGROUND: BRDF
-\begin{frame}{BRDF}
+\begin{frame}{BRDF and BSRDF}
 
-    \begin{center}
-        {\bf B}idirectional {\bf R}eflectance {\bf D}istribution {\bf F}unction
-    \end{center}
 
-    Gives us a formalism for describing the reflection from a surface
+    \begin{block}{BRDF}
+        \begin{center}
+            {\bf B}idirectional {\bf R}eflectance {\bf D}istribution {\bf F}unction
 
-    Helps evaluate irradiance leaving the surface towards the viewer.
+            \vspace{3mm}
 
-    Recall:
+            Gives us a formalism for describing the reflection from a surface
+        \end{center}
 
-    \begin{block}{Differential Irradiance}
         \[
             \mathit{dE}(\textup{p}, w_i) = \int\mathit{L_i}(\textup{p} \leftarrow w_i)\textup{cos}\theta_i dw_i.
         \]
     \end{block}
     
+    \begin{block}{BSRDF}
+        \begin{center}
+            {\bf B}idirectional {\bf S}cattering-surface {\bf R}eflectance {\bf D}istribution {\bf F}unction
+
+            \vspace{3mm}
+
+            Describes complex behavior of light within surface
+
+            (\emph{subsurface scattering}.)
+        \end{center}
+    \end{block}
 
 \end{frame}
-
-
-
-
-\subsection{BSRDF}
-%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{BSRDF}
-
-    \begin{center}
-        {\bf B}idirectional {\bf S}cattering-surface {\bf R}eflectance {\bf D}istribution {\bf F}unction
-    \end{center}
-
-    Describes complex behavior of light within surface (\emph{subsurface scattering}.)
-
-    Describes ratio of exitant light based on incoming light and outgoing direction.
-
-    Exponentially more complex.
-
-\end{frame}
-
 
 
 
@@ -284,17 +296,29 @@ Allows for render speedups of a factor of ten.
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Volume Lighting}
 
-    \begin{block}{Absorption}
-        \[
-            e^{-\int_{0}^{d}\sigma_{a} (p+t\mathit{w},\mathit{w})d\mathit{t}}.
-        \]
-    \end{block}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
 
-    \begin{block}{Scatter Out}
-        \[
-            \textup{d}\mathit{L}_{o}(\textup{p},w) = -\sigma_{s}(\textup{p},w) \mathit{L}_{i}(\textup{p},-w)\textup{d}t.
-        \]
-    \end{block}
+            \vspace{-10mm}
+            \begin{block}{Absorption}
+                \[
+                    e^{-\int_{0}^{d}\sigma_{a} (p+t\mathit{w},\mathit{w})d\mathit{t}}
+                \]
+            \end{block}
+
+            \begin{block}{Scatter Out}
+                \[
+                    d\mathit{L}_{o}(\textup{p},w) = -\sigma_{s}(\textup{p},w) \mathit{L}_{i}(\textup{p},-w)dt
+                \]
+            \end{block}
+
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/scatter}\\
+            {\centering\scriptsize Extinction in a volume\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -304,26 +328,28 @@ Allows for render speedups of a factor of ten.
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Volume Lighting}
 
-    \centering
-    \includegraphics[width=80mm]{../img/diag/phase_func}
 
-\end{frame}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
 
+            \vspace{-10mm}
+            \begin{block}{Phase Function}
+                Described as $phase(w \to w')$
+            \end{block}
 
+            \begin{block}{Source Normalization}
+                \[
+                    \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
+                \]
+            \end{block}
 
-
-%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Volume Lighting}
-
-    \begin{block}{Phase Function}
-        Described as $phase(w \to w')$
-    \end{block}
-
-    \begin{block}{Source Normalization}
-        \[
-            \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
-        \]
-    \end{block}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/diag/phase_func_sm}\\
+            {\centering\scriptsize Phase function distribution\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -354,13 +380,23 @@ Allows for render speedups of a factor of ten.
 %%-----------------------------------------------  BACKGROUND WORK: MONTE CARLO
 \begin{frame}{Monte Carlo Integration}
 
-    Monte Carlo methods allow estimation of complex systems through use of probability functions and random numbers.
 
-    Most useful is Monte Carlo Integration.
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
 
-    Allows random, discrete sampling of a function.
+    \vspace{-10mm}
+    Monte Carlo methods allow estimation of complex systems through use of probability functions and random numbers.\\
+    \vspace{8mm}
 
-    Allows estimation of an arbitrary integral.
+    Most useful to us is Monte Carlo Integration.
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/MonteCarloIntegrationCircle}\\
+            {\centering\scriptsize Randomly sampling a circle\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -388,11 +424,27 @@ Allows for render speedups of a factor of ten.
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
 \begin{frame}{Related Works: Point-Based Color Bleeding}
 
-    Point-Based Approximate Color Bleeding by Per Christensen.
 
-    Subset of scene geometry is thoroughly sampled, creating point cloud.
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+
+    \vspace{-10mm}
+    Point-Based Approximate Color Bleeding by Per Christensen.\\
+    \vspace{8mm}
+
+    Subset of scene geometry is thoroughly sampled, creating point cloud.\\
+    \vspace{8mm}
 
     Point cloud is sampled to determin incoming radiance.
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/pcloud}\\
+            {\centering\scriptsize Randomly sampling a circle\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -402,8 +454,29 @@ Allows for render speedups of a factor of ten.
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
 \begin{frame}{Related Works: Photon Mapping}
 
-    \includegraphics[width=100mm]{../img/external/ewr7_mcbox.jpg}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
 
+    \vspace{-10mm}
+
+    Photons cast from lights interact with the scene.  At each hit, a photon can:
+    
+    \begin{itemize}
+        \item Bounce\\
+        \vspace{2mm}
+
+        \item Pass Through\\
+        \vspace{2mm}
+
+        \item Be Absorbed\\
+    \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/ewr7_mcbox.jpg}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -413,12 +486,30 @@ Allows for render speedups of a factor of ten.
 %%---------------------------------------------  RELATED WORK: VOLUME RENDERING
 \begin{frame}{Related Works: Volume Rendering}
 
-    A number of approaches...
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
 
-    Polygonal representation based on isosurfaces
+    \vspace{-10mm}
 
-    Opacity/Color arrays (interpolation across voxels)
+    Seminal research involved number of approaches...
+    
+    \begin{itemize}
+        \item Polygonalization of straight voxels \textit{(boxy)}\\
+        \vspace{4mm}
 
+        \item Polygonal representation based on isosurfaces\\
+        \vspace{4mm}
+
+        \item Opacity/Color arrays \textit{(interpolation across voxels)}\\
+    \end{itemize}
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/img188}\\
+            {\centering\scriptsize Renders of CT scan data\\}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -427,19 +518,22 @@ Allows for render speedups of a factor of ten.
 %%---------------------------------------------  RELATED WORK: VOLUME RENDERING
 \begin{frame}{Related Works: Volume Rendering}
 
-    Multi-Resolution Volumes
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
 
-    Occlusion Techniques
+    \vspace{-5mm}
+    Multi-resolution volumes help save on memory and allow for on-demand loading\\
+    \vspace{8mm}
 
-\end{frame}
+    Occlusion techniques involving volume acceleration structures help avoid extraneous computations
 
-
-
-
-%%---------------------------------------------  RELATED WORK: VOLUME RENDERING
-\begin{frame}{Related Works: Volume Rendering}
-
-    Volume Lighting
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/vol_multi_res}\\
+            {\centering\scriptsize Renders of CT scan data\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -483,8 +577,24 @@ Allows for render speedups of a factor of ten.
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Sampling the Scene}
 
-    \centering
-    \includegraphics[height=70mm]{../img/diag/surfel_samp.pdf}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    \vspace{-5mm}
+    Rays are cast and intersections with objects are recorded\\
+    \vspace{8mm}
+
+    Sampling "camera" is behind normal camera with wider field of view\\
+    \vspace{8mm}
+
+    Surfels are oriented at the intersections aligned along the surface normal
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/diag/surfel_samp_mod.pdf}\\
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -495,8 +605,21 @@ Allows for render speedups of a factor of ten.
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Gathering Light}
 
-    \centering
-    \includegraphics[height=70mm]{../img/diag/orthnormal.pdf}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    \vspace{-5mm}
+    At render time, rays are cast from normal camera\\
+    \vspace{8mm}
+
+    Samples are cast from intersecting surface oriented along its normal
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/diag/orthnormal.pdf}\\
+            \vspace{-4mm}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -507,8 +630,24 @@ Allows for render speedups of a factor of ten.
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Gathering Light}
 
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    \vspace{-5mm}
+    Samples cast into point cloud "gather" light via intersection\\
+    \vspace{8mm}
+
+    Samples are returned and used to evaluate the integral over the aligned hemisphere
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[height=\textwidth]{../img/diag/gather.pdf}\\
+            \vspace{-4mm}
+        \end{column}
+    \end{columns}
+
     \centering
-    \includegraphics[height=70mm]{../img/diag/gather.pdf}
+    
 
 \end{frame}
 
