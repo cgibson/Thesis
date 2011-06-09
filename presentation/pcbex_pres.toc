@@ -1,30 +1,28 @@
 \beamer@endinputifotherversion {3.07pt}
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Volume Rendering}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Global Illumination}{5}{0}{1}
 \beamer@subsectionintoc {1}{2}{Global Illumination}{6}{0}{1}
 \beamer@subsectionintoc {1}{3}{Point-Based Color Bleeding}{7}{0}{1}
-\beamer@subsectionintoc {1}{4}{Motivation}{8}{0}{1}
-\beamer@subsectionintoc {1}{5}{Goals}{9}{0}{1}
-\beamer@sectionintoc {2}{Background}{10}{0}{2}
-\beamer@subsectionintoc {2}{1}{Graphics Background}{11}{0}{2}
-\beamer@subsectionintoc {2}{2}{Illumination and Light}{11}{0}{2}
-\beamer@subsectionintoc {2}{3}{BRDF}{13}{0}{2}
-\beamer@subsectionintoc {2}{4}{Volume Lighting}{14}{0}{2}
-\beamer@subsectionintoc {2}{5}{Volume Lighting}{15}{0}{2}
-\beamer@subsectionintoc {2}{6}{Monte Carlo Integration}{18}{0}{2}
-\beamer@sectionintoc {3}{Related Work}{19}{0}{3}
-\beamer@subsectionintoc {3}{1}{Global Illumination}{20}{0}{3}
-\beamer@subsectionintoc {3}{2}{Volume Rendering}{23}{0}{3}
-\beamer@sectionintoc {4}{PCB Extension Algorithm}{25}{0}{4}
-\beamer@subsectionintoc {4}{1}{Point-Based Color Bleeding}{26}{0}{4}
-\beamer@subsectionintoc {4}{2}{Extension Overview}{27}{0}{4}
-\beamer@subsectionintoc {4}{3}{Sampling the Scene}{28}{0}{4}
-\beamer@subsectionintoc {4}{4}{Gathering Light}{29}{0}{4}
-\beamer@subsectionintoc {4}{5}{Gathering Light}{30}{0}{4}
-\beamer@subsectionintoc {4}{6}{Integrating Volume Data}{31}{0}{4}
-\beamer@sectionintoc {5}{Results}{34}{0}{5}
-\beamer@subsectionintoc {5}{1}{Evaluation}{35}{0}{5}
-\beamer@sectionintoc {6}{Future Work}{39}{0}{6}
-\beamer@subsectionintoc {6}{1}{Works}{40}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{41}{0}{7}
-\beamer@subsectionintoc {7}{1}{Final Remarks}{42}{0}{7}
+\beamer@subsectionintoc {1}{4}{Volume Rendering}{8}{0}{1}
+\beamer@subsectionintoc {1}{5}{Motivation}{9}{0}{1}
+\beamer@subsectionintoc {1}{6}{Goals}{10}{0}{1}
+\beamer@sectionintoc {2}{Related Work}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Global Illumination}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{Volume Rendering}{15}{0}{2}
+\beamer@sectionintoc {3}{Background}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Illumination and Light}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{BRDF}{20}{0}{3}
+\beamer@subsectionintoc {3}{3}{BRDF}{21}{0}{3}
+\beamer@subsectionintoc {3}{4}{Volume Lighting}{23}{0}{3}
+\beamer@subsectionintoc {3}{5}{Monte Carlo Integration}{29}{0}{3}
+\beamer@sectionintoc {4}{PCB Extension Algorithm}{30}{0}{4}
+\beamer@subsectionintoc {4}{1}{PCB Algorithm Overview}{31}{0}{4}
+\beamer@subsectionintoc {4}{2}{Extension Overview}{32}{0}{4}
+\beamer@subsectionintoc {4}{3}{Sampling the Scene}{33}{0}{4}
+\beamer@subsectionintoc {4}{4}{Integrating Volume Data}{34}{0}{4}
+\beamer@subsectionintoc {4}{5}{Gathering Light}{35}{0}{4}
+\beamer@sectionintoc {5}{Results}{39}{0}{5}
+\beamer@subsectionintoc {5}{1}{Evaluation}{40}{0}{5}
+\beamer@sectionintoc {6}{Concluding Remarks}{53}{0}{6}
+\beamer@subsectionintoc {6}{1}{Works}{54}{0}{6}
+\beamer@subsectionintoc {6}{2}{Final Remarks}{55}{0}{6}

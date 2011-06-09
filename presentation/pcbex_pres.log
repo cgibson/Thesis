@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.29)  7 JUN 2011 03:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.29)  8 JUN 2011 23:29
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/cgibson/Projects/Thesis/presentation/pcbex_pres.te
@@ -885,7 +885,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 ) (/home/cgibson/Projects/Thesis/presentation/pcbex_pres.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 51.
+(Font)              size <5> substituted on input line 60.
 
 [1
 Non-PDF special ignored!
@@ -897,325 +897,444 @@ Non-PDF special ignored!
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [2
-
-]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [3
-
-]
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+LaTeX Font Info:    Try loading font information for U+msa on input line 78.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-<../img/external/spanish.png, id=278, 416.55624pt x 615.29875pt>
+<../img/spot_top_crop.png, id=183, 473.77pt x 471.7625pt>
+File: ../img/spot_top_crop.png Graphic file (type png)
+
+<use ../img/spot_top_crop.png> [2
+
+ <../img/spot_top_crop.png>]
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+<../img/bunny_glow_crop2.png, id=251, 253.94875pt x 590.205pt>
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
+
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 83--83
+[]  
+ []
+
+
+Overfull \vbox (8.43849pt too high) detected at line 83
+ []
+
+[3
+
+ <../img/bunny_glow_crop2.png>]
+<../img/external/spanish.png, id=311, 416.55624pt x 615.29875pt>
 File: ../img/external/spanish.png Graphic file (type png)
 
 <use ../img/external/spanish.png> [4
 
  <../img/external/spanish.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 116
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 116.
+<../img/external/global_illumination.jpg, id=372, 642.4pt x 481.8pt>
+File: ../img/external/global_illumination.jpg Graphic file (type jpg)
 
+<use ../img/external/global_illumination.jpg> [5
 
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 116.
-
-<../img/external/skull.png, id=332, 1003.75pt x 1003.75pt>
-File: ../img/external/skull.png Graphic file (type png)
-
-<use ../img/external/skull.png> [5
-
- <../img/external/skull.png>]
-<../img/boxes_noindirect.png, id=389, 592.2125pt x 590.205pt>
+ <../img/external/global_illumination.jpg>] <../img/boxes_noindirect.png, id=43
+1, 592.2125pt x 590.205pt>
 File: ../img/boxes_noindirect.png Graphic file (type png)
 
 <use ../img/boxes_noindirect.png>
-<../img/indirect_box_high.png, id=390, 592.2125pt x 590.205pt>
+<../img/indirect_box_high.png, id=432, 592.2125pt x 590.205pt>
 File: ../img/indirect_box_high.png Graphic file (type png)
 
 <use ../img/indirect_box_high.png>
-Overfull \vbox (1.63445pt too high) detected at line 142
+Overfull \vbox (1.63445pt too high) detected at line 146
  []
 
 [6
 
  <../img/boxes_noindirect.png> <../img/indirect_box_high.png>]
-<../img/external/pcb.png, id=445, 571.13374pt x 867.24pt>
+<../img/external/pcb.png, id=493, 571.13374pt x 867.24pt>
 File: ../img/external/pcb.png Graphic file (type png)
 
 <use ../img/external/pcb.png> [7
 
  <../img/external/pcb.png>]
-<../img/bunny_spot_sad.png, id=500, 322.20375pt x 481.8pt>
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 207
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 207.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 207.
+
+<../img/external/smoke_dwa_2.png, id=554, 1373.13pt x 570.13pt>
+File: ../img/external/smoke_dwa_2.png Graphic file (type png)
+
+<use ../img/external/smoke_dwa_2.png> [8
+
+ <../img/external/smoke_dwa_2.png (PNG copy)>] <../img/bunny_spot_sad.png, id=6
+15, 322.20375pt x 481.8pt>
 File: ../img/bunny_spot_sad.png Graphic file (type png)
 
-<use ../img/bunny_spot_sad.png> [8
+<use ../img/bunny_spot_sad.png> [9
 
  <../img/bunny_spot_sad.png>]
-<../img/bunny_glow.png, id=554, 592.2125pt x 590.205pt>
+<../img/bunny_glow.png, id=675, 592.2125pt x 590.205pt>
 File: ../img/bunny_glow.png Graphic file (type png)
 
-<use ../img/bunny_glow.png> [9
+<use ../img/bunny_glow.png> [10
 
  <../img/bunny_glow.png>]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [10
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
 
-]
-Overfull \hbox (6.66666pt too wide) in paragraph at lines 263--263
- []$ 
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 258--258
+[]  
  []
 
 
-Overfull \hbox (6.66666pt too wide) in paragraph at lines 263--263
- []$ 
+Overfull \vbox (8.43849pt too high) detected at line 258
  []
 
 [11
 
-]
-
-pdfTeX warning: pdflatex (file ../img/diag/radiance.pdf): PDF inclusion: found 
-PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/radiance.pdf, id=727, 12952.97911pt x 13542.8773pt>
-File: ../img/diag/radiance.pdf Graphic file (type pdf)
-
-<use ../img/diag/radiance.pdf> [12
-
- <../img/diag/radiance.pdf>] [13
-
-]
-
-pdfTeX warning: pdflatex (file ../img/diag/vol_scatter.pdf): PDF inclusion: fou
-nd PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/vol_scatter.pdf, id=854, 10746.0975pt x 5644.38718pt>
-File: ../img/diag/vol_scatter.pdf Graphic file (type pdf)
-
-<use ../img/diag/vol_scatter.pdf> [14
-
- <../img/diag/vol_scatter.pdf>]
-<../img/external/scatter.png, id=916, 615.29875pt x 615.29875pt>
-File: ../img/external/scatter.png Graphic file (type png)
-
-<use ../img/external/scatter.png> [15
-
- <../img/external/scatter.png (PNG copy)>]
-
-pdfTeX warning: pdflatex (file ../img/diag/phase_func_sm.pdf): PDF inclusion: f
-ound PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/phase_func_sm.pdf, id=973, 11614.82353pt x 8909.70258pt>
-File: ../img/diag/phase_func_sm.pdf Graphic file (type pdf)
-
-<use ../img/diag/phase_func_sm.pdf> [16
-
- <../img/diag/phase_func_sm.pdf>]
-[17
-
-]
-<../img/external/MonteCarloIntegrationCircle.png, id=1086, 289.08pt x 289.08pt>
-File: ../img/external/MonteCarloIntegrationCircle.png Graphic file (type png)
-<use ../img/external/MonteCarloIntegrationCircle.png> [18
-
- <../img/external/MonteCarloIntegrationCircle.png (PNG copy)>]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [19
-
-]
-<../img/external/shrek.png, id=1199, 1152.305pt x 713.66624pt>
+] <../img/external/shrek.png, id=799, 1152.305pt x 713.66624pt>
 File: ../img/external/shrek.png Graphic file (type png)
 
-<use ../img/external/shrek.png> [20
+<use ../img/external/shrek.png> [12
 
  <../img/external/shrek.png (PNG copy)>]
-<../img/pcloud.png, id=1252, 554.07pt x 277.838pt>
+<../img/pcloud.png, id=858, 554.07pt x 277.838pt>
 File: ../img/pcloud.png Graphic file (type png)
  <use ../img/pcloud.png>
-[21
+<../img/external/octree.jpg, id=859, 142.5325pt x 456.70625pt>
+File: ../img/external/octree.jpg Graphic file (type jpg)
 
- <../img/pcloud.png>]
-<../img/external/ewr7_mcbox.jpg, id=1305, 642.4pt x 481.8pt>
+<use ../img/external/octree.jpg> [13
+
+ <../img/pcloud.png> <../img/external/octree.jpg>] <../img/external/ewr7_mcbox.
+jpg, id=919, 642.4pt x 481.8pt>
 File: ../img/external/ewr7_mcbox.jpg Graphic file (type jpg)
 
-<use ../img/external/ewr7_mcbox.jpg> [22
+<use ../img/external/ewr7_mcbox.jpg> [14
 
  <../img/external/ewr7_mcbox.jpg>]
-<../img/external/img188.png, id=1357, 631.35875pt x 536.0025pt>
+<../img/external/img188.png, id=977, 631.35875pt x 536.0025pt>
 File: ../img/external/img188.png Graphic file (type png)
 
-<use ../img/external/img188.png> [23
+<use ../img/external/img188.png> [15
 
  <../img/external/img188.png>]
-<../img/external/vol_multi_res.png, id=1411, 339.2675pt x 678.535pt>
+<../img/external/vol_multi_res.png, id=1037, 339.2675pt x 678.535pt>
 File: ../img/external/vol_multi_res.png Graphic file (type png)
 
-<use ../img/external/vol_multi_res.png> [24
+<use ../img/external/vol_multi_res.png> [16
 
  <../img/external/vol_multi_res.png (PNG copy)>] (/home/cgibson/Projects/Thesis
 /presentation/pcbex_pres.toc)
-[25
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
 
-] [26
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 419--419
+[]  
+ []
 
-] [27
 
-]
+Overfull \vbox (8.43849pt too high) detected at line 419
+ []
+
+[17
+
+] <../img/external/lightbulb.png, id=1159, 301.125pt x 499.8675pt>
+File: ../img/external/lightbulb.png Graphic file (type png)
+
+<use ../img/external/lightbulb.png> [18
+
+ <../img/external/lightbulb.png>]
+
+pdfTeX warning: pdflatex (file ../img/diag/radiance.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<../img/diag/radiance.pdf, id=1225, 12952.97911pt x 13542.8773pt>
+File: ../img/diag/radiance.pdf Graphic file (type pdf)
+
+<use ../img/diag/radiance.pdf> [19
+
+ <../img/diag/radiance.pdf>]
+
+pdfTeX warning: pdflatex (file ../img/external/BRDF_Diagram.pdf): PDF inclusion
+: found PDF version <1.5>, but at most version <1.4> allowed
+<../img/external/BRDF_Diagram.pdf, id=1306, 550.28082pt x 431.24663pt>
+File: ../img/external/BRDF_Diagram.pdf Graphic file (type pdf)
+
+<use ../img/external/BRDF_Diagram.pdf> [20
+
+ <../img/external/BRDF_Diagram.pdf>]
+<../img/external/brdf.jpg, id=1377, 513.92pt x 256.96pt>
+File: ../img/external/brdf.jpg Graphic file (type jpg)
+
+<use ../img/external/brdf.jpg> [21
+
+ <../img/external/brdf.jpg>]
+<../img/external/subscat.png, id=1438, 342.27875pt x 329.23pt>
+File: ../img/external/subscat.png Graphic file (type png)
+
+<use ../img/external/subscat.png> [22
+
+ <../img/external/subscat.png (PNG copy)>]
+
+pdfTeX warning: pdflatex (file ../img/diag/vol_scatter.pdf): PDF inclusion: fou
+nd PDF version <1.5>, but at most version <1.4> allowed
+<../img/diag/vol_scatter.pdf, id=1496, 10746.0975pt x 5644.38718pt>
+File: ../img/diag/vol_scatter.pdf Graphic file (type pdf)
+
+<use ../img/diag/vol_scatter.pdf> [23
+
+ <../img/diag/vol_scatter.pdf>]
+<../img/external/scatter.png, id=1564, 615.29875pt x 615.29875pt>
+File: ../img/external/scatter.png Graphic file (type png)
+
+<use ../img/external/scatter.png> [24
+
+ <../img/external/scatter.png (PNG copy)>] <../img/external/cloud.png, id=1625,
+ 416.55624pt x 325.215pt>
+File: ../img/external/cloud.png Graphic file (type png)
+
+<use ../img/external/cloud.png> [25
+
+ <../img/external/cloud.png (PNG copy)>]
+<../img/bunny_spot/spot_right_new.png, id=1684, 473.77pt x 471.7625pt>
+File: ../img/bunny_spot/spot_right_new.png Graphic file (type png)
+
+<use ../img/bunny_spot/spot_right_new.png> [26
+
+ <../img/bunny_spot/spot_right_new.png>] <../img/inscat_comp.png, id=1743, 401.
+5pt x 200.75pt>
+File: ../img/inscat_comp.png Graphic file (type png)
+
+<use ../img/inscat_comp.png> [27
+
+ <../img/inscat_comp.png>]
+
+pdfTeX warning: pdflatex (file ../img/diag/phase_func_sm.pdf): PDF inclusion: f
+ound PDF version <1.5>, but at most version <1.4> allowed
+<../img/diag/phase_func_sm.pdf, id=1803, 11614.82353pt x 8909.70258pt>
+File: ../img/diag/phase_func_sm.pdf Graphic file (type pdf)
+
+<use ../img/diag/phase_func_sm.pdf> [28
+
+ <../img/diag/phase_func_sm.pdf>]
+<../img/external/MonteCarloIntegrationCircle.png, id=1870, 289.08pt x 289.08pt>
+File: ../img/external/MonteCarloIntegrationCircle.png Graphic file (type png)
+<use ../img/external/MonteCarloIntegrationCircle.png> [29
+
+ <../img/external/MonteCarloIntegrationCircle.png (PNG copy)>]
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
+
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 778--778
+[]  
+ []
+
+
+Overfull \vbox (8.43849pt too high) detected at line 778
+ []
+
+[30
+
+] <../img/external/davyjones.jpg, id=1993, 513.92pt x 385.44pt>
+File: ../img/external/davyjones.jpg Graphic file (type jpg)
+
+<use ../img/external/davyjones.jpg> [31
+
+ <../img/external/davyjones.jpg>]
+<../img/inscat_comp2.png, id=2053, 678.535pt x 339.2675pt>
+File: ../img/inscat_comp2.png Graphic file (type png)
+
+<use ../img/inscat_comp2.png> [32
+
+ <../img/inscat_comp2.png>]
 
 pdfTeX warning: pdflatex (file ../img/diag/surfel_samp_mod.pdf): PDF inclusion:
  found PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/surfel_samp_mod.pdf, id=1627, 12779.16078pt x 13281.59451pt>
+<../img/diag/surfel_samp_mod.pdf, id=2113, 12779.16078pt x 13281.59451pt>
 File: ../img/diag/surfel_samp_mod.pdf Graphic file (type pdf)
 
-<use ../img/diag/surfel_samp_mod.pdf> [28
+<use ../img/diag/surfel_samp_mod.pdf> [33
 
  <../img/diag/surfel_samp_mod.pdf>]
 
+pdfTeX warning: pdflatex (file ../img/diag/vol_step.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<../img/diag/vol_step.pdf, id=2201, 12747.625pt x 14301.33002pt>
+File: ../img/diag/vol_step.pdf Graphic file (type pdf)
+
+<use ../img/diag/vol_step.pdf> [34
+
+ <../img/diag/vol_step.pdf>]
+
 pdfTeX warning: pdflatex (file ../img/diag/orthnormal.pdf): PDF inclusion: foun
 d PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/orthnormal.pdf, id=1709, 13078.40277pt x 15071.6464pt>
+<../img/diag/orthnormal.pdf, id=2269, 13078.40277pt x 15071.6464pt>
 File: ../img/diag/orthnormal.pdf Graphic file (type pdf)
 
-<use ../img/diag/orthnormal.pdf> [29
+<use ../img/diag/orthnormal.pdf> [35
 
  <../img/diag/orthnormal.pdf>]
 
 pdfTeX warning: pdflatex (file ../img/diag/gather.pdf): PDF inclusion: found PD
 F version <1.5>, but at most version <1.4> allowed
-<../img/diag/gather.pdf, id=1771, 11728.6178pt x 11804.1pt>
+<../img/diag/gather.pdf, id=2337, 11728.6178pt x 11804.1pt>
 File: ../img/diag/gather.pdf Graphic file (type pdf)
 
-<use ../img/diag/gather.pdf> [30
+<use ../img/diag/gather.pdf> [36
 
  <../img/diag/gather.pdf>]
-
-pdfTeX warning: pdflatex (file ../img/diag/vol_step.pdf): PDF inclusion: found 
-PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/vol_step.pdf, id=1833, 12747.625pt x 14301.33002pt>
-File: ../img/diag/vol_step.pdf Graphic file (type pdf)
-
-<use ../img/diag/vol_step.pdf> [31
-
- <../img/diag/vol_step.pdf>]
-<../img/compare_trad_corrected.png, id=1896, 401.5pt x 200.75pt>
+<../img/compare_trad_corrected.png, id=2404, 401.5pt x 200.75pt>
 File: ../img/compare_trad_corrected.png Graphic file (type png)
 
 <use ../img/compare_trad_corrected.png>
-<../img/testing.png, id=1897, 803.0pt x 602.25pt>
+<../img/testing.png, id=2405, 803.0pt x 602.25pt>
 File: ../img/testing.png Graphic file (type png)
  <use ../img/testing.png>
-[32
+[37
 
  <../img/compare_trad_corrected.png> <../img/testing.png>]
 
 pdfTeX warning: pdflatex (file ../img/diag/scatter_in.pdf): PDF inclusion: foun
 d PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/scatter_in.pdf, id=1951, 14302.2328pt x 11478.33902pt>
+<../img/diag/scatter_in.pdf, id=2466, 14302.2328pt x 11478.33902pt>
 File: ../img/diag/scatter_in.pdf Graphic file (type pdf)
 
-<use ../img/diag/scatter_in.pdf> [33
+<use ../img/diag/scatter_in.pdf> [38
 
  <../img/diag/scatter_in.pdf>]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [34
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
 
-]
-<../img/sponza_vis.png, id=2071, 1025.8325pt x 561.09625pt>
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 983--983
+[]  
+ []
+
+
+Overfull \vbox (8.43849pt too high) detected at line 983
+ []
+
+[39
+
+] <../img/sponza_vis.png, id=2597, 1025.8325pt x 561.09625pt>
 File: ../img/sponza_vis.png Graphic file (type png)
 
-<use ../img/sponza_vis.png> [35
+<use ../img/sponza_vis.png> [40
 
  <../img/sponza_vis.png (PNG copy)>]
-<../img/sponza.png, id=2124, 642.4pt x 481.8pt>
+<../img/threads.png, id=2656, 642.4pt x 481.8pt>
+File: ../img/threads.png Graphic file (type png)
+ <use ../img/threads.png>
+[41
+
+ <../img/threads.png>] [42
+
+] <../img/sponza.png, id=2772, 642.4pt x 481.8pt>
 File: ../img/sponza.png Graphic file (type png)
- <use ../img/sponza.png>
-[36
 
- <../img/sponza.png>] <../img/compare.png, id=2177, 642.4pt x 481.8pt>
+<use ../img/sponza.png> [43
+
+ <../img/sponza.png>]
+<../img/compare.png, id=2832, 642.4pt x 481.8pt>
 File: ../img/compare.png Graphic file (type png)
-
-<use ../img/compare.png> [37
+ <use ../img/compare.png>
+[44
 
  <../img/compare.png>]
 File: ../img/compare_trad_corrected.png Graphic file (type png)
-
-<use ../img/compare_trad_corrected.png>
-<../img/compare1_corrected.png, id=2231, 361.35pt x 177.66376pt>
+ <use ../img/compare_trad_corrected.png>
+<../img/compare1_corrected.png, id=2891, 361.35pt x 177.66376pt>
 File: ../img/compare1_corrected.png Graphic file (type png)
 
-<use ../img/compare1_corrected.png> [38
+<use ../img/compare1_corrected.png> [45
 
  <../img/compare1_corrected.png>]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [39
-
-] [40
-
-]
-(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc) [41
-
-]
-File: ../img/compare.png Graphic file (type png)
-
-<use ../img/compare.png> [42
-
-]
-<../img/bunny_spot/spot_front.png, id=2507, 642.4pt x 481.8pt>
+<../img/bunny_spot/spot_front.png, id=2950, 642.4pt x 481.8pt>
 File: ../img/bunny_spot/spot_front.png Graphic file (type png)
 
 <use ../img/bunny_spot/spot_front.png>
-<../img/bunny_spot/spot_behind.png, id=2508, 642.4pt x 481.8pt>
+<../img/bunny_spot/spot_behind.png, id=2951, 642.4pt x 481.8pt>
 File: ../img/bunny_spot/spot_behind.png Graphic file (type png)
 
 <use ../img/bunny_spot/spot_behind.png>
-<../img/bunny_spot/spot_left.png, id=2509, 642.4pt x 481.8pt>
+<../img/bunny_spot/spot_left.png, id=2952, 642.4pt x 481.8pt>
 File: ../img/bunny_spot/spot_left.png Graphic file (type png)
 
 <use ../img/bunny_spot/spot_left.png>
-<../img/bunny_spot/spot_right.png, id=2510, 642.4pt x 481.8pt>
+<../img/bunny_spot/spot_right.png, id=2953, 642.4pt x 481.8pt>
 File: ../img/bunny_spot/spot_right.png Graphic file (type png)
 
-<use ../img/bunny_spot/spot_right.png> [43
+<use ../img/bunny_spot/spot_right.png> [46
 
  <../img/bunny_spot/spot_front.png> <../img/bunny_spot/spot_behind.png> <../img
-/bunny_spot/spot_left.png> <../img/bunny_spot/spot_right.png>] <../img/face1.pn
-g, id=2567, 642.4pt x 481.8pt>
-File: ../img/face1.png Graphic file (type png)
-
-<use ../img/face1.png> [44
-
- <../img/face1.png>]
-<../img/sphere_skull.png, id=2620, 642.4pt x 481.8pt>
-File: ../img/sphere_skull.png Graphic file (type png)
-
-<use ../img/sphere_skull.png> [45
-
- <../img/sphere_skull.png>]
-File: ../img/bunny_glow.png Graphic file (type png)
-
-<use ../img/bunny_glow.png> [46
-
-]
-<../img/ketchup_good_corrected.png, id=2724, 592.2125pt x 590.205pt>
+/bunny_spot/spot_left.png> <../img/bunny_spot/spot_right.png>]
+<../img/ketchup_good_corrected.png, id=3015, 592.2125pt x 590.205pt>
 File: ../img/ketchup_good_corrected.png Graphic file (type png)
 
 <use ../img/ketchup_good_corrected.png> [47
 
- <../img/ketchup_good_corrected.png>] <../img/two_sphere_indir.png, id=2777, 59
-2.2125pt x 590.205pt>
+ <../img/ketchup_good_corrected.png>] <../img/face1.png, id=3074, 642.4pt x 481
+.8pt>
+File: ../img/face1.png Graphic file (type png)
+ <use ../img/face1.png>
+[48
+
+ <../img/face1.png>] <../img/sphere_skull.png, id=3133, 642.4pt x 481.8pt>
+File: ../img/sphere_skull.png Graphic file (type png)
+
+<use ../img/sphere_skull.png> [49
+
+ <../img/sphere_skull.png>]
+File: ../img/bunny_glow.png Graphic file (type png)
+
+<use ../img/bunny_glow.png> [50
+
+]
+<../img/two_sphere_indir.png, id=3250, 592.2125pt x 590.205pt>
 File: ../img/two_sphere_indir.png Graphic file (type png)
 
-<use ../img/two_sphere_indir.png> [48
+<use ../img/two_sphere_indir.png> [51
 
  <../img/two_sphere_indir.png>]
-<../img/one_side_corrected.png, id=2830, 473.77pt x 471.7625pt>
+<../img/one_side_corrected.png, id=3309, 473.77pt x 471.7625pt>
 File: ../img/one_side_corrected.png Graphic file (type png)
 
-<use ../img/one_side_corrected.png> [49
+<use ../img/one_side_corrected.png> [52
 
  <../img/one_side_corrected.png>]
+(/home/cgibson/Projects/Thesis/presentation/pcbex_pres.toc)
+File: ../img/bunny_glow_crop2.png Graphic file (type png)
+
+<use ../img/bunny_glow_crop2.png>
+Overfull \hbox (2.6306pt too wide) in paragraph at lines 1208--1208
+[]  
+ []
+
+
+Overfull \vbox (8.43849pt too high) detected at line 1208
+ []
+
+[53
+
+] [54
+
+]
+File: ../img/compare.png Graphic file (type png)
+ <use ../img/compare.png> [55
+
+]
 \tf@nav=\write5
 \openout5 = `pcbex_pres.nav'.
 
@@ -1236,35 +1355,37 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16126 strings out of 495061
- 278946 string characters out of 1182621
- 453424 words of memory out of 3000000
- 18700 multiletter control sequences out of 15000+50000
- 9464 words of font info for 35 fonts, out of 3000000 for 9000
+ 16249 strings out of 495061
+ 281517 string characters out of 1182621
+ 462974 words of memory out of 3000000
+ 18790 multiletter control sequences out of 15000+50000
+ 15157 words of font info for 56 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 46i,19n,60p,393b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,19n,60p,393b,1075s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmss9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmssbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi10.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmti7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msb
-m7.pfb>
-Output written on pcbex_pres.pdf (49 pages, 10719033 bytes).
+onts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on pcbex_pres.pdf (55 pages, 11806964 bytes).
 PDF statistics:
- 2979 PDF objects out of 2984 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3654 PDF objects out of 4296 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -36,7 +36,16 @@
 {
   \begin{frame}<beamer>
     \frametitle{Outline}
-    \tableofcontents[currentsection,currentsubsection]
+
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \tableofcontents[currentsection,currentsubsection,hideallsubsections]
+        \end{column}
+        \begin{column}{0.35\textwidth}
+                \vspace{-9mm}
+                \includegraphics[height=90mm]{../img/bunny_glow_crop2}
+        \end{column}
+    \end{columns}
   \end{frame}
 }
 
@@ -56,7 +65,15 @@
 %%-------------------------------------------------------------------  SCHEDULE
 \begin{frame}{Schedule}
 
-\tableofcontents
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \tableofcontents[hideallsubsections]
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/spot_top_crop}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -76,7 +93,8 @@
             Modelling physically correct light interactions can get extremely computationally expensive\\
         \end{column}
         \begin{column}{0.35\textwidth}
-                \includegraphics[width=\textwidth]{../img/external/spanish}
+                \includegraphics[width=\textwidth]{../img/external/spanish}\\
+                \centering{\scriptsize\textit{(image source: Matt Pharr)}}
         \end{column}
     \end{columns}
 
@@ -85,33 +103,19 @@
 
 
 
-\subsection{Volume Rendering}
+\subsection{Global Illumination}
 %%--------------------------------------------  BACKGROUND: GLOBAL ILLIMUNATION
-\begin{frame}{Volume Rendering}
+\begin{frame}{Global Illumination Introduction}
 
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            {\bf Volumes} \textit{(or participating media)} represent:\\
-            \begin{itemize}
-                \item Fog
-                \item Smoke
-                \item Water
-                \item Clouds
-                \item Other Mediums...
-            \end{itemize}
-            \vspace{4mm}
-            Better for visualizing three-dimensional datasets\\
-            \vspace{4mm}
-            Important to simulate and light properly for film, entertainment \& medical uses\\
-            \vspace{4mm}
-            Very computationally expensive to light properly \\
+    Light's interaction with various materials and mediums is complex and beautiful\\
+    \vspace{6mm}
+    Light does not simply hit surfaces, but bounces and passes through them as well\\
+    \vspace{4mm}
 
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \includegraphics[width=\textwidth]{../img/external/skull}\\
-            {\centering\scriptsize Skull visualized via 3D dataset\\}
-        \end{column}
-    \end{columns}
+    \centering{
+        \includegraphics[width=0.55\textwidth]{../img/external/global_illumination}\\
+        \scriptsize\textit{(image source: cgtutorials.com)}
+    }
 
 \end{frame}
 
@@ -151,7 +155,7 @@
 
     \begin{columns}
         \begin{column}{0.65\textwidth}
-            Cheap, accurate global illumination effects using color bleeding\\
+            Cheap, approximate global illumination effects using color bleeding\\
             \vspace{8mm}
             Utilizes direct light point cloud representation of scene's direct lighting\\
             \vspace{8mm}
@@ -161,9 +165,44 @@
         \begin{column}{0.35\textwidth}
             \vspace{-4mm}
             \includegraphics[width=\textwidth]{../img/external/pcb}\\
-            {\centering\scriptsize Surfels in PCB\\}
+            \centering{\scriptsize Surfels in PCB\\\textit{(image source: Per Christensen)}}
         \end{column}
     \end{columns}
+
+\end{frame}
+
+
+
+
+\subsection{Volume Rendering}
+%%--------------------------------------------  BACKGROUND: GLOBAL ILLIMUNATION
+\begin{frame}{Volume Rendering}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            {\bf Volumes} \textit{(or participating media)} represent:
+            \begin{itemize}
+                \item Fog
+                \item Smoke
+                \item Water
+                \item Clouds
+                \item Other Mediums...
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Better for visualizing three-dimensional datasets\\
+            \vspace{4mm}
+            Important to simulate and light properly for film, entertainment \& medical uses\\
+            \vspace{4mm}
+            Very computationally expensive \\ 
+        \end{column}
+    \end{columns}
+        \centering{
+        \vspace{4mm}
+        \includegraphics[width=80mm]{../img/external/smoke_dwa_2}\\
+        \scriptsize\textit{(image source: DreamWorks Animation)}
+        }
 
 \end{frame}
 
@@ -201,8 +240,8 @@
             \vspace{-4mm}
             \begin{itemize}
                 \item Modify existing PCB in order to include volumetric lighting\\ \vspace{2mm}
-                \item Accurately model scatter, absorption and scatter properties\\ \vspace{2mm}
-                \item Modify volume integration algorithm to add scatter-in effect\\ \vspace{2mm}
+                \item Accurately model scatter, absorption and lighting properties\\ \vspace{2mm}
+                \item Modify volume integration algorithm to add scatter-in effects\\ \vspace{2mm}
                 \item Return comparable results with shorter overall runtimes
             \end{itemize}
         \end{column}
@@ -216,8 +255,168 @@
 
 
 
+\section{Related Work}
+\subsection{Global Illumination}
+%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
+\begin{frame}{Related Works}
+
+
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+
+            Global illumination is a heavy field of research in computer graphics.\\
+            \vspace{8mm}
+            Involves many prominent technologies and algorithms:\\
+            \vspace{2mm}
+            \begin{itemize}
+                \item Photon Mapping\\
+                \vspace{2mm}
+
+                \item Radiometry/Radiosity\\
+                \vspace{2mm}
+
+                \item Precomuted Light Transport\\
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \includegraphics[width=\textwidth]{../img/external/shrek}\\
+            \centering{\scriptsize Complex scene with \& without global illumination\\\textit{(image source: DreamWorks Animation)}}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
+\begin{frame}{Related Works: Point-Based Color Bleeding}
+
+
+
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+
+    Point-Based Approximate Color Bleeding by Per Christensen.\\
+    \vspace{6mm}
+
+    Subset of scene geometry is thoroughly sampled, creating point cloud stored in an octree.\\
+    \vspace{6mm}
+
+    Point cloud is sampled to determine incoming radiance.
+
+    \vspace{4mm}
+    {\centering
+    \includegraphics[width=50mm]{../img/pcloud}\\
+    {\centering\scriptsize Point cloud representation\\}
+    }
+
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            {\centering
+            \includegraphics[height=50mm]{../img/external/octree}\\
+            }
+            {\centering\scriptsize Octree subdivision\\}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
+\begin{frame}{Related Works: Photon Mapping}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    \vspace{-10mm}
+
+    Photons cast from lights interact with the scene.  At each hit, a photon can:
+    
+    \begin{itemize}
+        \item Bounce\\
+        \vspace{2mm}
+
+        \item Pass Through\\
+        \vspace{2mm}
+
+        \item Be Absorbed\\
+    \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/ewr7_mcbox.jpg}\\
+            \centering{\scriptsize\textit{(image source: Jensen)}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
+
+\subsection{Volume Rendering}
+%%---------------------------------------------  RELATED WORK: VOLUME RENDERING
+\begin{frame}{Related Works: Volume Rendering}
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+
+    \vspace{-10mm}
+
+    Seminal research involved number of approaches...
+    
+    \begin{itemize}
+        \item Polygonalization of straight voxels \textit{(boxy)}\\
+        \vspace{4mm}
+
+        \item Polygonal representation based on isosurfaces\\
+        \vspace{4mm}
+
+        \item Opacity/Color arrays \textit{(interpolation across voxels)}\\
+    \end{itemize}
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/img188}\\
+            \centering{\scriptsize Renders of CT scan data\\\textit{(image source: Marc Levoy)}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
+
+%%---------------------------------------------  RELATED WORK: VOLUME RENDERING
+\begin{frame}{Related Works: Volume Rendering}
+
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+
+    \vspace{-5mm}
+    Multi-resolution volumes help save on memory and allow for on-demand loading\\
+    \vspace{8mm}
+
+    Occlusion techniques involving volume acceleration structures help avoid extraneous computations
+
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \vspace{-4mm}
+            \includegraphics[width=\textwidth]{../img/external/vol_multi_res}\\
+            \centering{\scriptsize Renders of CT scan data\\\textit{(image source: S. Guthe)}}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
 \section{Background}
-\subsection{Graphics Background}
 %%-----------------------------------------------------------------  BACKGROUND
 \subsection{Illumination and Light}
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
@@ -225,35 +424,26 @@
 
     {\bf Flux} is the measure of total light emitted \textit{(Watts)}
 
-    \begin{varblock}{Radiance \& Radiance Invariance}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                    \[
-                    \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}\textup{cos}\theta}
-                    \]
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                    \[
-                        L(x \to y) = L(y \to x)
-                    \]
-            \end{column}
-        \end{columns}
-    \end{varblock}
-
-    \begin{varblock}{Irradiance}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                    \[
-                    E = \frac{d\Phi}{dA}
-                    \]
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                    \[
-                        \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw
-                    \]
-            \end{column}
-        \end{columns}
-    \end{varblock}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{block}{Radiance Equation}
+                \[
+                \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}\textup{cos}\theta}
+                \]
+            \end{block}
+            \begin{block}{Radiance Invariance}
+                \[
+                    L(x \to y) = L(y \to x)
+                \]
+            \end{block}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-5mm}
+            {\centering
+                \includegraphics[width=\textwidth]{../img/external/lightbulb}\\
+            }
+        \end{column}
+    \end{columns}
 
 
         % NOTE: Flux density per unit area, per unit solid angle
@@ -268,9 +458,32 @@
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Irradiance}
 
-    \centering
-    \vspace{-1cm}
-    \includegraphics[height=80mm]{../img/diag/radiance.pdf}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+                \begin{block}{Irradiance Equation}
+                    \[
+                    E = \frac{d\Phi}{dA}
+                    \]\\
+                    \vspace{4mm}
+                    {\centering Taking radiance into account:\\}
+                    \[
+                        \mathit{E} = \int\mathit{L}(\textup{p} \leftarrow w)\textup{cos}\theta dw
+                    \]
+                \end{block}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{-5mm}
+            {\centering
+            \includegraphics[width=\textwidth]{../img/diag/radiance.pdf}\\
+            \scriptsize Radiance diagram\\
+            }
+        \end{column}
+    \end{columns}
+
+
+        % NOTE: Flux density per unit area, per unit solid angle
+        % NOTE: dA is the projection of dA on a plane perpendicular to w
+        % NOTE: radiance is incoming light power
 
 \end{frame}
 
@@ -279,34 +492,95 @@
 
 \subsection{BRDF}
 %%-----------------------------------------------------------  BACKGROUND: BRDF
-\begin{frame}{BRDF and BSRDF}
+\begin{frame}{BRDF}
+
+    {\centering
+        {\bf B}idirectional {\bf R}eflectance {\bf D}istribution {\bf F}unction\\
+        \vspace{4mm}
+        Gives us a formalism for describing the reflection from a surface\\
+    }
+
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+
+            \begin{block}{Incoming Radiance from $w_i$}
+            \[
+                \mathit{dE}(\textup{p}, w_i) = \int\mathit{L_i}(\textup{p} \leftarrow w_i)\textup{cos}\theta_i dw_i.
+            \]
+            \end{block}
+            \begin{block}{Incoming vs Outgoing Radiance}
+            \[
+                f_r(\textup{p}, w_o, w_i) =  \frac{dL_o(\textup{p},w_o)}{dE(\textup{p},w_i)}
+            \]
+            \end{block}
+
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/external/BRDF_Diagram.pdf}\\
+            \centering{\scriptsize BRDF Visualization\\\textit{(image source: Wikipedia)}}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 
-    \begin{block}{BRDF}
-        \begin{center}
-            {\bf B}idirectional {\bf R}eflectance {\bf D}istribution {\bf F}unction
 
-            \vspace{3mm}
 
-            Gives us a formalism for describing the reflection from a surface
-        \end{center}
+\subsection{BRDF}
+%%-----------------------------------------------------------  BACKGROUND: BRDF
+\begin{frame}{BRDF}
 
-        \[
-            \mathit{dE}(\textup{p}, w_i) = \int\mathit{L_i}(\textup{p} \leftarrow w_i)\textup{cos}\theta_i dw_i.
-        \]
+    {\centering
+        Note: $f_r$ is a function based on the reflection properties of the surface \\
+        \vspace{4mm}
+        Therefore, we can solve for $L_o$\\
+    }
+
+    \begin{block}{Incoming Radiance from $w_i$}
+    \[
+        \mathit{L_o}(\textup{p}, w_o) = \int{\mathbb{S}^2} \mathit{f_r}(\textup{p}, w_o, w_i)\:L_i(\textup{p}, w_i)cos\theta_i dw.
+    \]
     \end{block}
+    \centering{
+        \includegraphics[width=60mm]{../img/external/brdf.jpg}\\
+        {\scriptsize BRDF Visualization\\\textit{(image source: Cornell.edu)}}
+    }
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------  BACKGROUND: BRDF
+\begin{frame}{BSSRDF}
     
-    \begin{block}{BSRDF}
-        \begin{center}
-            {\bf B}idirectional {\bf S}cattering-surface {\bf R}eflectance {\bf D}istribution {\bf F}unction
+    {\centering
+        {\bf B}idirectional {\bf S}cattering-{\bf S}urface {\bf R}eflectance {\bf D}istribution {\bf F}unction
+    }
+    \vspace{4mm}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
 
-            \vspace{3mm}
+            Helps model the interactions of light within a surface \textit{(also known as subsurface scattering.)}\\
+            \vspace{8mm}
+            Far more complex than traditional BRDF evaluations.\\
 
-            Describes complex behavior of light within surface
+            \begin{block}{Incoming vs Outgoing Radiance}
+            \[
+                f_r(\textup{p}_o, w_o, \textup{p}_i, w_i) =  \frac{dL_o(\textup{p}_o,w_o)}{dE(\textup{p}_i,w_i)}.
+            \]
+            \end{block}
 
-            (\emph{subsurface scattering}.)
-        \end{center}
-    \end{block}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/external/subscat}\\
+            \centering{
+                \scriptsize Light scattering inside of a statue\\
+                \textit{(image source: Nvidia)}
+            }
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -325,31 +599,27 @@
 
 
 
-\subsection{Volume Lighting}
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Volume Lighting}
+\begin{frame}{Volume Lighting - Absorption}
 
     \begin{columns}
         \begin{column}{0.55\textwidth}
 
-            \vspace{-10mm}
-            \begin{block}{Absorption}
+            \begin{block}{Absorption Equation}
                 \[
                     e^{-\int_{0}^{d}\sigma_{a} (p+t\mathit{w},\mathit{w})d\mathit{t}}
                 \]
             \end{block}
-
-            \begin{block}{Scatter Out}
-                \[
-                    d\mathit{L}_{o}(\textup{p},w) = -\sigma_{s}(\textup{p},w) \mathit{L}_{i}(\textup{p},-w)dt
-                \]
-            \end{block}
+            \vspace{8mm}
+            Some particles will absorb light passing through. Also known as extinction.\\
+            \vspace{8mm}
+            Most commonly seen in smoke or ash clouds
 
         \end{column}
         \begin{column}{0.45\textwidth}
-            \vspace{-4mm}
+            \vspace{10mm}
             \includegraphics[width=\textwidth]{../img/external/scatter}\\
-            {\centering\scriptsize Extinction in a volume\\}
+            \centering{\scriptsize Extinction in a volume\\\textit{(image source: Matt Pharr)}}
         \end{column}
     \end{columns}
 
@@ -359,28 +629,63 @@
 
 
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Volume Lighting}
+\begin{frame}{Volume Lighting - Scatter}
+
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+
+            \begin{block}{Scatter Out Equation}
+                \[
+                    d\mathit{L}_{o}(\textup{p},w) = -\sigma_{s}(\textup{p},w) \mathit{L}_{i}(\textup{p},-w)dt
+                \]
+            \end{block}
+            \vspace{8mm}
+            Scatter out is the reduction of light along a path as it is scattered by the participating media.\\
+            \vspace{8mm}
+            Clouds exemplify high scatter and low absorption.
+
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/external/cloud}\\
+            \centering{\scriptsize Scatter in a volume\\\textit{(image source: blenderartists.org)}}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
+%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
+\begin{frame}{Volume Lighting- Transmittance}
 
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
 
-            \vspace{-10mm}
-            \begin{block}{Phase Function}
-                Described as $phase(w \to w')$
-            \end{block}
-
-            \begin{block}{Source Normalization}
+            \begin{block}{Transmittance Equation}
                 \[
-                    \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
+                    T_{r}(\textup{p} \to \textup{p}') = e^{-\int_{0}^{d}\sigma (p+t\mathit{w},\mathit{w})d\mathit{t}}.
                 \]
             \end{block}
+            \vspace{5mm}
+
+            Evaluates how much light was left unabsorbed after passing through the volume.\\
+            \vspace{5mm}
+            Helps us estimate how much light bleeds through volumes from behind.
+
+%            \begin{block}{Source Normalization}
+%                \[
+%                    \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
+%                \]
+%            \end{block}
 
         \end{column}
         \begin{column}{0.5\textwidth}
-            \vspace{-4mm}
-            \includegraphics[width=\textwidth]{../img/diag/phase_func_sm}\\
-            {\centering\scriptsize Phase function distribution\\}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/bunny_spot/spot_right_new}\\
+            {\centering\scriptsize Light passing through the bunny volume\\}
         \end{column}
     \end{columns}
 
@@ -390,19 +695,53 @@
 
 
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
-\begin{frame}{Volume Lighting}
+\begin{frame}{Volume Lighting - Scatter-In}
 
-    \begin{block}{Transmittance}
-        \[
-            T_{r}(\textup{p} \to \textup{p}') = e^{-\int_{0}^{d}\sigma (p+t\mathit{w},\mathit{w})d\mathit{t}}.
-        \]
-    \end{block}
-
-    \begin{block}{Scatter In}
+    \begin{block}{Scatter-In Equation}
         \[
             \mathit{S}(\textup{p},w) = \mathit{L}_{\textup{ve}}(\textup{p},w) + \sigma_{\textup{s}}(\textup{p}, w) \int_{\mathbb{S}^2} phase(\textup{p}, -w' \to w) L_{i}(\textup{p},w')\textup{d}w'.
         \]
     \end{block}
+    {\centering
+    \vspace{8mm}
+    \includegraphics[width=60mm]{../img/inscat_comp}\\
+    {\centering\scriptsize Scatter-in \textit{(left)} and only direct lighting via transmittance \textit{(right)}\\}
+    }
+
+\end{frame}
+
+
+
+
+%%---------------------------------------------------  BACKGROUND: ILLIMUNATION
+\begin{frame}{Volume Lighting- Phase Functions}
+
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            \begin{block}{Phase Function}
+                Described as $phase(w \to w')$
+            \end{block}
+            \vspace{5mm}
+
+            Describes the probability that light will scatter in any given direction.\\
+            \vspace{5mm}
+            Used to estimate total scatter-in contribution.
+
+%            \begin{block}{Source Normalization}
+%                \[
+%                    \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
+%                \]
+%            \end{block}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/diag/phase_func_sm}\\
+            {\centering\scriptsize Phase function distribution\\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -436,171 +775,28 @@
 
 
 
-\section{Related Work}
-\subsection{Global Illumination}
-%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
-\begin{frame}{Related Works: Global Illumination}
-
-
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-
-            Heavy field of research in computer graphics.\\
-            \vspace{8mm}
-            Involves many priminent technologies and algorithms:\\
-            \vspace{2mm}
-            \begin{itemize}
-                \item Photon Mapping\\
-                \vspace{2mm}
-
-                \item Radiometry/Radiosity\\
-                \vspace{2mm}
-
-                \item Precomuted Light Transport\\
-            \end{itemize}
-
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \includegraphics[width=\textwidth]{../img/external/shrek}\\
-            {\centering\scriptsize Complex scene with \& without global illumination\\}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-
-
-
-%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
-\begin{frame}{Related Works: Point-Based Color Bleeding}
-
-
-
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-
-    \vspace{-10mm}
-    Point-Based Approximate Color Bleeding by Per Christensen.\\
-    \vspace{8mm}
-
-    Subset of scene geometry is thoroughly sampled, creating point cloud.\\
-    \vspace{8mm}
-
-    Point cloud is sampled to determin incoming radiance.
-
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \vspace{-4mm}
-            \includegraphics[width=\textwidth]{../img/pcloud}\\
-            {\centering\scriptsize Randomly sampling a circle\\}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-
-
-
-%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
-\begin{frame}{Related Works: Photon Mapping}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-
-    \vspace{-10mm}
-
-    Photons cast from lights interact with the scene.  At each hit, a photon can:
-    
-    \begin{itemize}
-        \item Bounce\\
-        \vspace{2mm}
-
-        \item Pass Through\\
-        \vspace{2mm}
-
-        \item Be Absorbed\\
-    \end{itemize}
-
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \vspace{-4mm}
-            \includegraphics[width=\textwidth]{../img/external/ewr7_mcbox.jpg}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
-
-
-\subsection{Volume Rendering}
-%%---------------------------------------------  RELATED WORK: VOLUME RENDERING
-\begin{frame}{Related Works: Volume Rendering}
-
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-
-    \vspace{-10mm}
-
-    Seminal research involved number of approaches...
-    
-    \begin{itemize}
-        \item Polygonalization of straight voxels \textit{(boxy)}\\
-        \vspace{4mm}
-
-        \item Polygonal representation based on isosurfaces\\
-        \vspace{4mm}
-
-        \item Opacity/Color arrays \textit{(interpolation across voxels)}\\
-    \end{itemize}
-
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \vspace{-4mm}
-            \includegraphics[width=\textwidth]{../img/external/img188}\\
-            {\centering\scriptsize Renders of CT scan data\\}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
-
-
-%%---------------------------------------------  RELATED WORK: VOLUME RENDERING
-\begin{frame}{Related Works: Volume Rendering}
-
-    \begin{columns}
-        \begin{column}{0.7\textwidth}
-
-    \vspace{-5mm}
-    Multi-resolution volumes help save on memory and allow for on-demand loading\\
-    \vspace{8mm}
-
-    Occlusion techniques involving volume acceleration structures help avoid extraneous computations
-
-        \end{column}
-        \begin{column}{0.3\textwidth}
-            \vspace{-4mm}
-            \includegraphics[width=\textwidth]{../img/external/vol_multi_res}\\
-            {\centering\scriptsize Renders of CT scan data\\}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-
-
-
 \section{PCB Extension Algorithm}
-\subsection{Point-Based Color Bleeding}
+\subsection{PCB Algorithm Overview}
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Point-Based Color Bleeding}
 
-    \begin{enumerate}
-        \item Sample the scene and generate a point cloud
-        \item Perform ray tracing on regular geometry
-        \item Replace ambient estimates with a gather stage using surrounding point cloud
-    \end{enumerate}
 
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{enumerate}
+                \item Sample the scene and generate a point cloud
+                \item Perform normal ray tracing
+                \item Replace ambient estimates with a gather stage using surrounding point cloud
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            {\centering
+                \includegraphics[width=\textwidth]{../img/external/davyjones}\\
+                \scriptsize\textit{(image source: Disney)}
+            }
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -612,11 +808,15 @@
 
     \begin{enumerate}
         \item Sample the scene and generate a point cloud
-        \item Sample the participating media and evaluate scatter, absorbtion and direct lighting
-        \item Cast rays as normal
-        \item Orient hemispherical samples along the normals of the surfaces intersected
-        \item Model scatter-out and scatter-in properties during lighting gather stage
+        \item \alert{ Sample the participating media to evaluate scatter, absorbtion and direct lighting}
+        \item Perform normal ray tracing
+        \item Replace ambient estimates with a gather stage using surrounding point cloud \alert{using a modified traversal algorithm}
+        \item \alert{ Model and scatter-in properties during volume integration}
     \end{enumerate}
+    \vspace{4mm}
+    {\centering
+        \includegraphics[width=70mm]{../img/inscat_comp2}\\
+    }
 
 \end{frame}
 
@@ -651,6 +851,33 @@
 
 
 
+\subsection{Integrating Volume Data}
+%%--------------------------------------------------------------  PCB EXTENSION
+\begin{frame}{Sampling Volumes}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+    Samples are taken at discrete steps across the volume domain\\
+    \vspace{8mm}
+
+    Scatter/Absorbtion/Lighting factors are averaged within each step\\
+    \vspace{8mm}
+
+    \textit{Lvoxels} (spheres) instead of \textit{surfels}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/diag/vol_step.pdf}\\
+            \vspace{-4mm}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+
 \subsection{Gathering Light}
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Gathering Light}
@@ -676,7 +903,6 @@
 
 
 
-\subsection{Gathering Light}
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Gathering Light}
 
@@ -696,33 +922,6 @@
         \end{column}
     \end{columns}
     
-
-\end{frame}
-
-
-
-
-\subsection{Integrating Volume Data}
-%%--------------------------------------------------------------  PCB EXTENSION
-\begin{frame}{Integrating Volume Data}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-
-    Samples are taken at discrete steps across the volume domain\\
-    \vspace{8mm}
-
-    Scatter/Absorbtion/Lighting factors are averaged within each step\\
-    \vspace{8mm}
-
-    \textit{Lvoxels} (spheres) instead of \textit{surfels}
-
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{../img/diag/vol_step.pdf}\\
-            \vspace{-4mm}
-        \end{column}
-    \end{columns}
 
 \end{frame}
 
@@ -786,7 +985,7 @@
 %%--------------------------------------------------------------------  RESULTS
 \begin{frame}{Results - Environment}
 
-    Test scene involved:
+    {\bf Test scene involved:}
     \begin{itemize}
         \item 60,000 triangle Sponza Atrium Model\\
         \vspace{2mm}
@@ -802,25 +1001,36 @@
 
 
 
-%%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}[c]{}
-
-    {\centering
-    \includegraphics[width=80mm]{../img/sponza}\\
-    }
-
-\end{frame}
+%%--------------------------------------------------------------------  RESULTS
+\begin{frame}{Results}
 
 
 
+    \vspace{5mm}
 
-%%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}[c]{}
 
-    {\centering
-    \includegraphics[width=80mm]{../img/compare}\\
-    }
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            {\bf Test run configuration:}
+            \begin{itemize}
+                \item Run on dual core Intel i5 3.4 GHz, 16 GB machine\\
+                \vspace{2mm}
+                \item 128 samples per bounce (single bounce)\\
+                \vspace{2mm}
+                \item 16 samples per in-scatter test\\
+                \vspace{2mm}
+                \item OpenMP threads split image into vertical chunks for processing\\
+            \end{itemize}
 
+        \end{column}
+        \begin{column}{0.4\textwidth}
+
+            {\centering
+            \includegraphics[width=\textwidth]{../img/threads}\\
+            {\centering\scriptsize Thread distribution across the image\\}
+            }
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -842,70 +1052,61 @@
     \end{tabular}
     \end{center}
 
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/sponza}\\
+    }
+    {\centering\scriptsize Sponza scene rendered with PCBEX\\}
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/compare}\\
+    }
+    {\centering\scriptsize Comparison of PCBEX results \textit{(left)} and Monte Carlo results \textit{(right)}\\}
+
+\end{frame}
+
+
+
+
+%%--------------------------------------------------------------------  RESULTS
+\begin{frame}{Image Comparison}
+
 
     \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Close-ups show drastic difference between PBC and PBCEX renders.\\
+            \vspace{8mm}
+            Full Monte Carlo renders differ only slightly from PCBEX renders.
+        \end{column}
         \begin{column}{0.5\textwidth}
 
             {\centering
             \includegraphics[width=50mm]{../img/compare_trad_corrected}\\
             {\centering\scriptsize PBC vs PBCEX\\}
-            }
+            
+            \vspace{5mm}
 
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            {\centering
             \includegraphics[width=50mm]{../img/compare1_corrected}\\
             {\centering\scriptsize Monte Carlo vs PBCEX\\}
             }
         \end{column}
     \end{columns}
 
-
-\end{frame}
-
-
-
-
-\section{Future Work}
-\subsection{Works}
-%%--------------------------------------------------------------------  RESULTS
-\begin{frame}{Future Work}
-
-    \begin{enumerate}
-        \item Multiple bounce
-        \item Phase functions for volumes
-        \item Parallelism
-        \item Optimal Sampling
-        \item GPU Acceleration
-    \end{enumerate}
-
-\end{frame}
-
-
-
-
-\section{Conclusion}
-\subsection{Final Remarks}
-%%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}{Conclusion}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-
-            Modifications can be made to PCB to incorporate volume light contributions\\
-            \vspace{8mm}
-
-            Even simple implementations show great improvements in performance, nearly ten times faster than traditional Monte carlo\\
-            \vspace{8mm}
-
-            Image quality is comparable to Monte Carlo results
-
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{../img/compare}\\
-            {\centering\scriptsize PBCEX \textit{(left)} vs Monte Carlo \textit{(right)} \\}
-        \end{column}
-    \end{columns}
 
 \end{frame}
 
@@ -926,6 +1127,18 @@
             \includegraphics[width=\textwidth]{../img/bunny_spot/spot_right}\\
         \end{column}
     \end{columns}
+
+\end{frame}
+
+
+
+
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}[c]{}
+
+    {\centering
+    \includegraphics[width=80mm]{../img/ketchup_good_corrected}\\
+    }
 
 \end{frame}
 
@@ -972,18 +1185,6 @@
 \begin{frame}[c]{}
 
     {\centering
-    \includegraphics[width=80mm]{../img/ketchup_good_corrected}\\
-    }
-
-\end{frame}
-
-
-
-
-%%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}[c]{}
-
-    {\centering
     \includegraphics[width=80mm]{../img/two_sphere_indir}\\
     }
 
@@ -998,6 +1199,51 @@
     {\centering
     \includegraphics[width=80mm]{../img/one_side_corrected}\\
     }
+
+\end{frame}
+
+
+
+
+\section{Concluding Remarks}
+\subsection{Works}
+%%--------------------------------------------------------------------  RESULTS
+\begin{frame}{Future Work}
+
+    \begin{enumerate}
+        \item Multiple bounce
+        \item Phase functions for volumes
+        \item Parallelism
+        \item Optimal Sampling
+        \item GPU Acceleration
+    \end{enumerate}
+
+\end{frame}
+
+
+
+
+\subsection{Final Remarks}
+%%-----------------------------------------------------------------  CONCLUSION
+\begin{frame}{Conclusion}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            Modifications can be made to PCB to incorporate volume light contributions\\
+            \vspace{8mm}
+
+            Even simple implementations show great improvements in performance, nearly ten times faster than traditional Monte Carlo\\
+            \vspace{8mm}
+
+            Image quality is comparable to Monte Carlo results
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/compare}\\
+            {\centering\scriptsize PBCEX \textit{(left)} vs Monte Carlo \textit{(right)} \\}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
