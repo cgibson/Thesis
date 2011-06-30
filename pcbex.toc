@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Tables}{vii}{chapter*.2}
-\contentsline {chapter}{List of Figures}{viii}{chapter*.3}
+\contentsline {chapter}{List of Tables}{viii}{chapter*.2}
+\contentsline {chapter}{List of Figures}{ix}{chapter*.3}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Graphics \& Light}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Global Illumination}{1}{section.1.2}
@@ -7,44 +7,47 @@
 \contentsline {section}{\numberline {1.4}Our Contribution}{3}{section.1.4}
 \contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Radiance}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}BRDF and the BSRDF}{7}{section.2.2}
+\contentsline {section}{\numberline {2.2}BRDF and the BSSRDF}{7}{section.2.2}
 \contentsline {section}{\numberline {2.3}Volume Lighting}{8}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Absorption:}{9}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Scatter Out:}{9}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Transmittance:}{9}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Phase Functions}{10}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.2}Scatter Out:}{10}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Transmittance:}{10}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Phase Functions}{11}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Scatter In}{11}{subsection.2.3.5}
-\contentsline {section}{\numberline {2.4}Monte Carlo Integration}{12}{section.2.4}
-\contentsline {chapter}{\numberline {3}Related Work}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Global Illumination}{13}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}PCB}{13}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Photon Mapping}{14}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Volume Rendering}{15}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Seminal Work}{15}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Multi-Resolution Volumes}{17}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Occlusion Techniques}{17}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Volume Lighting}{18}{subsection.3.2.4}
-\contentsline {chapter}{\numberline {4}PCB Extension Algorithm}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Point Based Color Bleeding}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Extension Overview}{20}{section.4.2}
-\contentsline {section}{\numberline {4.3}Sampling the Scene}{21}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Surfel Sampling}{22}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}LVoxel Sampling}{23}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Gathering Light}{23}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Point-Cloud Ray Casting}{23}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Hemisphere Sampling}{24}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Integrating Volume Data}{26}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Data-Structure Modifications}{26}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Octree Traversal}{27}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Acquiring Scatter-Out Contributions}{28}{subsection.4.5.3}
-\contentsline {subsection}{\numberline {4.5.4}Acquiring Scatter-In Contributions}{28}{subsection.4.5.4}
-\contentsline {chapter}{\numberline {5}Results}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Environment}{32}{section.5.1}
-\contentsline {section}{\numberline {5.2}Test Scene}{33}{section.5.2}
-\contentsline {section}{\numberline {5.3}Data Comparison}{34}{section.5.3}
-\contentsline {section}{\numberline {5.4}Analysis}{34}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Memory}{34}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Speed}{34}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Conclusion}{36}{section.5.5}
-\contentsline {chapter}{\numberline {6}Future Work}{38}{chapter.6}
-\contentsline {chapter}{Bibliography}{40}{chapter*.5}
+\contentsline {section}{\numberline {2.4}Monte Carlo Integration}{13}{section.2.4}
+\contentsline {chapter}{\numberline {3}Related Work}{14}{chapter.3}
+\contentsline {section}{\numberline {3.1}Global Illumination}{14}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}PCB}{14}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Photon Mapping}{15}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Volume Rendering}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Existing Work}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Multi-Resolution Volumes}{18}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Occlusion Techniques}{18}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Volume Lighting}{19}{subsection.3.2.4}
+\contentsline {chapter}{\numberline {4}PCB Extension Algorithm}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Point Based Color Bleeding}{20}{section.4.1}
+\contentsline {section}{\numberline {4.2}Extension Overview}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Sampling the Scene}{22}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Surfel Sampling}{23}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}LVoxel Sampling}{24}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Gathering Light}{24}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Point-Cloud Ray Casting}{24}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Hemisphere Sampling}{25}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Integrating Volume Data}{29}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Data-Structure Modifications}{29}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Octree Traversal}{30}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Acquiring Scatter-Out Contributions}{30}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}Acquiring Scatter-In Contributions}{31}{subsection.4.5.4}
+\contentsline {section}{\numberline {4.6}Review}{34}{section.4.6}
+\contentsline {chapter}{\numberline {5}Results}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Environment}{38}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test Scene}{39}{section.5.2}
+\contentsline {section}{\numberline {5.3}Data Comparison}{40}{section.5.3}
+\contentsline {section}{\numberline {5.4}Analysis}{40}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Memory}{40}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Speed}{42}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Scalability}{44}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}Known Limitations}{46}{section.5.5}
+\contentsline {section}{\numberline {5.6}Conclusion}{47}{section.5.6}
+\contentsline {chapter}{\numberline {6}Future Work}{48}{chapter.6}
+\contentsline {chapter}{Bibliography}{51}{chapter*.5}

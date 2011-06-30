@@ -7,7 +7,7 @@
 \BOOKMARK [1][]{section.1.4}{Our Contribution}{chapter.1}
 \BOOKMARK [0][]{chapter.2}{Background}{}
 \BOOKMARK [1][]{section.2.1}{Radiance}{chapter.2}
-\BOOKMARK [1][]{section.2.2}{BRDF and the BSRDF}{chapter.2}
+\BOOKMARK [1][]{section.2.2}{BRDF and the BSSRDF}{chapter.2}
 \BOOKMARK [1][]{section.2.3}{Volume Lighting}{chapter.2}
 \BOOKMARK [2][]{subsection.2.3.1}{Absorption:}{section.2.3}
 \BOOKMARK [2][]{subsection.2.3.2}{Scatter Out:}{section.2.3}
@@ -20,7 +20,7 @@
 \BOOKMARK [2][]{subsection.3.1.1}{PCB}{section.3.1}
 \BOOKMARK [2][]{subsection.3.1.2}{Photon Mapping}{section.3.1}
 \BOOKMARK [1][]{section.3.2}{Volume Rendering}{chapter.3}
-\BOOKMARK [2][]{subsection.3.2.1}{Seminal Work}{section.3.2}
+\BOOKMARK [2][]{subsection.3.2.1}{Existing Work}{section.3.2}
 \BOOKMARK [2][]{subsection.3.2.2}{Multi-Resolution Volumes}{section.3.2}
 \BOOKMARK [2][]{subsection.3.2.3}{Occlusion Techniques}{section.3.2}
 \BOOKMARK [2][]{subsection.3.2.4}{Volume Lighting}{section.3.2}
@@ -38,6 +38,7 @@
 \BOOKMARK [2][]{subsection.4.5.2}{Octree Traversal}{section.4.5}
 \BOOKMARK [2][]{subsection.4.5.3}{Acquiring Scatter-Out Contributions}{section.4.5}
 \BOOKMARK [2][]{subsection.4.5.4}{Acquiring Scatter-In Contributions}{section.4.5}
+\BOOKMARK [1][]{section.4.6}{Review}{chapter.4}
 \BOOKMARK [0][]{chapter.5}{Results}{}
 \BOOKMARK [1][]{section.5.1}{Environment}{chapter.5}
 \BOOKMARK [1][]{section.5.2}{Test Scene}{chapter.5}
@@ -45,6 +46,8 @@
 \BOOKMARK [1][]{section.5.4}{Analysis}{chapter.5}
 \BOOKMARK [2][]{subsection.5.4.1}{Memory}{section.5.4}
 \BOOKMARK [2][]{subsection.5.4.2}{Speed}{section.5.4}
-\BOOKMARK [1][]{section.5.5}{Conclusion}{chapter.5}
+\BOOKMARK [2][]{subsection.5.4.3}{Scalability}{section.5.4}
+\BOOKMARK [1][]{section.5.5}{Known Limitations}{chapter.5}
+\BOOKMARK [1][]{section.5.6}{Conclusion}{chapter.5}
 \BOOKMARK [0][]{chapter.6}{Future Work}{}
 \BOOKMARK [0][]{chapter*.5}{Bibliography}{}

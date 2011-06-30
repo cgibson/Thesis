@@ -24,5 +24,3 @@
 \beamer@sectionintoc {5}{Results}{39}{0}{5}
 \beamer@subsectionintoc {5}{1}{Evaluation}{40}{0}{5}
 \beamer@sectionintoc {6}{Concluding Remarks}{53}{0}{6}
-\beamer@subsectionintoc {6}{1}{Works}{54}{0}{6}
-\beamer@subsectionintoc {6}{2}{Final Remarks}{55}{0}{6}

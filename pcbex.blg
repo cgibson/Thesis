@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: pcbex.aux
 The style file: plain.bst
 Database file #1: pcbex.bib
-Warning--I didn't find a database entry for "brdf"
 Warning--empty journal in cerezo
 Warning--empty journal in christensen:2008
 Warning--empty booktitle in christensen:siggraph
@@ -11,7 +10,7 @@ Warning--empty journal in tabellion
 Warning--empty journal in signotes:2010
 You've used 19 entries,
             2118 wiz_defined-function locations,
-            603 strings with 6273 characters,
+            602 strings with 6269 characters,
 and the built_in function-call counts, 5373 in all, are:
 = -- 512
 > -- 218
@@ -50,4 +49,4 @@ warning$ -- 6
 while$ -- 50
 width$ -- 21
 write$ -- 196
-(There were 7 warnings)
+(There were 6 warnings)
