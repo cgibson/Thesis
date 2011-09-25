@@ -1,0 +1,47 @@
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+%\useoutertheme[footline=authortitle, subsection=false]{miniframes}
+\useinnertheme{circles}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+
+\definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
+
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{item}{fg=black}
+
+%\setbeamercolor{section in toc}{fg=red,bg=white}
+%\setbeamercolor{subsection in toc}{fg=black,bg=red}
+
+\mode<all>
+
+\newenvironment<>{varblock}[2][\textwidth]{
+    \begin{center}
+      \begin{minipage}{#1}
+        \setlength{\textwidth}{#1}
+          \begin{actionenv}#3
+            \def\insertblocktitle{#2}
+            \par
+            \usebeamertemplate{block begin}}
+  {\par
+      \usebeamertemplate{block end}
+    \end{actionenv}
+  \end{minipage}
+\end{center}}
+
+\newenvironment{changemargin}[2]{% 
+  \begin{list}{}{% 
+    \setlength{\topsep}{0pt}% 
+    \setlength{\leftmargin}{#1}% 
+    \setlength{\rightmargin}{#2}% 
+    \setlength{\listparindent}{\parindent}% 
+    \setlength{\itemindent}{\parindent}% 
+    \setlength{\parsep}{\parskip}% 
+  }% 
+  \item[]}{\end{list}} 
