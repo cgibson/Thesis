@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.25)  27 SEP 2011 00:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.25)  27 SEP 2011 08:37
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pr
@@ -796,23 +796,28 @@ l.19 \setbeamercolor{title}{series=\bfseries}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) (/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pres.aux)
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 34.
+
+(/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pres.aux)
 \openout1 = `pcbex_pres.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -868,7 +873,7 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Package hyperref Info: Link coloring OFF on input line 39.
+Package hyperref Info: Link coloring OFF on input line 40.
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -877,8 +882,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count189
 )
-LaTeX Info: Redefining \ref on input line 39.
-LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
 
 (/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pres.out)
 (/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pres.out)
@@ -893,19 +898,28 @@ Dictionary: translator-theorem-dictionary, Language: English
 ) (/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pres.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <5> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 39.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 40.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 66.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 67.
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/sc' in size <4> not available
-(Font)              size <5> substituted on input line 66.
+(Font)              size <5> substituted on input line 67.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 66.
+(Font)              size <5> substituted on input line 67.
 
 [1
 Non-PDF special ignored!
@@ -917,16 +931,6 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
 <../img/bunny_glow.png, id=19, 592.2125pt x 590.205pt>
 File: ../img/bunny_glow.png Graphic file (type png)
 
@@ -1046,18 +1050,18 @@ File: ../img/diag/scatter_in.pdf Graphic file (type pdf)
  <../img/diag/scatter_in.pdf>] [18
 
 ]
-Overfull \hbox (0.70462pt too wide) in paragraph at lines 540--540
+Overfull \hbox (0.70462pt too wide) in paragraph at lines 541--541
  [] 
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 540.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 541.
 
 [19
 
 ]
-Overfull \hbox (0.70462pt too wide) in paragraph at lines 583--583
+Overfull \hbox (0.70462pt too wide) in paragraph at lines 584--584
  [] 
  []
 
@@ -1164,11 +1168,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 15810 strings out of 495061
- 271583 string characters out of 1182621
- 413240 words of memory out of 3000000
- 18474 multiletter control sequences out of 15000+50000
- 10401 words of font info for 38 fonts, out of 3000000 for 9000
+ 15855 strings out of 495061
+ 272378 string characters out of 1182621
+ 413514 words of memory out of 3000000
+ 18512 multiletter control sequences out of 15000+50000
+ 14101 words of font info for 52 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  46i,11n,51p,398b,783s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
@@ -1190,7 +1194,7 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmti7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/symbols/msam7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbo
 ls/msbm7.pfb>
-Output written on pcbex_pres.pdf (33 pages, 7087329 bytes).
+Output written on pcbex_pres.pdf (33 pages, 7088730 bytes).
 PDF statistics:
  432 PDF objects out of 1000 (max. 8388607)
  72 named destinations out of 1000 (max. 500000)
