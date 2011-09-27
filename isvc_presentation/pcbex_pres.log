@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.25)  26 SEP 2011 22:50
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.25)  27 SEP 2011 00:04
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/cgibson/Projects/Thesis/isvc_presentation/pcbex_pr
@@ -963,13 +963,13 @@ File: ../img/diag/radiance.pdf Graphic file (type pdf)
 
 pdfTeX warning: pdflatex (file ../img/diag/vol_scatter.pdf): PDF inclusion: fou
 nd PDF version <1.5>, but at most version <1.4> allowed
-<../img/diag/vol_scatter.pdf, id=83, 10746.0975pt x 5644.38718pt>
+<../img/diag/vol_scatter.pdf, id=84, 10746.0975pt x 5644.38718pt>
 File: ../img/diag/vol_scatter.pdf Graphic file (type pdf)
 
 <use ../img/diag/vol_scatter.pdf> [7
 
  <../img/diag/vol_scatter.pdf>]
-<../img/bunny_spot/spot_right_new.png, id=100, 473.77pt x 471.7625pt>
+<../img/bunny_spot/spot_right_new.png, id=101, 473.77pt x 471.7625pt>
 File: ../img/bunny_spot/spot_right_new.png Graphic file (type png)
 
 <use ../img/bunny_spot/spot_right_new.png> [8
@@ -1046,18 +1046,18 @@ File: ../img/diag/scatter_in.pdf Graphic file (type pdf)
  <../img/diag/scatter_in.pdf>] [18
 
 ]
-Overfull \hbox (0.70462pt too wide) in paragraph at lines 539--539
+Overfull \hbox (0.70462pt too wide) in paragraph at lines 540--540
  [] 
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 539.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 540.
 
 [19
 
 ]
-Overfull \hbox (0.70462pt too wide) in paragraph at lines 582--582
+Overfull \hbox (0.70462pt too wide) in paragraph at lines 583--583
  [] 
  []
 
@@ -1166,7 +1166,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  15810 strings out of 495061
  271583 string characters out of 1182621
- 413258 words of memory out of 3000000
+ 413240 words of memory out of 3000000
  18474 multiletter control sequences out of 15000+50000
  10401 words of font info for 38 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -1190,7 +1190,7 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmti7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/symbols/msam7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbo
 ls/msbm7.pfb>
-Output written on pcbex_pres.pdf (33 pages, 7086752 bytes).
+Output written on pcbex_pres.pdf (33 pages, 7087329 bytes).
 PDF statistics:
  432 PDF objects out of 1000 (max. 8388607)
  72 named destinations out of 1000 (max. 500000)

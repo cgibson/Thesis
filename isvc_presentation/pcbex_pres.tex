@@ -29,9 +29,9 @@
 
 
 
-\title[Point-Based Color Bleeding With Volumes]{PCBEX:\\Point-Based Color Bleeding With Volumes\\Thesis Defense}
+\title[Point-Based Color Bleeding With Volumes]{PCBEX:\\Point-Based Color Bleeding With Volumes}
 \author{Christopher James Gibson}
-\institute{California Polytechnic University, San Luis Obispo\\CSC Department}
+\institute{California Polytechnic State University\\San Luis Obispo\\CSC Department}
 \date{June 9, 2011}
 
 \setcounter{tocdepth}{1}
@@ -76,7 +76,7 @@
             \begin{itemize}
                 \item Background\\ \vspace{2mm}
                 \item Motivation and Goals\\ \vspace{2mm}
-                \item Algorithm Definition\\ \vspace{2mm}
+                \item Algorithm Details\\ \vspace{2mm}
                 \item Results
             \end{itemize}
         \end{column}
@@ -101,7 +101,8 @@
 	    Light's interaction with various materials and mediums is complex and beautiful\\
 	    \vspace{6mm}
 	    Light does not simply hit surfaces, but bounces and passes through them as well\\
-
+            \vspace{6mm}
+            Global Illumination Algorithms attempt to evaluate/approximate these interactions\\
         \end{column}
         \begin{column}{0.45\textwidth}
             {\centering
@@ -181,11 +182,11 @@
                 \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}\textup{cos}\theta}
                 \]
             \end{block}
-            %\begin{block}{Radiance Invariance}
-            %    \[
-            %        L(x \to y) = L(y \to x)
-            %    \]
-            %\end{block}
+            \begin{block}{Radiance Invariance}
+                \[
+                    L(x \to y) = L(y \to x)
+                \]
+            \end{block}
         \end{column}
         \begin{column}{0.5\textwidth}
             \vspace{-5mm}
@@ -327,7 +328,7 @@
         \item \alert{ Sample the participating media to evaluate scatter, absorbtion and direct lighting}
         \item Perform normal ray tracing
         \item Replace ambient estimates with a gather stage using surrounding point cloud \alert{using a modified traversal algorithm}
-        \item \alert{ Model and scatter-in properties during volume integration}
+        \item \alert{ Model scatter-in properties during volume integration}
     \end{enumerate}
     \vspace{4mm}
     {\centering
@@ -456,7 +457,7 @@
             Add spherical sampling at each volume step\\
             \vspace{8mm}
 
-            For increased performance, guarantee full distribution across multiple steps, not at each step
+            For increased performance, attempt full distribution across multiple steps, not at each step
 
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -742,7 +743,7 @@
             Modifications can be made to PCB to incorporate volume light contributions\\
             \vspace{8mm}
 
-            Even simple implementations show great improvements in performance, nearly ten times faster than traditional Monte Carlo\\
+            Even simple implementations show great improvements in performance, nearly 36 times faster than traditional Monte Carlo\\
             \vspace{8mm}
 
             Image quality is comparable to Monte Carlo results
