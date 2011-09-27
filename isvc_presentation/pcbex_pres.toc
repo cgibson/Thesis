@@ -1,2 +1,6 @@
 \beamer@endinputifotherversion {3.07pt}
-\beamer@subsectionintoc {0}{1}{Motivation}{9}{0}{0}
+\beamer@subsectionintoc {0}{1}{GI Techniques}{3}{0}{0}
+\beamer@subsectionintoc {0}{2}{Light}{6}{0}{0}
+\beamer@subsectionintoc {0}{3}{Light \& Volumes}{7}{0}{0}
+\beamer@subsectionintoc {0}{4}{Motivation & Gloals}{10}{0}{0}
+\beamer@subsectionintoc {0}{5}{Algorithm Extension Overview}{12}{0}{0}

@@ -12,20 +12,26 @@
 \usepackage{pst-plot} 
 \usepackage{pst-text,pst-node,pst-tree} 
 
-\usepackage{beamerthemeAmsterdam} 
+
+
 
 %\hypersetup{pdfstartview={FitH}}
 
 
 \setbeamertemplate{navigation symbols}{}
 %\usetheme{Warsaw}
-%\usecolortheme{beaver}
-%\usefonttheme{structuresmallcapsserif}
+\usecolortheme{beaver}
+\usefonttheme{structuresmallcapsserif}
+
+
+
+\usepackage{beamerthemeAmsterdam} 
+
 
 
 \title[Point-Based Color Bleeding With Volumes]{PCBEX:\\Point-Based Color Bleeding With Volumes\\Thesis Defense}
 \author{Christopher James Gibson}
-\institute{California Polytechnic University\\CSC Department}
+\institute{California Polytechnic University, San Luis Obispo\\CSC Department}
 \date{June 9, 2011}
 
 \setcounter{tocdepth}{1}
@@ -60,21 +66,50 @@
 \end{frame}
 
 
+%%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
+\begin{frame}{Outline}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            \vspace{-4mm}
+            \begin{itemize}
+                \item Background\\ \vspace{2mm}
+                \item Motivation and Goals\\ \vspace{2mm}
+                \item Algorithm Definition\\ \vspace{2mm}
+                \item Results
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{../img/bunny_glow}
+        \end{column}
+    \end{columns}
+
+\end{frame}
 
 
+
+
+%\section{Background}
+\subsection{GI Techniques}
 %\subsection{Global Illumination}
 %%--------------------------------------------  BACKGROUND: GLOBAL ILLIMUNATION
 \begin{frame}{Global Illumination}
 
-    Light's interaction with various materials and mediums is complex and beautiful\\
-    \vspace{6mm}
-    Light does not simply hit surfaces, but bounces and passes through them as well\\
-    \vspace{4mm}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+	    Light's interaction with various materials and mediums is complex and beautiful\\
+	    \vspace{6mm}
+	    Light does not simply hit surfaces, but bounces and passes through them as well\\
 
-    \centering{
-        \includegraphics[width=0.55\textwidth]{../img/external/global_illumination}\\
-        \scriptsize\textit{(image source: cgtutorials.com)}
-    }
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            {\centering
+                \vspace{-4mm}
+                \includegraphics[width=\textwidth]{../img/indirect_box_high}
+            }
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -107,6 +142,30 @@
 \end{frame}
 
 
+%%\section{PCB Extension Algorithm}
+%\subsection{PCB Algorithm Overview}
+%%--------------------------------------------------------------  PCB EXTENSION
+\begin{frame}{Point-Based Color Bleeding (PCB)}
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{enumerate}
+                \item Sample the scene and generate a point cloud
+                \item Perform normal ray tracing
+                \item Replace ambient estimates with a gather stage using surrounding point cloud
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            {\centering
+                \includegraphics[width=\textwidth]{../img/external/davyjones}\\
+                \centering{\scriptsize\textit{(image source: Disney)}}
+            }
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\subsection{Light}
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Irradiance and Radiance}
 
@@ -122,11 +181,11 @@
                 \mathit{L} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}^\perp} = \frac{\mathit{d^{2}\Phi}}{\mathit{dw\:dA}\textup{cos}\theta}
                 \]
             \end{block}
-            \begin{block}{Radiance Invariance}
-                \[
-                    L(x \to y) = L(y \to x)
-                \]
-            \end{block}
+            %\begin{block}{Radiance Invariance}
+            %    \[
+            %        L(x \to y) = L(y \to x)
+            %    \]
+            %\end{block}
         \end{column}
         \begin{column}{0.5\textwidth}
             \vspace{-5mm}
@@ -146,6 +205,7 @@
 
 
 
+\subsection{Light \& Volumes}
 %\subsection{Volume Lighting}
 %%---------------------------------------------------  BACKGROUND: ILLIMUNATION
 \begin{frame}{Volume Lighting}
@@ -211,31 +271,9 @@
 \end{frame}
 
 
-%\section{PCB Extension Algorithm}
-%\subsection{PCB Algorithm Overview}
-%%--------------------------------------------------------------  PCB EXTENSION
-\begin{frame}{Point-Based Color Bleeding (PCB)}
 
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            \begin{enumerate}
-                \item Sample the scene and generate a point cloud
-                \item Perform normal ray tracing
-                \item Replace ambient estimates with a gather stage using surrounding point cloud
-            \end{enumerate}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            {\centering
-                \includegraphics[width=\textwidth]{../img/external/davyjones}\\
-                \centering{\scriptsize\textit{(image source: Disney)}}
-            }
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
-
-\subsection{Motivation}
+%\section{Algorithm}
+\subsection{Motivation & Gloals}
 %%------------------------------------------  RELATED WORK: GLOBAL ILLIMUNATION
 \begin{frame}{Motivation}
 
@@ -247,7 +285,7 @@
         \begin{column}{0.65\textwidth}
             Complex volume lighting algorithms are computationally expensive and complex\\
             \vspace{8mm}
-            Most GA algorithms do not include volume contributions\\
+            Most GI algorithms do not include volume contributions\\
             
         \end{column}
     \end{columns}
@@ -279,6 +317,7 @@
 
 
 
+\subsection{Algorithm Extension Overview}
 %\subsection{Extension Overview}
 %%--------------------------------------------------------------  PCB EXTENSION
 \begin{frame}{Extension Overview}
@@ -429,7 +468,7 @@
 
 
 
-
+%\section{Results}
 %%--------------------------------------------------------------------  RESULTS
 \begin{frame}{Results - Environment}
 
@@ -544,14 +583,13 @@
 
 
 
-
 %%-----------------------------------------------------------------  CONCLUSION
 \begin{frame}[c]{}
 
     {\centering
-    \includegraphics[width=80mm]{../img/sponza}\\
+    \includegraphics[width=80mm]{../img/compare}\\
     }
-    {\centering\scriptsize Sponza scene rendered with PCBEX\\}
+    {\centering\scriptsize Comparison of PCBEX results \textit{(left)} and Monte Carlo results \textit{(right)}\\}
 
 \end{frame}
 
@@ -562,7 +600,7 @@
 \begin{frame}[c]{}
 
     {\centering
-    \includegraphics[width=80mm]{../img/compare}\\
+    \includegraphics[width=80mm]{../img/compare_head}\\
     }
     {\centering\scriptsize Comparison of PCBEX results \textit{(left)} and Monte Carlo results \textit{(right)}\\}
 
@@ -577,7 +615,7 @@
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Close-ups show drastic difference between PBC and PBCEX renders.\\
+            Close-ups show drastic difference between PCB and PCBEX renders.\\
             \vspace{8mm}
             Full Monte Carlo renders differ only slightly from PCBEX renders.
         \end{column}
@@ -585,12 +623,12 @@
 
             {\centering
             \includegraphics[width=50mm]{../img/compare_trad_corrected}\\
-            {\centering\scriptsize PBC vs PBCEX\\}
+            {\centering\scriptsize PCB vs PCBEX\\}
             
             \vspace{5mm}
 
             \includegraphics[width=50mm]{../img/compare1_corrected}\\
-            {\centering\scriptsize Monte Carlo vs PBCEX\\}
+            {\centering\scriptsize Monte Carlo vs PCBEX\\}
             }
         \end{column}
     \end{columns}
@@ -673,18 +711,6 @@
 \begin{frame}[c]{}
 
     {\centering
-    \includegraphics[width=80mm]{../img/two_sphere_indir}\\
-    }
-
-\end{frame}
-
-
-
-
-%%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}[c]{}
-
-    {\centering
     \includegraphics[width=80mm]{../img/one_side_corrected}\\
     }
 
@@ -692,6 +718,7 @@
 
 
 
+%\section{Conclusion}
 %%--------------------------------------------------------------------  RESULTS
 \begin{frame}{Future Work}
 
@@ -707,7 +734,7 @@
 
 
 %%-----------------------------------------------------------------  CONCLUSION
-\begin{frame}{Conclusion}
+\begin{frame}{Concluding Remarks}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -723,7 +750,51 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             \includegraphics[width=\textwidth]{../img/compare}\\
-            {\centering\scriptsize PBCEX \textit{(left)} vs Monte Carlo \textit{(right)} \\}
+            {\centering\scriptsize PCBEX \textit{(left)} vs Monte Carlo \textit{(right)} \\}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+%\section{Conclusion}
+%%--------------------------------------------------------------------  RESULTS
+\begin{frame}{Questions?}
+
+    {\centering Questions?}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Volume Lighting- Phase Functions}
+
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            \begin{block}{Phase Function}
+                Described as $phase(w \to w')$
+            \end{block}
+            \vspace{5mm}
+
+            Describes the probability that light will scatter in any given direction.\\
+            \vspace{5mm}
+            Used to estimate total scatter-in contribution.
+
+%            \begin{block}{Source Normalization}
+%                \[
+%                    \int_{\mathbb{S}^2}phase(w \to w')\textup{d}w' = 1.
+%                \]
+%            \end{block}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{10mm}
+            \includegraphics[width=\textwidth]{../img/diag/phase_func_sm}\\
+            {\centering\scriptsize Phase function distribution\\}
         \end{column}
     \end{columns}
 
